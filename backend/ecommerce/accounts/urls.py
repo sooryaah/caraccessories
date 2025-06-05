@@ -3,8 +3,8 @@ from rest_framework import routers
 from .views import *  # make sure this is your custom viewset
 
 router = routers.DefaultRouter()
-# router.register(r'users', UserViewSet)
+router.register(r'create_users', RegisterViewSet, basename='create_users')
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('accounts', include(router.urls)),
 ]
