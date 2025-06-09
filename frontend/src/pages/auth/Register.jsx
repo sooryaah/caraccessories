@@ -92,6 +92,15 @@ const Register = () => {
         return () => clearInterval(interval);
     }, [timer, isVerified]);
 
+    const handleResendOTP = () => {
+        setOtp('');
+        setTimer(60);
+        setCanResend(false);
+        // Call API to resend OTP here
+        alert('OTP resent!');
+    };
+
+
 
     const handleOTPChange = (index, value) => {
         if (!/^\d*$/.test(value)) return;
