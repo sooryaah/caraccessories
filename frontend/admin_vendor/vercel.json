@@ -9,10 +9,6 @@
       "destination": "http://13.233.157.90/media/:path*"
     },
     {
-      "source": "/admin/:path*",
-      "destination": "http://13.233.157.90/admin/:path*"
-    },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
     }

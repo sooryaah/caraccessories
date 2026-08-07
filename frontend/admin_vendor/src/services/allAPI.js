@@ -687,10 +687,6 @@ export const addSubAdminApi = async (adminData) => {
 export const deleteAdminApi = async (adminId) => {
   try {
     const response = await api.delete(`/admin/delete_admins/${adminId}/`, {
-      headers: {
-        Authorization: `JWT ${token}`,
-        "Content-Type": "application/json",
-      },
       data: { id: adminId }, // Sending adminId in the request body
     });
     return response.data;

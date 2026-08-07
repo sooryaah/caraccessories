@@ -18,9 +18,6 @@ const orderHistory = [
   { label: 'Refunded', date: '24 May 2025', status: 'pending' },
 ];
 
-const handleClick = (tab) => {
-  setActiveTab(tab);
-};
 
 const orderItems = [
   {

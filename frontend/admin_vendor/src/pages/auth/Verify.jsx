@@ -74,8 +74,8 @@ const handleSubmit = async (e) => {
 
   } catch (error) {
     console.error("OTP verification failed:", error);
-    toast.error(response.data);
     const msg = error?.response?.data?.error || "Invalid OTP. Please try again.";
+    toast.error(msg);
     alert(msg);
   }
 };
