@@ -1,0 +1,20 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "http://13.233.157.90/api/:path*"
+    },
+    {
+      "source": "/media/:path*",
+      "destination": "http://13.233.157.90/media/:path*"
+    },
+    {
+      "source": "/admin/:path*",
+      "destination": "http://13.233.157.90/admin/:path*"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
