@@ -95,14 +95,14 @@ export default function TransactionReport() {
 
           <button
             onClick={filterDataByDate}
-            className="bg-[#5737B4] hover:bg-[#2f093d] text-white font-medium 
+            className="bg-[#0a1c3e] hover:bg-[#2f093d] text-white font-medium 
                        px-6 py-2.5 rounded-md shadow-md hover:shadow-lg 
                        transition-all duration-200 whitespace-nowrap"
           >
             Apply Filter
           </button>
 
-          <button className="bg-[#5737B4] hover:bg-[#2f093d] text-white font-medium 
+          <button className="bg-[#0a1c3e] hover:bg-[#2f093d] text-white font-medium 
                              px-6 py-2.5 rounded-md shadow-md hover:shadow-lg transition-all">
             Download Report
           </button>
@@ -191,7 +191,7 @@ export default function TransactionReport() {
             key={i}
             onClick={() => goToPage(i + 1)}
             className={`px-3 py-1 border border-gray-300 rounded ${currentPage === i + 1
-                ? "bg-[#5737B4] text-white"
+                ? "bg-[#0a1c3e] text-white"
                 : "bg-gray-200"
               }`}
           >

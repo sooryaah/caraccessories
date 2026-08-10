@@ -227,7 +227,7 @@ const filteredTickets = tickets.filter(ticket => {
     <div className="bg-[#ECECF0] p-6 rounded-2xl w-full space-y-6">
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-        <h1 className="text-2xl font-bold text-[#5737B4]">Support & Help Management</h1>
+        <h1 className="text-2xl font-bold text-[#0a1c3e]">Support & Help Management</h1>
       </div>
 
       {/* Stats Cards */}
@@ -284,7 +284,7 @@ const filteredTickets = tickets.filter(ticket => {
               placeholder="Search by vendor, subject, or ticket ID..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5737B4]"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0a1c3e]"
             />
           </div>
 
@@ -293,7 +293,7 @@ const filteredTickets = tickets.filter(ticket => {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5737B4]"
+              className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0a1c3e]"
             >
               <option value="">All Status</option>
               <option value="Pending">Pending</option>
@@ -304,7 +304,7 @@ const filteredTickets = tickets.filter(ticket => {
             <select
               value={priorityFilter}
               onChange={(e) => setPriorityFilter(e.target.value)}
-              className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5737B4]"
+              className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0a1c3e]"
             >
               <option value="">All Priority</option>
               <option value="High">High</option>
@@ -322,8 +322,8 @@ const filteredTickets = tickets.filter(ticket => {
               onClick={() => setActiveTab(tab)}
               className={`px-4 py-2 text-sm font-medium capitalize rounded-t-lg ${
                 activeTab === tab
-                  ? 'bg-[#5737B4] text-white'
-                  : 'text-gray-600 hover:text-[#5737B4]'
+                  ? 'bg-[#0a1c3e] text-white'
+                  : 'text-gray-600 hover:text-[#0a1c3e]'
               }`}
             >
               {tab}
@@ -352,7 +352,7 @@ const filteredTickets = tickets.filter(ticket => {
                 <tbody>
                   {filteredTickets.map((ticket) => (
                     <tr key={ticket.id} className=" hover:bg-gray-50">
-                      <td className="py-3 px-4 font-medium text-[#5737B4]">{ticket.id}</td>
+                      <td className="py-3 px-4 font-medium text-[#0a1c3e]">{ticket.id}</td>
                       <td className="py-3 px-4">
                         <div>
                           <div className="font-medium">{ticket.vendorName}</div>

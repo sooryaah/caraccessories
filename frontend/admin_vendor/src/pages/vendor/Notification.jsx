@@ -59,7 +59,7 @@ const Notification = () => {
     <div className="min-h-screen bg-gray-100 p-4 rounded-2xl">
       <div className="max-w-6xl">
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-2 gap-4">
-          <h2 className="text-[#5737B4] text-xl md:text-2xl font-bold">
+          <h2 className="text-[#0a1c3e] text-xl md:text-2xl font-bold">
             Notifications
           </h2>
           <select
@@ -121,7 +121,7 @@ const Notification = () => {
                   className={`px-4 py-[6px] rounded text-[12px] transition whitespace-nowrap ${
                     item.is_read
                       ? "bg-gray-400 text-white cursor-not-allowed"
-                      : "bg-[#5737B4] text-white hover:bg-[#4228a4]"
+                      : "bg-[#0a1c3e] text-white hover:bg-[#4228a4]"
                   }`}
                   disabled={item.is_read}
                 >
@@ -167,7 +167,7 @@ const Notification = () => {
             <div className="mt-5 flex justify-end">
               <button
                 onClick={handleCloseModal}
-                className="px-4 py-2 bg-[#5737B4] text-white rounded-lg hover:bg-[#4228a4]"
+                className="px-4 py-2 bg-[#0a1c3e] text-white rounded-lg hover:bg-[#4228a4]"
               >
                 Close
               </button>

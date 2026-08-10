@@ -98,7 +98,7 @@ const SalesAnalytics = () => {
   return (
     <div className="bg-[#ECECF0] px-6 py-6 rounded-2xl">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-[#5737B4]">Sales Anayltics</h1>
+        <h1 className="text-2xl font-bold text-[#0a1c3e]">Sales Anayltics</h1>
       </div>
 
       {/* Stats Cards */}
@@ -128,7 +128,7 @@ const SalesAnalytics = () => {
             expensesLabel="Refunds"
             xKey="month"
             yFormatter={(v) => (v ? `${(v / 1000).toFixed(1)}K` : "0")} 
-            revenueColor="#5737B4"
+            revenueColor="#0a1c3e"
             expensesColor="#00C2FF"
           />
         </div>

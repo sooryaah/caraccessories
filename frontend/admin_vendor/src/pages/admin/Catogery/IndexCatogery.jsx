@@ -15,7 +15,7 @@ const IndexCategory = () => {
         <div className="bg-gray-100 p-6 rounded-2xl w-full space-y-4 sm:space-y-6">
             {/* Header */}
             <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-4'>
-                <h1 className='text-2xl font-bold text-[#5737B4]'>
+                <h1 className='text-2xl font-bold text-[#0a1c3e]'>
                     Manage Vehicle Categories & Product Categories
                 </h1>
                 <button className='bg-[#5727B4] text-white px-3 sm:px-4 md:px-5 py-2 rounded-md text-sm sm:text-base hover:bg-[#4a1f99] transition-colors whitespace-nowrap'>

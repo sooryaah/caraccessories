@@ -456,7 +456,7 @@ const validatePhone = (phone) => {
 
   return (
     <div className="bg-gray-100 p-4 rounded-2xl min-h-screen">
-      <h1 className="text-2xl text-[#5737B4] font-bold">Profile & KYC</h1>
+      <h1 className="text-2xl text-[#0a1c3e] font-bold">Profile & KYC</h1>
       <p className="my-1">Manage your business details and documents.</p>
 
       {/* Contact & Address Details */}
@@ -588,7 +588,7 @@ const validatePhone = (phone) => {
               ✕
             </button>
 
-            <h2 className="text-2xl font-bold text-[#5737B4] mb-6 border-b pb-3">
+            <h2 className="text-2xl font-bold text-[#0a1c3e] mb-6 border-b pb-3">
               Edit{" "}
               {editSection === "business"
                 ? "Business Details"
@@ -777,7 +777,7 @@ const validatePhone = (phone) => {
                 disabled={!isFormValid(editForm)}
                 className={`px-6 py-2 ${
                   isFormValid(editForm)
-                    ? "bg-[#5737B4] hover:bg-[#402b91]"
+                    ? "bg-[#0a1c3e] hover:bg-[#f79a17]"
                     : "bg-gray-400 cursor-not-allowed"
                 } text-white rounded-md text-sm font-semibold transition`}
               >

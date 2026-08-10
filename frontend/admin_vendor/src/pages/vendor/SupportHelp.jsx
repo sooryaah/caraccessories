@@ -73,7 +73,7 @@ const SupportHelp = () => {
     <div className="p-4 bg-gray-100 min-h-screen rounded-2xl text-[#1E1E2F]">
       {/* Header */}
       <div className="flex justify-between items-center mb-2">
-        <h1 className="text-xl md:text-2xl font-bold text-[#5737B4]">Support / Help</h1>
+        <h1 className="text-xl md:text-2xl font-bold text-[#0a1c3e]">Support / Help</h1>
       </div>
 
       {/* Card Grid */}
@@ -105,12 +105,12 @@ const SupportHelp = () => {
           <h2 className="text-lg font-semibold mb-1">FAQs</h2>
           <p className="text-sm text-gray-600">Learn more about setting up your account.</p>
           <p className="text-sm text-gray-600 mb-2">Explore key features and get the most out of the platform.</p>
-          <p className="text-sm text-[#5737B4] font-semibold">
+          <p className="text-sm text-[#0a1c3e] font-semibold">
             Send your queries at{" "}
             <span className="underline">admin@caroora.com</span>
           </p>
           <Link to="/vendor/createticket">
-            <button className="border border-[#5737B4] text-[#5737B4] rounded mt-4 px-4 py-2 text-sm font-semibold hover:bg-[#5737B4] hover:text-white transition">
+            <button className="border border-[#0a1c3e] text-[#0a1c3e] rounded mt-4 px-4 py-2 text-sm font-semibold hover:bg-[#0a1c3e] hover:text-white transition">
               Create a Ticket
             </button>
           </Link>

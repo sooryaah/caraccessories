@@ -206,7 +206,7 @@ export default function BankAndTaxDetails() {
                         <label className="cursor-pointer flex flex-col items-center justify-center">
                             <SlCloudUpload className="text-4xl mb-2" />
                             <span className="text-sm text-gray-500">Drag and drop here</span>
-                            <span className="text-sm text-[#5737B4] font-semibold">Browse Files</span>
+                            <span className="text-sm text-[#0a1c3e] font-semibold">Browse Files</span>
                             <input
                                 type="file"
                                 accept=".pdf,.jpeg"
@@ -219,7 +219,7 @@ export default function BankAndTaxDetails() {
                             <SlCloudUpload className="text-3xl text-red-500 mx-auto" />
                             <p className="text-red-500 font-medium mt-2">Upload Failed</p>
                             <button
-                                className="text-[#5737B4] underline text-sm"
+                                className="text-[#0a1c3e] underline text-sm"
                                 onClick={() => {
                                     setDocs((prev) => ({
                                         ...prev,
@@ -252,7 +252,7 @@ export default function BankAndTaxDetails() {
                             <div className="w-[90%]">
                                 <div className="h-1 bg-gray-200 rounded">
                                     <div
-                                        className={`h-1 rounded ${doc.status === "success" ? "bg-[#5737B4]" : "bg-red-500"}`}
+                                        className={`h-1 rounded ${doc.status === "success" ? "bg-[#0a1c3e]" : "bg-red-500"}`}
                                         style={{ width: `${doc.progress}%` }}
                                     />
                                 </div>
@@ -307,7 +307,7 @@ export default function BankAndTaxDetails() {
                                 onClick={() => {
                                     navigate("/vendor-register/agreements");
                                 }}
-                                className="w-[280px] py-2 text-[#5737B4] border border-[#5737B4] font-medium rounded-full hover:bg-[#f4f4f4] transition-all"
+                                className="w-[280px] py-2 text-[#0a1c3e] border border-[#0a1c3e] font-medium rounded-full hover:bg-[#f4f4f4] transition-all"
                             >
                                 Skip for Now
                             </button>
@@ -316,7 +316,7 @@ export default function BankAndTaxDetails() {
                                 disabled={!isBankDocsComplete}
                                 onClick={() => setShowTaxSection(true)}
                                 className={`w-[280px] py-2 text-white font-medium rounded-full transition-all ${isBankDocsComplete
-                                        ? "bg-[#5737B4] hover:bg-[#432a91]"
+                                        ? "bg-[#0a1c3e] hover:bg-[#f79a17]"
                                         : "bg-[#D8D8D8] cursor-not-allowed"
                                     }`}
                             >
@@ -362,7 +362,7 @@ export default function BankAndTaxDetails() {
                                 onClick={() => {
                                     navigate("/login");
                                 }}
-                                className="w-[280px] py-2 text-[#5737B4] border border-[#5737B4] font-medium rounded-full hover:bg-[#f4f4f4] transition-all"
+                                className="w-[280px] py-2 text-[#0a1c3e] border border-[#0a1c3e] font-medium rounded-full hover:bg-[#f4f4f4] transition-all"
                             >
                                 Skip for Now
                             </button>
@@ -370,7 +370,7 @@ export default function BankAndTaxDetails() {
                                 onClick={handleSubmit}
                                 disabled={!isTaxDocsComplete}
                                 className={`w-[280px] py-2 rounded-full text-white font-medium transition-all ${isTaxDocsComplete
-                                        ? "bg-[#5737B4] hover:bg-[#432a91]"
+                                        ? "bg-[#0a1c3e] hover:bg-[#f79a17]"
                                         : "bg-[#D8D8D8] cursor-not-allowed"
                                     }`}
                             >

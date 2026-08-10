@@ -89,7 +89,7 @@ const WheelsPart = () => {
               alt={prod.name}
               className="w-full h-40 object-cover rounded-lg mb-4 "
             />
-            <h3 className="text-[#5737B4] font-bold text-md mb-2">{prod.name}</h3>
+            <h3 className="text-[#0a1c3e] font-bold text-md mb-2">{prod.name}</h3>
             <p>Size: {prod.size}</p>
             <p><b>Bolt Pattern:</b> {prod.bolt}</p>
             <p><b>Material:</b> {prod.material}</p>

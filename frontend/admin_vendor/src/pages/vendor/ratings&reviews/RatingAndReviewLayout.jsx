@@ -28,11 +28,11 @@ const RatingAndReviewLayout = () => {
     return (
         <div className='bg-gray-100 p-4 rounded-2xl'>
             <div className='flex justify-between mb-2'>
-                <h1 className="text-xl md:text-2xl font-bold text-[#5737B4] mb-2">Rating & Reviews</h1>
+                <h1 className="text-xl md:text-2xl font-bold text-[#0a1c3e] mb-2">Rating & Reviews</h1>
                 {/* <div className="relative inline-block" ref={dropdownRef}>
                     <button
                         onClick={() => setShowDropdown((prev) => !prev)}
-                        className="flex items-center justify-between gap-2 bg-white px-4 py-2 rounded-md text-sm font-medium text-[#5737B4] hover:bg-gray-50"
+                        className="flex items-center justify-between gap-2 bg-white px-4 py-2 rounded-md text-sm font-medium text-[#0a1c3e] hover:bg-gray-50"
                     >
                         {selectedOption}
                         <IoIosArrowDown className={`transition-transform duration-200 ${showDropdown ? "rotate-180" : ""}`} />

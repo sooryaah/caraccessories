@@ -16,9 +16,9 @@ const Home = () => {
   return (
     <div>
       <div className="absolute w-full top-0">
-      <Navbar bgColor="bg-gradient-to-r from-[#030130] to-[#023669]" />
+      <Navbar bgColor="bg-gradient-to-r from-[#0a1c3e] to-[#023669]" />
        </div>
-<section className="bg-gradient-to-r from-[#030130] to-[#023669] text-white relative overflow-hidden">
+<section className="bg-gradient-to-r from-[#0a1c3e] to-[#023669] text-white relative overflow-hidden">
   <div className="container mx-auto  pt-12  pb-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           
           <div className="pl-12 mt-32 sm:mt-8 md:mt-0 z-10">

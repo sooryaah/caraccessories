@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 const PartnerWithUs = () => {
   return (
     <div className="font-sans text-gray-800 min-h-screen flex flex-col">
-      <Navbar bgColor="bg-gradient-to-r from-[#030130] to-[#023669]" />
+      <Navbar bgColor="bg-gradient-to-r from-[#0a1c3e] to-[#023669]" />
 
       <div className="h-26 md:h-40" />
       <main className="flex-grow px-4 sm:px-8 md:px-20 pt-6 md:pt-8 pb-16 md:pb-20 max-w-7xl mx-auto w-full relative z-0">
@@ -87,7 +87,7 @@ const PartnerWithUs = () => {
               }}
               aria-label="Scroll left"
             >
-              <svg width="24" height="24" fill="none" stroke="#5737B4" strokeWidth="2" viewBox="0 0 24 24">
+              <svg width="24" height="24" fill="none" stroke="#0a1c3e" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M15 19l-7-7 7-7" />
               </svg>
             </button>
@@ -102,31 +102,31 @@ const PartnerWithUs = () => {
               style={{ scrollBehavior: 'smooth' }}
             >
               <div className="bg-white shadow rounded-lg p-6 text-center min-w-[260px]">
-                <h3 className="font-semibold mb-3 text-[#5737B4]">More Customers</h3>
+                <h3 className="font-semibold mb-3 text-[#0a1c3e]">More Customers</h3>
                 <p className="text-gray-600 text-sm sm:text-base">
                   Sell your products to a wide network of automotive buyers across India.
                 </p>
               </div>
               <div className="bg-white shadow rounded-lg p-6 text-center min-w-[260px]">
-                <h3 className="font-semibold mb-3 text-[#5737B4]">Simple Registration Process</h3>
+                <h3 className="font-semibold mb-3 text-[#0a1c3e]">Simple Registration Process</h3>
                 <p className="text-gray-600 text-sm sm:text-base">
                   Getting started is quick and easy. Register with your GST/PAN details and bank account.
                 </p>
               </div>
               <div className="bg-white shadow rounded-lg p-6 text-center min-w-[260px]">
-                <h3 className="font-semibold mb-3 text-[#5737B4]">Zero Hassle, Maximum Support</h3>
+                <h3 className="font-semibold mb-3 text-[#0a1c3e]">Zero Hassle, Maximum Support</h3>
                 <p className="text-gray-600 text-sm sm:text-base">
                   Smooth onboarding, clear guidelines, and dedicated support whenever you need it.
                 </p>
               </div>
               <div className="bg-white shadow rounded-lg p-6 text-center min-w-[260px]">
-                <h3 className="font-semibold mb-3 text-[#5737B4]">Boost Your Business Growth</h3>
+                <h3 className="font-semibold mb-3 text-[#0a1c3e]">Boost Your Business Growth</h3>
                 <p className="text-gray-600 text-sm sm:text-base">
                   Expand your reach, build credibility, and grow your sales consistently.
                 </p>
               </div>
               <div className="bg-white shadow rounded-lg p-6 text-center min-w-[260px]">
-                <h3 className="font-semibold mb-3 text-[#5737B4]">Fast & Secure Payments</h3>
+                <h3 className="font-semibold mb-3 text-[#0a1c3e]">Fast & Secure Payments</h3>
                 <p className="text-gray-600 text-sm sm:text-base">
                   Receive payments directly in your registered bank account without delays.
                 </p>
@@ -142,7 +142,7 @@ const PartnerWithUs = () => {
               }}
               aria-label="Scroll right"
             >
-              <svg width="24" height="24" fill="none" stroke="#5737B4" strokeWidth="2" viewBox="0 0 24 24">
+              <svg width="24" height="24" fill="none" stroke="#0a1c3e" strokeWidth="2" viewBox="0 0 24 24">
                 <path d="M9 5l7 7-7 7" />
               </svg>
             </button>

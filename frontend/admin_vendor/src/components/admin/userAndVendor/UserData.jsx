@@ -141,13 +141,13 @@ export default function UserDataTable() {
     <div className="bg-gray-100 p-6 rounded-2xl w-full space-y-6 relative">
       {/* Header */}
       <div className="flex justify-between items-center relative">
-        <h1 className="text-2xl font-bold text-[#5737B4]">Users Overview</h1>
+        <h1 className="text-2xl font-bold text-[#0a1c3e]">Users Overview</h1>
 
         <div className="relative download-dropdown">
           <button
             onClick={toggleDownloadOptions}
             disabled={isDownloading}
-            className={`flex items-center gap-2 bg-[#5737B4] text-white px-3 py-2 rounded-md text-sm sm:text-base transition-all ${
+            className={`flex items-center gap-2 bg-[#0a1c3e] text-white px-3 py-2 rounded-md text-sm sm:text-base transition-all ${
               isDownloading ? "opacity-75 cursor-not-allowed" : "hover:bg-[#462a93]"
             }`}
           >
@@ -232,7 +232,7 @@ export default function UserDataTable() {
                   key={user.id}
                   className="text-left hover:bg-gray-50 border-b border-gray-100"
                 >
-                  <td className="py-3 px-4 font-medium text-[#5737B4]">
+                  <td className="py-3 px-4 font-medium text-[#0a1c3e]">
                     <Link to={`/admin/user-details/${user.id}`}>{user.id}</Link>
                   </td>
                   <td className="py-3 px-4">{user?.username || "N/A"}</td>

@@ -5,7 +5,7 @@ import Footer from "./Footer";
 const About = () => {
   return (
     <div className="font-sans text-gray-800 min-h-screen flex flex-col">
-      <Navbar bgColor="bg-gradient-to-r from-[#030130] to-[#023669]" />
+      <Navbar bgColor="bg-gradient-to-r from-[#0a1c3e] to-[#023669]" />
       <main className="flex-grow ml-2 sm:px-8 md:px-20 py-20 md:py-24 max-w-8xl mx-auto">
                                                                                         
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-gray-900 pt-20 ">

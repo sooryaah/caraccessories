@@ -112,7 +112,7 @@ export default function InventoryOverview() {
 
     return (
         <div className="p-6 bg-gray-100 min-h-screen rounded-2xl">
-            <h1 className="text-2xl font-bold text-[#5737B4] mb-8">Inventory Overview</h1>
+            <h1 className="text-2xl font-bold text-[#0a1c3e] mb-8">Inventory Overview</h1>
 
             {/* Filters */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-white p-4 rounded-2xl shadow mb-6">

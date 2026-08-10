@@ -11,7 +11,7 @@ const SuccessStories = () => {
   return (
     <div>
       <section className="bg-white py-16">
-        <Navbar bgColor="bg-gradient-to-r from-[#030130] to-[#023669]" />
+        <Navbar bgColor="bg-gradient-to-r from-[#0a1c3e] to-[#023669]" />
         <div className="max-w-7xl mx-auto px-9 py-30 grid grid-cols-1 md:grid-cols-2 items-center gap-12">
 
           <div>

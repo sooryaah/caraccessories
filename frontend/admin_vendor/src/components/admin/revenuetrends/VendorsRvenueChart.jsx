@@ -45,7 +45,7 @@ export default function VendorsVsRevenue({ vendorData }) {
           <YAxis tickFormatter={(val) => `${val / 1000}K`} tick={{ fontSize: 12 }} />
           <Tooltip content={<CustomTooltip />} />
           <Bar dataKey="total_items" fill="#AE7AFF" radius={[4, 4, 0, 0]} barSize={20} />
-          <Bar dataKey="total_revenue" fill="#5737B4" radius={[4, 4, 0, 0]} barSize={20} />
+          <Bar dataKey="total_revenue" fill="#0a1c3e" radius={[4, 4, 0, 0]} barSize={20} />
         </BarChart>
       </ResponsiveContainer>
     </div>

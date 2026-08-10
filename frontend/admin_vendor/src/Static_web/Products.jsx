@@ -31,7 +31,7 @@ const Products = () => {
   return (
     <div>
       {/* Navbar */}
-      <Navbar bgColor="bg-gradient-to-r from-[#030130] to-[#023669]" />
+      <Navbar bgColor="bg-gradient-to-r from-[#0a1c3e] to-[#023669]" />
 
       {/* Main Section */}
       <section className="max-w-7xl mx-auto py-24 px-6 text-center">

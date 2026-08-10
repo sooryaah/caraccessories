@@ -129,7 +129,7 @@ const EditPromotionModal = ({ promotion, onClose, onSave, allCategories, allProd
             Cancel
           </button>
           <button
-            className="px-4 py-2 bg-[#5737B4] text-white rounded hover:bg-blue-700"
+            className="px-4 py-2 bg-[#0a1c3e] text-white rounded hover:bg-blue-700"
             onClick={handleSubmit}
           >
             Save

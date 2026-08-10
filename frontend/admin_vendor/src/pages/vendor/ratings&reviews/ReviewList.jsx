@@ -147,7 +147,7 @@ const ReviewList = () => {
                   <p className="font-medium lg:text-lg sm:text-sm">
                     {review.user_name}
                   </p>
-                  <span className="lg:text-lg sm:text-sm font-medium text-[#5737B4]">
+                  <span className="lg:text-lg sm:text-sm font-medium text-[#0a1c3e]">
                     {review.product?.name}
                   </span>
                   <p className="lg:text-lg sm:text-sm text-gray-700">
@@ -161,7 +161,7 @@ const ReviewList = () => {
 
                 <button
                   onClick={() => handleOpenModal(review)}
-                  className="bg-[#5737B4] text-white rounded-lg px-2.5 py-2 cursor-pointer lg:text-md sm:text-sm hover:bg-[#442b91] transition"
+                  className="bg-[#0a1c3e] text-white rounded-lg px-2.5 py-2 cursor-pointer lg:text-md sm:text-sm hover:bg-[#f79a17] transition"
                 >
                   Reply to Review
                 </button>
@@ -196,7 +196,7 @@ const ReviewList = () => {
                       [review.id]: !prev[review.id],
                     }))
                   }
-                  className="text-[#5737B4] font-thin mt-1"
+                  className="text-[#0a1c3e] font-thin mt-1"
                 >
                   {expandedReviews[review.id] ? "View less" : "View more"}
                 </button>
@@ -205,7 +205,7 @@ const ReviewList = () => {
               {replyData?.message && (
                 <div className="mt-3 bg-gray-100 rounded-md p-3 border border-gray-200">
                   <p className="text-gray-800">
-                    <span className="font-semibold text-[#5737B4]">
+                    <span className="font-semibold text-[#0a1c3e]">
                       Your Reply:
                     </span>{" "}
                     {replyData.message}
@@ -237,7 +237,7 @@ const ReviewList = () => {
               key={page}
               onClick={() => setCurrentPage(page)}
               className={`px-3 py-1 border rounded ${
-                currentPage === page ? "bg-[#5737B4] text-white" : ""
+                currentPage === page ? "bg-[#0a1c3e] text-white" : ""
               }`}
             >
               {page}
@@ -260,14 +260,14 @@ const ReviewList = () => {
       {isModalOpen && (
         <div className="fixed inset-0 bg-[#ECECF0] bg-opacity-40 flex justify-center items-center z-50">
           <div className="bg-white rounded-lg shadow-lg w-96 p-6 relative">
-            <h2 className="text-lg font-semibold mb-4 text-[#5737B4]">
+            <h2 className="text-lg font-semibold mb-4 text-[#0a1c3e]">
               Reply to {selectedReview?.user_name}'s Review
             </h2>
 
             {replyView?.message && replyView.message !== "No reply yet" ? (
               <div className="bg-gray-100 rounded-md p-3 border border-gray-200">
                 <p className="text-gray-800">
-                  <span className="font-semibold text-[#5737B4]">
+                  <span className="font-semibold text-[#0a1c3e]">
                     Your Reply:
                   </span>{" "}
                   {replyView.message}
@@ -280,7 +280,7 @@ const ReviewList = () => {
                 <div className="flex justify-end mt-4">
                   <button
                     onClick={handleCloseModal}
-                    className="bg-[#5737B4] text-white px-3 py-2 rounded-lg hover:bg-[#442b91] transition"
+                    className="bg-[#0a1c3e] text-white px-3 py-2 rounded-lg hover:bg-[#f79a17] transition"
                   >
                     Close
                   </button>
@@ -289,7 +289,7 @@ const ReviewList = () => {
             ) : (
               <>
                 <textarea
-                  className="w-full border border-gray-300 rounded-md p-2 mb-4 focus:outline-none focus:ring-2 focus:ring-[#5737B4]"
+                  className="w-full border border-gray-300 rounded-md p-2 mb-4 focus:outline-none focus:ring-2 focus:ring-[#0a1c3e]"
                   rows="4"
                   placeholder="Write your reply..."
                   value={reply}
@@ -309,7 +309,7 @@ const ReviewList = () => {
                     className={`${
                       loading
                         ? "bg-gray-400"
-                        : "bg-[#5737B4] hover:bg-[#442b91]"
+                        : "bg-[#0a1c3e] hover:bg-[#f79a17]"
                     } text-white px-3 py-2 rounded-lg transition`}
                   >
                     {loading ? "Submitting..." : "Submit"}

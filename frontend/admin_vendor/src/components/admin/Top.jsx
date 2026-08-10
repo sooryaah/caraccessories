@@ -48,7 +48,7 @@ export default function TopSalesOverview() {
       <div className="bg-white rounded-2xl p-6 shadow border border-[#D8D8D8] flex-1">
         <div className="flex justify-between items-center mb-4">
           <h3 className="font-semibold text-gray-800 text-md">Top 5 Vendors By Sales</h3>
-          <button className="text-sm bg-[#5737B4] text-white px-4 py-1.5 rounded-full">
+          <button className="text-sm bg-[#0a1c3e] text-white px-4 py-1.5 rounded-full">
             Download Full Report
           </button>
         </div>
@@ -82,7 +82,7 @@ export default function TopSalesOverview() {
       <div className="bg-white rounded-2xl p-6 shadow border border-[#D8D8D8] flex-1">
         <div className="flex justify-between items-center mb-4">
           <h3 className="font-semibold text-gray-800 text-md">Top 5 Products By Sales</h3>
-          <button className="text-sm bg-[#5737B4] text-white px-4 py-1.5 rounded-full">
+          <button className="text-sm bg-[#0a1c3e] text-white px-4 py-1.5 rounded-full">
             Download Full Report
           </button>
         </div>

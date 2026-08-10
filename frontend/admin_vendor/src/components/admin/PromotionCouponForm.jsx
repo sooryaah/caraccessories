@@ -386,7 +386,7 @@ const PromotionCouponForm = () => {
       <div className="flex items-center gap-4 mb-6">
         <button
           onClick={() => window.history.back()}
-          className="flex items-center gap-2 text-gray-600 hover:text-[#5737B4]"
+          className="flex items-center gap-2 text-gray-600 hover:text-[#0a1c3e]"
         >
           <BsArrowLeft className="text-lg" />
           Back to Dashboard
@@ -411,9 +411,9 @@ const PromotionCouponForm = () => {
             <div className="flex items-center gap-3 mb-2">
               <h1 className="text-2xl font-bold">Marketing Manager</h1>
               {activeTab === 'promotion' ? (
-                <BsPercent className="text-[#5737B4] text-xl" />
+                <BsPercent className="text-[#0a1c3e] text-xl" />
               ) : (
-                <BsGift className="text-[#5737B4] text-xl" />
+                <BsGift className="text-[#0a1c3e] text-xl" />
               )}
             </div>
             <p className="text-gray-600">Create and manage promotions & coupons</p>
@@ -433,8 +433,8 @@ const PromotionCouponForm = () => {
           <button
             onClick={() => setActiveTab('promotion')}
             className={`flex-1 py-3 px-4 text-center font-semibold rounded-md transition-all duration-200 flex items-center justify-center gap-2 ${activeTab === 'promotion'
-              ? 'bg-[#5737B4] text-white shadow-sm'
-              : 'text-gray-600 hover:text-[#5737B4]'
+              ? 'bg-[#0a1c3e] text-white shadow-sm'
+              : 'text-gray-600 hover:text-[#0a1c3e]'
               }`}
           >
             <BsPercent className="text-lg" />
@@ -443,8 +443,8 @@ const PromotionCouponForm = () => {
           <button
             onClick={() => setActiveTab('coupon')}
             className={`flex-1 py-3 px-4 text-center font-semibold rounded-md transition-all duration-200 flex items-center justify-center gap-2 ${activeTab === 'coupon'
-              ? 'bg-[#5737B4] text-white shadow-sm'
-              : 'text-gray-600 hover:text-[#5737B4]'
+              ? 'bg-[#0a1c3e] text-white shadow-sm'
+              : 'text-gray-600 hover:text-[#0a1c3e]'
               }`}
           >
             <BsGift className="text-lg" />
@@ -639,7 +639,7 @@ const PromotionCouponForm = () => {
                                 handleRowChange(index, 'products', updatedProducts);
                               }}
                               className="h-4 w-4 border-gray-300 rounded"
-                              style={{ accentColor: '#5737B4' }}
+                              style={{ accentColor: '#0a1c3e' }}
                             />
                             <label className="ml-2 text-sm text-gray-700">{product.name}</label>
                           </div>
@@ -666,7 +666,7 @@ const PromotionCouponForm = () => {
                         value={row.min_price}
                         onChange={(e) => handleRowChange(index, 'min_price', Number(e.target.value))}
                         className="w-full"
-                        style={{ accentColor: '#5737B4' }}
+                        style={{ accentColor: '#0a1c3e' }}
                       />
                       <input
                         type="range"
@@ -676,7 +676,7 @@ const PromotionCouponForm = () => {
                         value={row.max_price}
                         onChange={(e) => handleRowChange(index, 'max_price', Number(e.target.value))}
                         className="w-full"
-                        style={{ accentColor: '#5737B4' }}
+                        style={{ accentColor: '#0a1c3e' }}
                       />
                     </div>
                   </div>
@@ -700,7 +700,7 @@ const PromotionCouponForm = () => {
                 <button
                   type="button"
                   onClick={addRow}
-                  className="flex items-center justify-center gap-2 bg-[#5737B4] text-white px-6 py-2 rounded-lg hover:bg-[#4A2B9F]"
+                  className="flex items-center justify-center gap-2 bg-[#0a1c3e] text-white px-6 py-2 rounded-lg hover:bg-[#4A2B9F]"
                 >
                   <AiOutlinePlus />
                   Add Another Category
@@ -720,7 +720,7 @@ const PromotionCouponForm = () => {
                     checked={promotionData.activate}
                     onChange={handlePromotionChange}
                     className="h-4 w-4 border-gray-300 rounded"
-                    style={{ accentColor: '#5737B4' }}
+                    style={{ accentColor: '#0a1c3e' }}
                   />
                   <label className="ml-3 text-sm font-medium text-gray-700">
                     Activate promotion immediately
@@ -734,7 +734,7 @@ const PromotionCouponForm = () => {
               <button
                 onClick={submitPromotion}
                 disabled={isSubmitting}
-                className={`bg-[#5737B4] text-white px-6 py-3 rounded-lg hover:bg-[#4A2B9F] transition-colors flex items-center gap-2 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+                className={`bg-[#0a1c3e] text-white px-6 py-3 rounded-lg hover:bg-[#4A2B9F] transition-colors flex items-center gap-2 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
                   }`}
               >
                 {isSubmitting ? (
@@ -899,7 +899,7 @@ const PromotionCouponForm = () => {
                     type="checkbox"
                     checked={couponData.activate}
                     onChange={handleCouponChange}
-                    className="h-4 w-4 text-[#5737B4] border-gray-300 rounded focus:ring-[#5737B4]"
+                    className="h-4 w-4 text-[#0a1c3e] border-gray-300 rounded focus:ring-[#0a1c3e]"
                   />
                   <label className="ml-3 text-sm font-medium text-gray-700">
                     Activate coupon immediately
@@ -913,7 +913,7 @@ const PromotionCouponForm = () => {
               <button
                 onClick={submitCoupon}
                 disabled={isSubmitting}
-                className={`bg-[#5737B4] text-white px-6 py-3 rounded-lg hover:bg-[#4A2B9F] transition-colors flex items-center gap-2 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
+                className={`bg-[#0a1c3e] text-white px-6 py-3 rounded-lg hover:bg-[#4A2B9F] transition-colors flex items-center gap-2 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''
                   }`}
               >
                 {isSubmitting ? (

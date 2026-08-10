@@ -279,7 +279,7 @@ const VendorsDoc = () => {
                       <div className="flex gap-4">
                         <button
                           onClick={() => handleAction(item.key, "approved")}
-                          className="bg-[#5737B4] text-white text-sm px-4 py-1 rounded hover:bg-indigo-700"
+                          className="bg-[#0a1c3e] text-white text-sm px-4 py-1 rounded hover:bg-indigo-700"
                         >
                           Approve
                         </button>
@@ -342,13 +342,13 @@ const VendorsDoc = () => {
       <div className="flex items-center  justify-between mt-3">
         <div>
           <Link to="/admin/user-details">
-            <button className="border border-[#5737B4] text-[#5737B4] px-16 py-1 rounded hover:bg-gray-100">
+            <button className="border border-[#0a1c3e] text-[#0a1c3e] px-16 py-1 rounded hover:bg-gray-100">
               Cancel
             </button>
           </Link>
         </div>
         <div >
-          {/* <button className="bg-[#5737B4] text-white px-16 py-1 rounded hover:bg-[#5737B4]">
+          {/* <button className="bg-[#0a1c3e] text-white px-16 py-1 rounded hover:bg-[#0a1c3e]">
             Save
           </button> */}
         </div>

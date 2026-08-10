@@ -118,11 +118,11 @@ const PaymentsEarnings = () => {
   return (
     <div className="bg-gray-100 p-4 rounded-2xl relative">
       <div className='flex mb-2  justify-between items-center'>
-        <h1 className="text-[#5737B4] text-xl md:text-2xl font-bold">Payments & Earnings</h1>
+        <h1 className="text-[#0a1c3e] text-xl md:text-2xl font-bold">Payments & Earnings</h1>
         <div className="relative">
           <button
             onClick={() => setShowDropdown(!showDropdown)}
-            className="bg-[#5737B4] text-white px-4 py-2 rounded-full text-sm"
+            className="bg-[#0a1c3e] text-white px-4 py-2 rounded-full text-sm"
           >
             Download Report
           </button>
@@ -138,13 +138,13 @@ const PaymentsEarnings = () => {
       {/* Tabs */}
       <div className="flex bg-white mb-2 w-full rounded-3xl p-1 shadow-md">
         <button
-          className={`px-4 py-2 font-medium rounded-3xl w-1/2 ${activeTab === "sales" ? "bg-[#5737B4] text-white" : "bg-white text-gray-700"}`}
+          className={`px-4 py-2 font-medium rounded-3xl w-1/2 ${activeTab === "sales" ? "bg-[#0a1c3e] text-white" : "bg-white text-gray-700"}`}
           onClick={() => { setActiveTab("sales"); setCurrentPage(1); }}
         >
           Sales
         </button>
         <button
-          className={`px-4 py-2 font-medium rounded-3xl w-1/2 ${activeTab === "payouts" ? "bg-[#5737B4] text-white" : "bg-white text-gray-700"}`}
+          className={`px-4 py-2 font-medium rounded-3xl w-1/2 ${activeTab === "payouts" ? "bg-[#0a1c3e] text-white" : "bg-white text-gray-700"}`}
           onClick={() => { setActiveTab("payouts"); setCurrentPage(1); }}
         >
           Payouts
@@ -230,7 +230,7 @@ const PaymentsEarnings = () => {
           <button
             key={i}
             onClick={() => goToPage(i + 1)}
-            className={`px-3 py-1 border border-gray-300 rounded ${currentPage === i + 1 ? "bg-[#5737B4] text-white" : "bg-gray-200"}`}
+            className={`px-3 py-1 border border-gray-300 rounded ${currentPage === i + 1 ? "bg-[#0a1c3e] text-white" : "bg-gray-200"}`}
           >
             {i + 1}
           </button>

@@ -56,7 +56,7 @@ const NewCategoryRequest = () => {
                         onChange={handleChange}
                         type="text"
                         placeholder="Enter a category name"
-                        className="w-full border rounded px-4 py-2 mt-1 focus:outline-none focus:ring-2 focus:ring-[#5737B4]"
+                        className="w-full border rounded px-4 py-2 mt-1 focus:outline-none focus:ring-2 focus:ring-[#0a1c3e]"
                     />
                 </div>
 
@@ -68,7 +68,7 @@ const NewCategoryRequest = () => {
                         type="file"
                         accept="image/*"
                         onChange={(e) => setCategoryImage(e.target.files[0])}
-                        className="w-full border rounded px-4 py-2 mt-1 bg-white focus:outline-none focus:ring-2 focus:ring-[#5737B4]"
+                        className="w-full border rounded px-4 py-2 mt-1 bg-white focus:outline-none focus:ring-2 focus:ring-[#0a1c3e]"
                     />
                 </div>
 
@@ -81,7 +81,7 @@ const NewCategoryRequest = () => {
                         value={formData.discription}
                         onChange={handleChange}
                         placeholder="Enter description"
-                        className="w-full border rounded px-4 py-2 mt-1 focus:outline-none focus:ring-2 focus:ring-[#5737B4]"
+                        className="w-full border rounded px-4 py-2 mt-1 focus:outline-none focus:ring-2 focus:ring-[#0a1c3e]"
                     ></textarea>
                 </div>
             </div>
@@ -90,7 +90,7 @@ const NewCategoryRequest = () => {
                 <button
                     type="submit"
                     disabled={!formData.name || !formData.discription}
-                    className="bg-[#5737B4] text-white px-6 py-2 rounded hover:bg-[#442f96] transition"
+                    className="bg-[#0a1c3e] text-white px-6 py-2 rounded hover:bg-[#442f96] transition"
                 >
                     Submit Request
                 </button>

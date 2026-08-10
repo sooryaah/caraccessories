@@ -89,7 +89,7 @@ const CombinedChartPanel = () => {
   return (
     <div className='bg-[#ECECF0] px-6 py-6 rounded-2xl h-full'>
       <div className='flex justify-between items-center'>
-        <h1 className='text-2xl font-bold text-[#5737B4]'>Revenue Trends</h1>
+        <h1 className='text-2xl font-bold text-[#0a1c3e]'>Revenue Trends</h1>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 bg-white my-6  p-1 border  border-[#D8D8D8] rounded-2xl shadow-lg ">
@@ -107,7 +107,7 @@ const CombinedChartPanel = () => {
             expensesLabel="Orders"
             xKey="month"
             yFormatter={(v) => (v ? `${(v / 1000).toFixed(1)}K` : "0")}
-            revenueColor="#5737B4"
+            revenueColor="#0a1c3e"
             expensesColor="#00C2FF"
           />
         </div>
@@ -132,7 +132,7 @@ const CombinedChartPanel = () => {
                     tickFormatter={(name) => shortenName(name)}
                   />
                   <Tooltip formatter={(val) => `₹${val.toLocaleString()}`} />
-                  <Bar dataKey="value" fill="#5737B4" barSize={16} radius={[4, 4, 0, 0]} />
+                  <Bar dataKey="value" fill="#0a1c3e" barSize={16} radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -162,7 +162,7 @@ export default CombinedChartPanel;
               <Tooltip
                 formatter={(value) => [`₹${value}`, 'Revenue']}
                 contentStyle={{
-                  backgroundColor: '#5737B4',   // purple bg
+                  backgroundColor: '#0a1c3e',   // purple bg
                   color: '#fff',
                   borderRadius: '10px',
                   border: 'none',
@@ -174,20 +174,20 @@ export default CombinedChartPanel;
               <Area
                 type="monotone"
                 dataKey="revenue"
-                stroke="#5737B4"
+                stroke="#0a1c3e"
                 fill="url(#colorRevenue)"
                 strokeWidth={2}
                 dot={{
-                  stroke: '#5737B4',
+                  stroke: '#0a1c3e',
                   strokeWidth: 2,
                   fill: '#fff',
                   r: 9,  // Set the size of the dot
                 }}
                 activeDot={{
-                  stroke: '#5737B4',
+                  stroke: '#0a1c3e',
                   strokeWidth: 3,
                   r: 7,  // Size of active dot
-                  fill: '#5737B4', // Color of the active dot
+                  fill: '#0a1c3e', // Color of the active dot
                 }}
               />
             </AreaChart>

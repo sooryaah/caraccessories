@@ -116,12 +116,12 @@ const OrderDetailView = () => {
     <div className="bg-[#ECECF0] px-4 sm:px-6 py-8 rounded-2xl text-sm text-[#3C3C3C]">
       <div className="flex justify-between items-center mb-1">
         <h1 className="text-2xl font-semibold mb-1">
-          <Link to="/vendor/orders" className="text-[#5737B4] hover:underline pr-3">
+          <Link to="/vendor/orders" className="text-[#0a1c3e] hover:underline pr-3">
             Order Management
           </Link>
           / Order ID : {order.id}
         </h1>
-        <button className="bg-[#5737B4] hover:bg-[#432d9c] text-white px-4 py-2 rounded">Print Invoice</button>
+        <button className="bg-[#0a1c3e] hover:bg-[#432d9c] text-white px-4 py-2 rounded">Print Invoice</button>
       </div>
       <p className="text-md text-gray-600 mb-6 tracking-wide"> Date: {new Date(order.created_at).toLocaleDateString("en-GB", {
         day: "2-digit",
@@ -146,7 +146,7 @@ const OrderDetailView = () => {
                 <p className="font-medium">Name</p>
                 <p>{order.customer_name || "N/A"} </p>
                 <p className="font-medium">Email</p>
-                <p className='text-[#5737B4] underline cursor-pointer'>{order.customer_email || "N/A"}</p>
+                <p className='text-[#0a1c3e] underline cursor-pointer'>{order.customer_email || "N/A"}</p>
                 <p className="font-medium">Phone</p>
                 <p>{order.customer_phone || "N/A"}</p>
               </div>
@@ -187,7 +187,7 @@ const OrderDetailView = () => {
                       <td className="py-3 flex gap-3 items-center">
                         <img src={`${serverUrl}${item.product_image}`} alt="product" className="w-14 h-14 object-cover rounded" />
                         <div>
-                          <p className="font-medium text-[#5737B4]">{item.product_name}</p>
+                          <p className="font-medium text-[#0a1c3e]">{item.product_name}</p>
                           <p className="text-sm text-gray-500">{item.description}</p>
                         </div>
                       </td>
@@ -213,12 +213,12 @@ const OrderDetailView = () => {
                     className={`w-3 h-3 rounded-full mt-1 ${item.status === 'done'
                       ? 'bg-green-500'
                       : item.status === 'current'
-                        ? 'bg-[#5737B4]'
+                        ? 'bg-[#0a1c3e]'
                         : 'bg-gray-300'
                       }`}
                   ></span>
                   <div>
-                    <p className={`${item.status === 'current' ? 'text-[#5737B4] font-semibold' : 'text-black'}`}>
+                    <p className={`${item.status === 'current' ? 'text-[#0a1c3e] font-semibold' : 'text-black'}`}>
                       {item.label}
                     </p>
                     <p className="text-xs text-gray-500">{item.date}</p>
@@ -261,8 +261,8 @@ const OrderDetailView = () => {
                   statusClass = "bg-green-500";
                   labelColor = "text-green-600 font-medium";
                 } else if (idx === currentIndex) {
-                  statusClass = "bg-[#5737B4]";
-                  labelColor = "text-[#5737B4] font-semibold";
+                  statusClass = "bg-[#0a1c3e]";
+                  labelColor = "text-[#0a1c3e] font-semibold";
                 }
               }
 
@@ -340,7 +340,7 @@ const OrderDetailView = () => {
       {/* Back Button */}
       <div className="mt-6">
         <Link to="/vendor/orders">
-          <button className="border border-[#5737B4] text-[#5737B4] w-25  py-2 rounded hover:bg-[#5737B4] hover:text-white">Back</button>
+          <button className="border border-[#0a1c3e] text-[#0a1c3e] w-25  py-2 rounded hover:bg-[#0a1c3e] hover:text-white">Back</button>
         </Link>
       </div>
     </div>

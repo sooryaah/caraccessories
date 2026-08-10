@@ -402,14 +402,14 @@ export default function EditProduct() {
         <h1 className="text-2xl font-semibold mb-2">
           <Link
             to="/vendor/products"
-            className="text-[#5737B4] hover:underline pr-3"
+            className="text-[#0a1c3e] hover:underline pr-3"
           >
             Product Management
           </Link>
           / Edit {formData.name}
         </h1>
         <div className="sm:flex items-center gap-3">
-          <span className="text-md font-medium text-[#5737B4]">
+          <span className="text-md font-medium text-[#0a1c3e]">
             Product Active
           </span>
           <div
@@ -423,7 +423,7 @@ export default function EditProduct() {
             }
             className={`w-14 h-7 flex items-center rounded-full p-1 cursor-pointer transition-colors duration-300 ${
               formData.is_available ?? formData.isActive
-                ? "bg-[#5737B4]"
+                ? "bg-[#0a1c3e]"
                 : "bg-gray-300"
             }`}
           >
@@ -772,7 +772,7 @@ export default function EditProduct() {
         </button>
 
         <button
-          className="border border-[#5737B4] text-[#5737B4] rounded-sm px-10 py-1"
+          className="border border-[#0a1c3e] text-[#0a1c3e] rounded-sm px-10 py-1"
           onClick={handleCancel}
         >
           Cancel
@@ -781,7 +781,7 @@ export default function EditProduct() {
         <button
           className={`border rounded-sm px-14 py-1 transition-colors ${
             isFormComplete
-              ? "bg-[#5737B4] text-white hover:bg-[#442f96]"
+              ? "bg-[#0a1c3e] text-white hover:bg-[#442f96]"
               : "bg-[#D8D8D8] text-white cursor-not-allowed"
           }`}
           onClick={handleSave}

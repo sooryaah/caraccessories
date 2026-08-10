@@ -66,7 +66,7 @@ const Categories = () => {
             className="flex flex-row items-center justify-center gap-3 bg-white hover:bg-gray-100 rounded-xl shadow-md p-6 cursor-pointer transition"
           >
             <img src={cat.image} alt={cat.name} className="w-16 h-16 object-contain" />
-            <p className="text-lg font-semibold text-[#5737B4] text-start">{cat.name}</p>
+            <p className="text-lg font-semibold text-[#0a1c3e] text-start">{cat.name}</p>
           </div>
         ))}
       </div>

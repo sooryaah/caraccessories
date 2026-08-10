@@ -75,7 +75,7 @@ const SummaryCards = () => {
                 reviewsData.products.map((product, index) => (
                   <tr key={index} className="border-b align-middle">
                     <td className="py-3">{product.name}</td>
-                    <td className="py-3 text-[#5737B4] font-semibold">
+                    <td className="py-3 text-[#0a1c3e] font-semibold">
                       <div className="flex items-center gap-1">
                         {product.average_rating || 0}
                         <span className="text-yellow-400">⭐</span>

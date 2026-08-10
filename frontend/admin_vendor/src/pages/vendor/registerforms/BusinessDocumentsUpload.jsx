@@ -204,7 +204,7 @@ const simulateUpload = (file, key) => {
             <label className="cursor-pointer flex flex-col items-center justify-center">
               <SlCloudUpload className="text-4xl mb-2" />
               <span className="text-sm text-gray-500">Drag and drop here</span>
-              <span className="text-[#5737B4] font-semibold">Browse Files</span>
+              <span className="text-[#0a1c3e] font-semibold">Browse Files</span>
               <input
                 type="file"
                 accept=".pdf,.jpeg"
@@ -218,7 +218,7 @@ const simulateUpload = (file, key) => {
               <div className="text-red-500 font-semibold text-lg">Upload Failed</div>
               <button
                 onClick={() => handleRemove(id)}
-                className="underline text-[#5737B4] text-sm mt-1"
+                className="underline text-[#0a1c3e] text-sm mt-1"
               >
                 Try Again
               </button>
@@ -261,7 +261,7 @@ const simulateUpload = (file, key) => {
               <div className="w-[90%]">
                 <div className="h-1 rounded bg-gray-200 relative">
                   <div
-                    className={`h-1 rounded ${doc.status === "success" ? "bg-[#5737B4]" : "bg-red-500"
+                    className={`h-1 rounded ${doc.status === "success" ? "bg-[#0a1c3e]" : "bg-red-500"
                       }`}
                     style={{ width: `${doc.progress}%` }}
                   ></div>
@@ -299,7 +299,7 @@ const simulateUpload = (file, key) => {
             <button
               type="button"
               onClick={() => navigate("/vendor-register/bank-details")}
-              className="px-1 sm:px-12 py-2 w-[250px] text-[#5737B4] border border-[#5737B4] font-medium rounded-full hover:bg-[#f4f4f4] transition-all"
+              className="px-1 sm:px-12 py-2 w-[250px] text-[#0a1c3e] border border-[#0a1c3e] font-medium rounded-full hover:bg-[#f4f4f4] transition-all"
             >
               Skip for Now
             </button>
@@ -308,7 +308,7 @@ const simulateUpload = (file, key) => {
               type="submit"
               disabled={!isComplete}
               className={`px-1 sm:px-12 py-2.5 w-[250px] text-white font-medium rounded-full transition-all ${isComplete
-                ? "bg-[#5737B4] hover:bg-[#432a91]"
+                ? "bg-[#0a1c3e] hover:bg-[#f79a17]"
                 : "bg-[#D8D8D8] cursor-not-allowed"
                 }`}
             >

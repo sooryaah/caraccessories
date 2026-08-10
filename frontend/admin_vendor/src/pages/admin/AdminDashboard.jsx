@@ -66,7 +66,7 @@ const AdminDashboard = () => {
   return (
     <div className="bg-[#ECECF0] px-6 py-6 rounded-2xl">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-[#5737B4]">Dashboard</h1>
+        <h1 className="text-2xl font-bold text-[#0a1c3e]">Dashboard</h1>
         
       </div>
 
@@ -92,7 +92,7 @@ const AdminDashboard = () => {
             expensesLabel="Profit"
             xKey="month"
             yFormatter={(v) => `${v / 1000}K`}
-            revenueColor="#5737B4"
+            revenueColor="#0a1c3e"
             expensesColor="#00C2FF"
           />
         </div>
@@ -120,7 +120,7 @@ const AdminDashboard = () => {
       {/* Users Overview */}
       <div className="flex items-center justify-between mb-6">
         <h2 className="text-xl font-semibold text-gray-800">Users Overview</h2>
-        <button className="text-sm bg-[#5737B4] text-white px-4 py-1.5 rounded-full">
+        <button className="text-sm bg-[#0a1c3e] text-white px-4 py-1.5 rounded-full">
           Download Report
         </button>
       </div>

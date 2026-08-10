@@ -242,7 +242,7 @@ const NotificationAdmin = () => {
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-[#5737B4]">
+          <h2 className="text-2xl font-bold text-[#0a1c3e]">
             Admin Notifications
           </h2>
           <div className="flex items-center gap-4">
@@ -253,7 +253,7 @@ const NotificationAdmin = () => {
             </select> */}
             <button
               onClick={() => setIsModalOpen(true)}
-              className="bg-[#5737B4] p-2 rounded border border-gray-300 hover:bg-[#4228a4] transition"
+              className="bg-[#0a1c3e] p-2 rounded border border-gray-300 hover:bg-[#4228a4] transition"
             >
               <b className="text-white">Add+</b>
             </button>
@@ -265,7 +265,7 @@ const NotificationAdmin = () => {
           <button
             onClick={() => setActive("received")}
             className={`flex-1 py-3 px-6 font-semibold rounded-lg shadow transition-colors ${active === "received"
-              ? "bg-[#5737B4] text-white"
+              ? "bg-[#0a1c3e] text-white"
               : "bg-gray-200 text-gray-700 hover:bg-gray-300"
               }`}
           >
@@ -274,7 +274,7 @@ const NotificationAdmin = () => {
           <button
             onClick={() => setActive("sending")}
             className={`flex-1 py-3 px-6 font-semibold rounded-lg shadow transition-colors ${active === "sending"
-              ? "bg-[#5737B4] text-white"
+              ? "bg-[#0a1c3e] text-white"
               : "bg-gray-200 text-gray-700 hover:bg-gray-300"
               }`}
           >
@@ -305,7 +305,7 @@ const NotificationAdmin = () => {
                   </div>
                   <p className="text-sm text-gray-600 mt-1">{item.message}</p>
                 </div>
-                {/* <button className="bg-[#5737B4] text-white text-[12px] px-4 py-[6px] rounded hover:bg-[#4228a4] transition whitespace-nowrap">
+                {/* <button className="bg-[#0a1c3e] text-white text-[12px] px-4 py-[6px] rounded hover:bg-[#4228a4] transition whitespace-nowrap">
                   Mark as Read
                 </button> */}
               </div>
@@ -344,7 +344,7 @@ const NotificationAdmin = () => {
                       onChange={() =>
                         setTargetGroup(targetGroup === group ? null : group)
                       }
-                      className="w-4 h-4 text-[#5737B4] border-gray-300 focus:ring-[#5737B4]"
+                      className="w-4 h-4 text-[#0a1c3e] border-gray-300 focus:ring-[#0a1c3e]"
                     />
                     <span className="text-gray-700">
                       {group.charAt(0).toUpperCase() + group.slice(1)}
@@ -400,7 +400,7 @@ const NotificationAdmin = () => {
               <div className="flex justify-end gap-4">
                 <button
                   onClick={handleCreateNotification}
-                  className="bg-[#5737B4] text-white px-6 py-2 rounded hover:bg-[#4228a4] transition"
+                  className="bg-[#0a1c3e] text-white px-6 py-2 rounded hover:bg-[#4228a4] transition"
                 >
                   Create
                 </button>

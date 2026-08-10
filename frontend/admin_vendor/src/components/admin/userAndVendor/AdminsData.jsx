@@ -228,7 +228,7 @@ export default function AdminOverview() {
   return (
     <div className="bg-gray-100 p-6 rounded-2xl w-full space-y-6 relative">
       <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-        <h1 className="text-2xl font-bold text-[#5737B4]">Admin Overview</h1>
+        <h1 className="text-2xl font-bold text-[#0a1c3e]">Admin Overview</h1>
 
         <div className="flex items-center gap-3" ref={dropdownRef}>
           <div className="relative">
@@ -236,7 +236,7 @@ export default function AdminOverview() {
               onClick={() => setShowDownloadOptions(!showDownloadOptions)}
               disabled={isDownloading}
               className={`text-white px-4 py-2 rounded-md text-sm flex items-center gap-2 transition-all ${
-                isDownloading ? "bg-[#462a93] opacity-75 cursor-not-allowed" : "bg-[#5737B4] hover:bg-[#462f91]"
+                isDownloading ? "bg-[#462a93] opacity-75 cursor-not-allowed" : "bg-[#0a1c3e] hover:bg-[#462f91]"
               }`}
             >
               {isDownloading ? (
@@ -272,7 +272,7 @@ export default function AdminOverview() {
           {/* Create Admin */}
           <button
             onClick={() => setShowModal(true)}
-            className="flex items-center gap-2 px-4 py-2 bg-[#5737B4] text-white rounded-md hover:bg-[#462f91] transition"
+            className="flex items-center gap-2 px-4 py-2 bg-[#0a1c3e] text-white rounded-md hover:bg-[#462f91] transition"
           >
             <FaPlus /> Create Admin
           </button>
@@ -321,7 +321,7 @@ export default function AdminOverview() {
                   className="hover:bg-gray-50 text-center border-gray-100"
                 >
                   <td className="py-3 px-4">{index + 1}</td>
-                  <td className="py-3 px-4 font-medium text-[#5737B4]">
+                  <td className="py-3 px-4 font-medium text-[#0a1c3e]">
                     {admin.id || "N/A"}
                   </td>
                   <td className="py-3 px-4">{admin.username || "N/A"}</td>
@@ -452,7 +452,7 @@ export default function AdminOverview() {
                   </button>
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-[#5737B4] text-white rounded hover:bg-[#462f91]"
+                    className="px-4 py-2 bg-[#0a1c3e] text-white rounded hover:bg-[#462f91]"
                   >
                     Add
                   </button>

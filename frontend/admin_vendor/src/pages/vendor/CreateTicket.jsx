@@ -45,7 +45,7 @@ const CreateTicket = () => {
       {/* Page Title */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-6">
         <h1 className="text-[#232832] text-lg md:text-xl font-semibold">
-          <span className="text-[#5737B4]">Support or Help</span> / Create a
+          <span className="text-[#0a1c3e]">Support or Help</span> / Create a
           Ticket
         </h1>
       </div>
@@ -68,7 +68,7 @@ const CreateTicket = () => {
               value={formData.subject}
               onChange={handleChange}
               required
-              className="w-full border border-[#5737B4] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#5737B4] text-[#5737B4]"
+              className="w-full border border-[#0a1c3e] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#0a1c3e] text-[#0a1c3e]"
             />
           </div>
 
@@ -82,7 +82,7 @@ const CreateTicket = () => {
               value={formData.category}
               onChange={handleChange}
               required
-              className="w-full border border-[#5737B4] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#5737B4]"
+              className="w-full border border-[#0a1c3e] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#0a1c3e]"
             >
               <option value="" disabled hidden>
                 Select a category
@@ -109,7 +109,7 @@ const CreateTicket = () => {
             value={formData.priority}
             onChange={handleChange}
             required
-            className="w-full border border-[#5737B4] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#5737B4]"
+            className="w-full border border-[#0a1c3e] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#0a1c3e]"
           >
             <option value="" disabled hidden>
               Select priority
@@ -131,7 +131,7 @@ const CreateTicket = () => {
             value={formData.description}
             onChange={handleChange}
             required
-            className="w-full border border-[#5737B4] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#5737B4]"
+            className="w-full border border-[#0a1c3e] rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-[#0a1c3e]"
             rows="5"
           ></textarea>
         </div>
@@ -141,7 +141,7 @@ const CreateTicket = () => {
           <Link to="/vendor/support-help">
             <button
               type="button"
-              className="w-full sm:w-auto border border-[#5737B4] text-[#5737B4] px-6 py-2 rounded-md text-sm hover:bg-[#5737B4] hover:text-white transition"
+              className="w-full sm:w-auto border border-[#0a1c3e] text-[#0a1c3e] px-6 py-2 rounded-md text-sm hover:bg-[#0a1c3e] hover:text-white transition"
             >
               Cancel
             </button>
@@ -149,7 +149,7 @@ const CreateTicket = () => {
           <button
             type="submit"
             disabled={loading}
-            className="w-full sm:w-auto bg-[#5737B4] text-white px-6 py-2 rounded-md text-sm hover:bg-[#432d9c] transition disabled:opacity-60"
+            className="w-full sm:w-auto bg-[#0a1c3e] text-white px-6 py-2 rounded-md text-sm hover:bg-[#432d9c] transition disabled:opacity-60"
           >
             {loading ? "Creating..." : "Create Ticket"}
           </button>

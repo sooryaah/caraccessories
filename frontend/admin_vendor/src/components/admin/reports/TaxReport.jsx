@@ -66,7 +66,7 @@ export default function TaxReport() {
     <div className="bg-[#ECECF0] p-6 rounded-2xl w-full space-y-4">
 
       <div className="flex justify-between items-start flex-wrap gap-4">
-        <h1 className="text-2xl font-bold text-[#5737B4]">Tax Report</h1>
+        <h1 className="text-2xl font-bold text-[#0a1c3e]">Tax Report</h1>
 
         <div className="flex flex-wrap items-end gap-4">
           <div className="flex flex-col">
@@ -99,7 +99,7 @@ export default function TaxReport() {
 
           <button
             onClick={filterDataByDate}
-            className="bg-[#5737B4] hover:bg-[#2f093d] text-white font-medium 
+            className="bg-[#0a1c3e] hover:bg-[#2f093d] text-white font-medium 
                        px-6 py-2.5 rounded-md shadow-md hover:shadow-lg 
                        transition-all duration-200 whitespace-nowrap"
           >
@@ -107,7 +107,7 @@ export default function TaxReport() {
           </button>
 
           <button
-            className="bg-[#5737B4] hover:bg-[#2f093d] text-white font-medium 
+            className="bg-[#0a1c3e] hover:bg-[#2f093d] text-white font-medium 
                        px-6 py-2.5 rounded-md shadow-md hover:shadow-lg transition-all"
           >
             Download Report
@@ -189,7 +189,7 @@ export default function TaxReport() {
               onClick={() => goToPage(i + 1)}
               className={`px-3 py-1 border border-gray-300 rounded ${
                 currentPage === i + 1
-                  ? "bg-[#5737B4] text-white"
+                  ? "bg-[#0a1c3e] text-white"
                   : "bg-gray-200"
               }`}
             >

@@ -47,11 +47,11 @@ const UserDetails = () => {
         <div className="flex gap-2 ml-auto">
           <Link
             to="/admin/vendor-documents"
-            className="border border-[#5737B4] text-[#5737B4] px-4 py-2 rounded text-sm"
+            className="border border-[#0a1c3e] text-[#0a1c3e] px-4 py-2 rounded text-sm"
           >
             View Documents
           </Link>
-          <button className="bg-[#5737B4] text-white px-4 py-2 rounded text-sm">
+          <button className="bg-[#0a1c3e] text-white px-4 py-2 rounded text-sm">
             Download Report
           </button>
         </div>
@@ -86,7 +86,7 @@ const UserDetails = () => {
       {/* Orders Table */}
       <div className="flex justify-between items-center mt-8 mb-4">
         <h2 className="font-semibold text-lg">All Orders List</h2>
-        <button className="text-sm text-[#5737B4] font-medium border border-[#5737B4] px-3 py-2 rounded">
+        <button className="text-sm text-[#0a1c3e] font-medium border border-[#0a1c3e] px-3 py-2 rounded">
           Bulk Actions
         </button>
       </div>
@@ -108,7 +108,7 @@ const UserDetails = () => {
             {userorders.map((order, index) => (
               <tr key={order.id || index} className="hover:bg-gray-50">
                 <td className="px-3 py-2">{index + 1}</td>
-                <td className="px-3 py-2 text-[#5737B4] font-semibold cursor-pointer">
+                <td className="px-3 py-2 text-[#0a1c3e] font-semibold cursor-pointer">
                   {order.name}
                 </td>
                 <td className="px-3 py-2">{order.sku}</td>

@@ -16,7 +16,7 @@ import {
 import { GiProgression } from "react-icons/gi";
 import { MdNotificationsNone, MdOutlineDashboard } from "react-icons/md";
 import { IoStarHalf } from "react-icons/io5";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/carooa_logo.png";
 import { TbUsersGroup } from "react-icons/tb";
 import { HiArrowTrendingUp } from "react-icons/hi2";
 import user from "../../assets/user.jpg";
@@ -97,10 +97,10 @@ const VendorHome = () => {
         onClick={() => {
           if (window.innerWidth < 1024) setShowSidebar(false);
         }}
-        className={`cursor-pointer hover:bg-[#5737B4] hover:text-white px-4 py-2 rounded-3xl flex items-center gap-2 
+        className={`cursor-pointer px-4 py-2.5 rounded-3xl flex items-center gap-2 transition-all duration-200
         ${activePath === to
-            ? "bg-[#5737B4] text-white shadow-xl"
-            : "text-gray-700"
+            ? "bg-[#0a1c3e] text-white font-semibold border-l-4 border-[#F79A17] shadow-lg"
+            : "text-[#0a1c3e] hover:bg-[#0a1c3e] hover:text-white hover:shadow-lg"
           }`}
       >
         {icon} {label}
@@ -121,100 +121,110 @@ const VendorHome = () => {
       {/* Toggle Button */}
       <button
         onClick={() => setShowSidebar(!showSidebar)}
-        className={`fixed top-1 z-50 text-xl p-2 rounded transition-all duration-500 ease-in-out ${showSidebar ? "left-4" : "left-0"
+        className={`fixed top-1.5 z-50 text-xl p-1 rounded transition-all duration-500 ease-in-out ${showSidebar ? "left-4" : "left-1"
           }`}
       >
         <div
-          className={`flex items-center gap-2 bg-white transition-all duration-500 ease-in-out ${showSidebar ? "px-3 py-2 w-60" : "w-12 justify-center"
-            }`}
+          className={`flex items-center bg-white transition-all duration-500 ease-in-out ${showSidebar ? "px-2 py-2 w-56" : "w-10 h-10 justify-center"}`}
         >
-          <img src={logo} alt="Logo" className="h-8" />
-          {showSidebar && <p className="text-2xl font-semibold">carooa</p>}
+          {showSidebar ? (
+            <img src={logo} alt="Carooa International" className="h-12 w-auto object-contain" />
+          ) : (
+            <div className="w-8 h-8 overflow-hidden flex items-center justify-start">
+              <img src={logo} alt="Carooa International" className="h-8 w-auto max-w-none object-cover object-left" />
+            </div>
+          )}
         </div>
       </button>
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full w-70 bg-white text-slate-800 p-6 overflow-y-auto scrollbar-none z-40 transition-transform duration-300 ${showSidebar ? "translate-x-0" : "-translate-x-full"
+        className={`fixed top-0 left-0 h-full w-70 bg-white text-slate-800 border-r border-[#D8D8D8] z-40 transition-transform duration-300 ${showSidebar ? "translate-x-0" : "-translate-x-full"
           }`}
       >
-        <ul className="space-y-3 text-md py-10 font-medium">
-          <SidebarItem
-            to="/vendor/dashboard"
-            label="Dashboard"
-            icon={<MdOutlineDashboard />}
-            activePath={activePath}
-          />
-          <SidebarItem
-            to="/vendor/products"
-            label="Product Management"
-            icon={<PiChartLine />}
-            activePath={activePath}
-          />
-          <SidebarItem
-            to="/vendor/orders"
-            label="Order Management"
-            icon={<HiArrowTrendingUp />}
-            activePath={activePath}
-          />
-          <SidebarItem
-            to="/vendor/returns"
-            label="Returns & Refunds"
-            icon={<TbUsersGroup />}
-            activePath={activePath}
-          />
-          <SidebarItem
-            to="/vendor/stock-management"
-            label="Inventory Management"
-            icon={<GiProgression />}
-            activePath={activePath}
-          />
-          <SidebarItem
-            to="/vendor/payments-earnings"
-            label="Payments & Earnings"
-            icon={<PiBuildings />}
-            activePath={activePath}
-          />
-          <SidebarItem
-            to="/vendor/reviews"
-            label="Ratings & Reviews"
-            icon={<IoStarHalf />}
-            activePath={activePath}
-          />
-          <SidebarItem
-            to="/vendor/profile"
-            label="Profile & KYC"
-            icon={<FaUserCircle />}
-            activePath={activePath}
-          />
-          <SidebarItem
-            to="/vendor/notification"
-            label="Notifications"
-            icon={<MdNotificationsNone />}
-            activePath={activePath}
-          />
-          <SidebarItem
-            to="/vendor/support-help"
-            label="Support/Help"
-            icon={<FaRegQuestionCircle />}
-            activePath={activePath}
-          />
-          <SidebarItem
-            to="/vendor/account-settings"
-            label="Account Settings"
-            icon={<RiUserSettingsLine />}
-            activePath={activePath}
-          />
+        {/* Header background to cover scrolled items behind logo */}
+        <div className="h-20 bg-white w-full flex-shrink-0" />
 
-          <hr className="my-4 border-gray-300" />
+        {/* Scrollable Menu Items */}
+        <div className="h-[calc(100vh-5rem)] overflow-y-auto px-6 pb-6 scrollbar-none">
+          <ul className="space-y-3 text-md font-medium">
+            <SidebarItem
+              to="/vendor/dashboard"
+              label="Dashboard"
+              icon={<MdOutlineDashboard />}
+              activePath={activePath}
+            />
+            <SidebarItem
+              to="/vendor/products"
+              label="Product Management"
+              icon={<PiChartLine />}
+              activePath={activePath}
+            />
+            <SidebarItem
+              to="/vendor/orders"
+              label="Order Management"
+              icon={<HiArrowTrendingUp />}
+              activePath={activePath}
+            />
+            <SidebarItem
+              to="/vendor/returns"
+              label="Returns & Refunds"
+              icon={<TbUsersGroup />}
+              activePath={activePath}
+            />
+            <SidebarItem
+              to="/vendor/stock-management"
+              label="Inventory Management"
+              icon={<GiProgression />}
+              activePath={activePath}
+            />
+            <SidebarItem
+              to="/vendor/payments-earnings"
+              label="Payments & Earnings"
+              icon={<PiBuildings />}
+              activePath={activePath}
+            />
+            <SidebarItem
+              to="/vendor/reviews"
+              label="Ratings & Reviews"
+              icon={<IoStarHalf />}
+              activePath={activePath}
+            />
+            <SidebarItem
+              to="/vendor/profile"
+              label="Profile & KYC"
+              icon={<FaUserCircle />}
+              activePath={activePath}
+            />
+            <SidebarItem
+              to="/vendor/notification"
+              label="Notifications"
+              icon={<MdNotificationsNone />}
+              activePath={activePath}
+            />
+            <SidebarItem
+              to="/vendor/support-help"
+              label="Support/Help"
+              icon={<FaRegQuestionCircle />}
+              activePath={activePath}
+            />
+            <SidebarItem
+              to="/vendor/account-settings"
+              label="Account Settings"
+              icon={<RiUserSettingsLine />}
+              activePath={activePath}
+            />
 
-          <li
-            className="cursor-pointer hover:bg-red-600 hover:text-white px-4 py-2 rounded-3xl flex items-center gap-2"
-            onClick={handleLogout}
-          >
-            <FaSignOutAlt /> Logout
-          </li>
-        </ul>
+            <hr className="my-4 border-gray-300" />
+
+            <li
+              className="cursor-pointer hover:bg-red-600 hover:text-white px-4 py-2 rounded-3xl flex items-center gap-2"
+              onClick={handleLogout}
+            >
+              <FaSignOutAlt /> Logout
+            </li>
+          </ul>
+        </div>
       </div>
 
       {/* Main Content */}
@@ -224,7 +234,7 @@ const VendorHome = () => {
       >
         {/* Profile Info */}
         <div
-          className="flex w-40 items-center gap-3 z-50 cursor-pointer relative ml-auto"
+          className="flex items-center gap-3 z-50 cursor-pointer relative ml-auto w-fit justify-end mb-6"
           onClick={() => navigate("/vendor/account-settings")}
         >
           <img
@@ -237,12 +247,11 @@ const VendorHome = () => {
                 : user
             }
             alt="profile"
-            className="w-12 h-12 rounded-full object-cover"
+            className="w-12 h-12 rounded-full object-cover border-2 border-gray-100 shadow-sm"
           />
-          <div className="flex flex-col font-semibold">
-            <div className="text-lg text-gray-700 font-medium">
-              {profileData.username}
-            </div>
+          <div className="flex flex-col font-semibold text-sm">
+            <div className="text-gray-700 font-semibold leading-tight">{profileData.username}</div>
+            <span className="text-gray-500 text-xs font-normal leading-tight">{profileData.email}</span>
           </div>
         </div>
 

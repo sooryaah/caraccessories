@@ -163,7 +163,7 @@ const VendorDashboard = () => {
       {/* Banner */}
       {shouldShowBanner && (
         <div>
-          <div className="bg-[#E2DBF4] border border-[#E0D0FF] text-[#5737B4] rounded-lg p-6 flex items-center justify-between mb-4">
+          <div className="bg-[#e6edf8] border border-[#c8d7ed] text-[#0a1c3e] rounded-lg p-6 flex items-center justify-between mb-4">
             <div className="flex items-center gap-4">
               <AiOutlineInfoCircle className="text-3xl md:text-4xl" />
               <div>
@@ -176,14 +176,14 @@ const VendorDashboard = () => {
                 </p>
               </div>
             </div>
-            <button className="border border-[#5737B4] text-[#5737B4] px-4 py-1.5 lg:w-40 md:w-50 sm:w-40 rounded-md text-sm hover:bg-[#5737B4] hover:text-white transition">
+            <button className="border border-[#0a1c3e] text-[#0a1c3e] px-4 py-1.5 lg:w-40 md:w-50 sm:w-40 rounded-md text-sm hover:bg-[#0a1c3e] hover:text-white transition">
               <Link to="/vendor/profile">Finish Setup</Link>
             </button>
           </div>
           {addresscheck && (
-            <div className="bg-[#E2DBF4] border border-[#E0D0FF] text-[#5737B4] rounded-lg p-6 flex items-center justify-between mb-6">
+            <div className="bg-[#e6edf8] border border-[#c8d7ed] text-[#0a1c3e] rounded-lg p-6 flex items-center justify-between mb-6">
               <div className="flex items-center gap-4">
-                <AiOutlineInfoCircle className="text-3xl md:text-4xl text-[#5737B4]" />
+                <AiOutlineInfoCircle className="text-3xl md:text-4xl text-[#0a1c3e]" />
                 <div>
                   <h3 className="font-semibold text-md md:text-md text-black">
                     Add Your Address
@@ -193,7 +193,7 @@ const VendorDashboard = () => {
                   </p>
                 </div>
               </div>
-              <button className="border border-[#5737B4] text-[#5737B4] px-4 py-1.5 lg:w-40 md:w-50 sm:w-40 rounded-md text-sm hover:bg-[#5737B4] hover:text-white transition">
+              <button className="border border-[#0a1c3e] text-[#0a1c3e] px-4 py-1.5 lg:w-40 md:w-50 sm:w-40 rounded-md text-sm hover:bg-[#0a1c3e] hover:text-white transition">
                 <Link to="/vendor/profile">Finish Setup</Link>
               </button>
             </div>
@@ -202,7 +202,7 @@ const VendorDashboard = () => {
       )}
 
       <div className='flex justify-between items-center'>
-        <h1 className='text-xl md:text-2xl font-bold text-[#5737B4]'>Dashboard</h1>
+        <h1 className='text-xl md:text-2xl font-bold text-[#0a1c3e]'>Dashboard</h1>
       </div>
 
       {/* Stats Cards */}
@@ -251,7 +251,7 @@ const VendorDashboard = () => {
         <div className="relative">
           <button
             onClick={() => setShowDropdown(!showDropdown)}
-            className="text-sm bg-[#5737B4] text-white px-4 py-1.5 rounded-full"
+            className="text-sm bg-[#0a1c3e] text-white px-4 py-1.5 rounded-full"
           >
             Download Report
           </button>

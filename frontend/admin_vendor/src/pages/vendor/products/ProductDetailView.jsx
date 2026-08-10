@@ -58,7 +58,7 @@ const ProductDetailView = () => {
         <div className="bg-[#ECECF0] min-h-screen">
             <div className="flex justify-between mb-3">
                 <h1 className="text-2xl font-bold mb-6">
-                    <Link to="/vendor/products" className="text-[#5737B4] hover:underline pr-3">
+                    <Link to="/vendor/products" className="text-[#0a1c3e] hover:underline pr-3">
                         Product Management
                     </Link>
                     / {product?.name || "Product Name"}
@@ -66,13 +66,13 @@ const ProductDetailView = () => {
 
                 <div className="flex md:flex-row lg:flex-row sm:flex-col gap-2 my-3 items-center">
                     <div className="sm:flex gap-2">
-                        <span className="text-sm font-medium text-[#5737B4]">Product Active</span>
+                        <span className="text-sm font-medium text-[#0a1c3e]">Product Active</span>
                         {
                             // prefer explicit is_available when present, otherwise fall back to isActive
                         }
                         <div
                             onClick={handleToggle}
-                            className={`w-14 h-6 flex items-center rounded-full p-1 transition-colors duration-300 ${(product.is_available ?? product.isActive) ? "bg-[#5737B4]" : "bg-gray-300"
+                            className={`w-14 h-6 flex items-center rounded-full p-1 transition-colors duration-300 ${(product.is_available ?? product.isActive) ? "bg-[#0a1c3e]" : "bg-gray-300"
                                 } cursor-pointer`}
                         >
                             <div
@@ -83,7 +83,7 @@ const ProductDetailView = () => {
                     </div>
                     <button
                         onClick={canEdit ? () => navigate("edit") : undefined}
-                        className={`flex text-md font-medium items-center justify-between gap-2 rounded-md px-3 py-1 ${canEdit ? 'border border-[#5737B4] text-[#5737B4]' : 'border border-gray-300 text-gray-400 cursor-not-allowed opacity-60'}`}>
+                        className={`flex text-md font-medium items-center justify-between gap-2 rounded-md px-3 py-1 ${canEdit ? 'border border-[#0a1c3e] text-[#0a1c3e]' : 'border border-gray-300 text-gray-400 cursor-not-allowed opacity-60'}`}>
                         Edit Product <FiEdit3 />
                     </button>
                 </div>
@@ -250,7 +250,7 @@ const ProductDetailView = () => {
 
             <div className="mt-5 pl-2">
                 <button
-                    className="border border-[#5737B4] rounded-md text-[#5737B4] px-4 py-1 text-lg font-semibold"
+                    className="border border-[#0a1c3e] rounded-md text-[#0a1c3e] px-4 py-1 text-lg font-semibold"
                     onClick={() => navigate(-1)}
                 >
                     Back

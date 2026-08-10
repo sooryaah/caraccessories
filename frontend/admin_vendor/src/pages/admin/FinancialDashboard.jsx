@@ -11,7 +11,7 @@ export default function FinancialDashboard() {
     <div className='bg-[#ECECF0] px-6 py-10 rounded-2xl h-full'>
       <div className='flex justify-between items-center'>
         <h1 className='text-2xl font-semibold'>Financial Overview</h1>
-        <button className='bg-[#5737B4] text-white px-4 py-2 rounded-md'>Download report</button>
+        <button className='bg-[#0a1c3e] text-white px-4 py-2 rounded-md'>Download report</button>
       </div>
 
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6  mt-9">

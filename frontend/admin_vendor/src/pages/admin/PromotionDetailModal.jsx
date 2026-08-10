@@ -33,7 +33,7 @@ const PromotionCard = ({ promotion }) => {
 
                 className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
               >
-                <div className="bg-[#5737B4] text-white p-3 rounded-lg w-fit mb-4">
+                <div className="bg-[#0a1c3e] text-white p-3 rounded-lg w-fit mb-4">
                   <ShoppingCart size={20} />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">{promo.name}</h3>
@@ -62,7 +62,7 @@ const PromotionCard = ({ promotion }) => {
         <div className="fixed inset-0  bg-opacity-30 flex justify-center items-center z-50 p-4 bg-black/50 backdrop-blur-sm">
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl relative transform transition-all duration-300 ease-in-out scale-100 max-h-[90vh] overflow-hidden">
             {/* Header Section */}
-            <div className="bg-[#5737B4] p-6 text-white relative overflow-hidden">
+            <div className="bg-[#0a1c3e] p-6 text-white relative overflow-hidden">
               <div className="absolute inset-0 bg-white opacity-10"></div>
               <button
                 className="absolute top-4 right-4 text-white hover:text-gray-200 transition-colors duration-200 z-10"
@@ -223,7 +223,7 @@ const PromotionCard = ({ promotion }) => {
             {/* Footer Actions */}
             <div className="bg-gray-50 px-6 py-4 border-t border-gray-200 flex justify-end gap-3">
               <button
-                className="px-6 py-2.5 bg-[#5737B4] text-white rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 flex items-center shadow-sm hover:shadow-md"
+                className="px-6 py-2.5 bg-[#0a1c3e] text-white rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 flex items-center shadow-sm hover:shadow-md"
                 onClick={() => setIsEditModalOpen(true)}
               >
                 <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -329,7 +329,7 @@ const PromotionCard = ({ promotion }) => {
                 Cancel
               </button>
               <button
-                className={`px-4 py-2 bg-[#5737B4] text-white rounded hover:bg-blue-700 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`px-4 py-2 bg-[#0a1c3e] text-white rounded hover:bg-blue-700 ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
                 onClick={handleSaveChanges}
                 disabled={isSubmitting}>
                 {isSubmitting ? 'Updating...' : 'Save Changes'}

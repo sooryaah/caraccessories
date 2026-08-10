@@ -116,13 +116,13 @@ const ProductList = () => {
 
   return (
     <>
-      <h1 className="text-xl md:text-2xl font-bold text-[#5737B4] mb-4">Product Management</h1>
+      <h1 className="text-xl md:text-2xl font-bold text-[#0a1c3e] mb-4">Product Management</h1>
       {/* Stat Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-3">
         {stats.map((stat, i) => (
           <div key={i} className="bg-white rounded-2xl shadow p-4 flex flex-col justify-between">
             <div className="flex items-center gap-2">
-              <span className="text-xl text-[#5737B4]">{stat.icon}</span>
+              <span className="text-xl text-[#0a1c3e]">{stat.icon}</span>
               <h4 className="text-sm font-semibold text-gray-500">{stat.title}</h4>
             </div>
             <div className="flex items-center justify-between mt-2">
@@ -140,7 +140,7 @@ const ProductList = () => {
           <input
             type="text"
             placeholder="Search products..."
-            className="bg-white px-5 py-3 rounded-3xl w-full border border-gray-100 focus:outline-none focus:ring-2 focus:ring-[#5737B4] text-sm"
+            className="bg-white px-5 py-3 rounded-3xl w-full border border-gray-100 focus:outline-none focus:ring-2 focus:ring-[#0a1c3e] text-sm"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
@@ -150,7 +150,7 @@ const ProductList = () => {
         <div className="w-full md:w-auto">
           <button
             onClick={handleAddProduct}
-            className="bg-[#5737B4] text-white px-5 py-3 rounded-md shadow hover:bg-[#442f96] text-sm font-medium w-full md:w-auto transition-colors"
+            className="bg-[#0a1c3e] text-white px-5 py-3 rounded-md shadow hover:bg-[#442f96] text-sm font-medium w-full md:w-auto transition-colors"
           >
             Add New Product +
           </button>
@@ -180,7 +180,7 @@ const ProductList = () => {
                   <td className="p-3 whitespace-nowrap">{startIndex + index + 1}</td>
                   <td
                     onClick={() => navigate(`${product.id}`)}
-                    className="p-3 font-medium text-[#5737B4] hover:underline cursor-pointer min-w-[150px] max-w-[300px] break-words"
+                    className="p-3 font-medium text-[#0a1c3e] hover:underline cursor-pointer min-w-[150px] max-w-[300px] break-words"
                   >
                     {product.name}
                   </td>
@@ -201,7 +201,7 @@ const ProductList = () => {
                   <td className="p-3 whitespace-nowrap">
                     <button
                       onClick={() => navigate(`${product.id}/edit`)}
-                      className="text-lg text-gray-500 hover:text-[#5737B4] transition-colors"
+                      className="text-lg text-gray-500 hover:text-[#0a1c3e] transition-colors"
                     >
                       <FiEdit3 />
                     </button>
@@ -247,7 +247,7 @@ const ProductList = () => {
                   onClick={() => handlePageChange(page)}
                   className={`w-8 h-8 rounded-md flex items-center justify-center font-medium border transition-all ${
                     currentPage === page
-                      ? "bg-[#5737B4] border-[#5737B4] text-white"
+                      ? "bg-[#0a1c3e] border-[#0a1c3e] text-white"
                       : "border-gray-200 hover:bg-gray-50 text-gray-700"
                   }`}
                 >

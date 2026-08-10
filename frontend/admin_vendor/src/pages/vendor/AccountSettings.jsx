@@ -214,7 +214,7 @@ const AccountSettings = () => {
     <div className="bg-[#ECECF0] p-4 rounded-2xl w-full space-y-2">
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
-        <h1 className="text-[#5737B4] text-xl md:text-2xl font-bold">
+        <h1 className="text-[#0a1c3e] text-xl md:text-2xl font-bold">
           Account Settings
         </h1>
       </div>

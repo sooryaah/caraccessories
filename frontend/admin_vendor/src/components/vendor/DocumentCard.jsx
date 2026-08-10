@@ -66,7 +66,7 @@ export default function DocumentCard({
                     setReplaceField(docKey);
                     fileInputRef.current.click();
                 }}
-                className="text-[#5737B4] cursor-pointer text-md"
+                className="text-[#0a1c3e] cursor-pointer text-md"
             >
                 Replace Document
             </div>

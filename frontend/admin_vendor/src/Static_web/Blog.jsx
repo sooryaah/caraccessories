@@ -15,7 +15,7 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
-<Navbar bgColor="bg-gradient-to-r from-[#030130] to-[#023669]" />
+<Navbar bgColor="bg-gradient-to-r from-[#0a1c3e] to-[#023669]" />
     <div className="max-w-4xl mx-auto px-6 py-42">
     
       {blogs.map((blog, index) => (

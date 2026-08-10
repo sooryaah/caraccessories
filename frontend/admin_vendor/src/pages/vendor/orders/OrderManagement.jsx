@@ -203,7 +203,7 @@ const OrderManagement = ({ order }) => {
     <div className="min-h-screen bg-gray-100 p-4 rounded-2xl">
       {/* Header */}
       <div className="flex justify-between items-center mb-3">
-        <h2 className="text-xl md:text-2xl font-bold text-[#5737B4]">
+        <h2 className="text-xl md:text-2xl font-bold text-[#0a1c3e]">
           Order Management
         </h2>
 
@@ -211,7 +211,7 @@ const OrderManagement = ({ order }) => {
         <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setShowDownloadOptions(!showDownloadOptions)}
-            className="bg-[#5737B4] text-white px-3 py-2 rounded-md text-sm sm:text-base flex items-center gap-2"
+            className="bg-[#0a1c3e] text-white px-3 py-2 rounded-md text-sm sm:text-base flex items-center gap-2"
           >
             Download Report
           </button>
@@ -331,7 +331,7 @@ const OrderManagement = ({ order }) => {
                           className={`text-right font-semibold px-2 py-1 rounded  transition-all duration-200
                             ${isVendorConfirmed || order.status?.toLowerCase() !== "pending"
                               ? "text-gray-400 cursor-not-allowed opacity-60"
-                              : "text-[#5737B4] hover:text-[#3c10c1] cursor-pointer"
+                              : "text-[#0a1c3e] hover:text-[#3c10c1] cursor-pointer"
                             }
                             ${loading ? "opacity-50 pointer-events-none" : ""}
                           `}
@@ -420,7 +420,7 @@ const OrderManagement = ({ order }) => {
                                 />
                               )}
                             </td>
-                            <td className="px-1 py-2 md:py-3 font-bold text-[#5737B4]">
+                            <td className="px-1 py-2 md:py-3 font-bold text-[#0a1c3e]">
                               {item.product_name}
                               <span className="block font-semibold text-gray-600">
                                 Size: {item.product_size}
@@ -469,7 +469,7 @@ const OrderManagement = ({ order }) => {
                           >
                             Grand Total:
                           </td>
-                          <td className="px-4 py-2 font-bold text-[#5737B4]">
+                          <td className="px-4 py-2 font-bold text-[#0a1c3e]">
                             ₹{(
                               parseFloat(order.vendor_total_price || 0) +
                               parseFloat(order.vendor_tax || 0) +
@@ -502,7 +502,7 @@ const OrderManagement = ({ order }) => {
             <button
               key={page}
               onClick={() => setCurrentPage(page)}
-              className={`px-3 py-1 border rounded ${currentPage === page ? "bg-[#5737B4] text-white" : ""
+              className={`px-3 py-1 border rounded ${currentPage === page ? "bg-[#0a1c3e] text-white" : ""
                 }`}
             >
               {page}
@@ -522,7 +522,7 @@ const OrderManagement = ({ order }) => {
       )}
 
       {/* <div className="mt-6">
-        <button className="border border-[#5737B4] text-[#5737B4] px-4 py-2 rounded hover:bg-[#5737B4] hover:text-white">
+        <button className="border border-[#0a1c3e] text-[#0a1c3e] px-4 py-2 rounded hover:bg-[#0a1c3e] hover:text-white">
           Back
         </button>
       </div> */}

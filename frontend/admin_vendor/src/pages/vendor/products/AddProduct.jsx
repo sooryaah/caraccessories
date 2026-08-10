@@ -267,17 +267,17 @@ const AddProduct = () => {
         <>
             <div className="flex justify-between items-end gap-4 mb-1">
                 <h1 className="text-2xl font-semibold mb-1">
-                    <Link to="/vendor/products" className="text-[#5737B4] hover:underline pr-3">
+                    <Link to="/vendor/products" className="text-[#0a1c3e] hover:underline pr-3">
                         Product Management
                     </Link>
                     / Add Product
                 </h1>
                 <div className="flex md:flex-row lg:flex-row sm:flex-col gap-2  items-center">
                     <div className="sm:flex gap-2">
-                        <span className="text-sm font-medium text-[#5737B4]">Product Active</span>
+                        <span className="text-sm font-medium text-[#0a1c3e]">Product Active</span>
                         <div
                             onClick={handleToggle}
-                            className={`w-14 h-6 flex items-center rounded-full p-1 cursor-pointer transition-colors duration-300 ${isActive ? "bg-[#5737B4]" : "bg-gray-300"
+                            className={`w-14 h-6 flex items-center rounded-full p-1 cursor-pointer transition-colors duration-300 ${isActive ? "bg-[#0a1c3e]" : "bg-gray-300"
                                 }`}
                         >
                             <div
@@ -291,7 +291,7 @@ const AddProduct = () => {
                     {/* <div className="relative inline-block text-left">
                         <button
                             onClick={() => setShowDropdown(!showDropdown)}
-                            className="flex items-center justify-between gap-2 px-4 py-1.5 text-sm font-medium text-[#5737B4] border border-[#5737B4] rounded hover:bg-[#5737B4] hover:text-white transition"
+                            className="flex items-center justify-between gap-2 px-4 py-1.5 text-sm font-medium text-[#0a1c3e] border border-[#0a1c3e] rounded hover:bg-[#0a1c3e] hover:text-white transition"
                         >
                             Bulk Upload
                             <IoIosArrowDown />
@@ -503,7 +503,7 @@ const AddProduct = () => {
                                             <div className="z-10 flex flex-col items-center">
                                                 <GoPlus className="text-3xl text-gray-500 mb-1" />
                                                 <span className="text-sm text-gray-500">Drag and drop here</span>
-                                                <span className="text-sm text-[#5737B4] font-semibold underline">Browse Files</span>
+                                                <span className="text-sm text-[#0a1c3e] font-semibold underline">Browse Files</span>
                                             </div>
                                         )}
 
@@ -564,7 +564,7 @@ const AddProduct = () => {
                                                     compatible_varient_year: updated,
                                                 }));
                                             }}
-                                            className="h-4 w-4 text-[#5737B4] focus:ring-[#5737B4] border-gray-300 rounded"
+                                            className="h-4 w-4 text-[#0a1c3e] focus:ring-[#0a1c3e] border-gray-300 rounded"
                                         />
                                         <span>
                                             {year.make} {year.model} {year.variant} ({year.year})
@@ -584,11 +584,11 @@ const AddProduct = () => {
             <div className="flex justify-end gap-4 mt-5">
                 <button
                     onClick={() => navigate('/vendor/products')}
-                    className="border border-[#5737B4] text-[#5737B4] px-16 py-2 rounded-md text-sm font-medium hover:bg-[#f1edff] transition">Cancel</button>
+                    className="border border-[#0a1c3e] text-[#0a1c3e] px-16 py-2 rounded-md text-sm font-medium hover:bg-[#f1edff] transition">Cancel</button>
                 <button
                     onClick={(e) => handleSave(e)}
                     disabled={!isFormComplete}
-                    className={`px-16 py-2 rounded-md text-sm font-medium transition ${isFormComplete ? "bg-[#5737B4] text-white hover:bg-[#442f96]" : "bg-[#D8D8D8] text-white cursor-not-allowed"}`}
+                    className={`px-16 py-2 rounded-md text-sm font-medium transition ${isFormComplete ? "bg-[#0a1c3e] text-white hover:bg-[#442f96]" : "bg-[#D8D8D8] text-white cursor-not-allowed"}`}
                 >
                     Save
                 </button>

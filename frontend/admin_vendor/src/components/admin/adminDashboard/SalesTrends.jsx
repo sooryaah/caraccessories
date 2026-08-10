@@ -25,7 +25,7 @@ const SalesTrends = ({
   expensesLabel = "",
   xKey = "month",
   yFormatter = (v) => `${v / 1000}K`, 
-  revenueColor = "#5737B4",
+  revenueColor = "#0a1c3e",
   expensesColor = "#00C2FF",
 }) => {
   const [startDate, setStartDate] = useState(new Date("2026-01-01"));

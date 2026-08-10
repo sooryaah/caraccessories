@@ -161,7 +161,7 @@ const SupportResponse = () => {
       <div className="flex items-center gap-4 mb-6">
         <button
           onClick={() => navigate('/admin/support-admin')}
-          className="flex items-center gap-2 text-gray-600 hover:text-[#5737B4]"
+          className="flex items-center gap-2 text-gray-600 hover:text-[#0a1c3e]"
         >
           <BsArrowLeft className="text-lg" />
           Back to Support Dashboard
@@ -175,9 +175,9 @@ const SupportResponse = () => {
             <div className="flex items-center gap-3 mb-2">
               <h1 className="text-2xl font-bold">{ticket.subject}</h1>
               {isAnswerMode ? (
-                <AiOutlineMessage className="text-[#5737B4] text-xl" />
+                <AiOutlineMessage className="text-[#0a1c3e] text-xl" />
               ) : (
-                <AiOutlineEye className="text-[#5737B4] text-xl" />
+                <AiOutlineEye className="text-[#0a1c3e] text-xl" />
               )}
             </div>
             <div className="flex gap-2 mb-2">
@@ -188,7 +188,7 @@ const SupportResponse = () => {
                 {ticket.priority} Priority
               </span>
             </div>
-            <p className="text-gray-600">Ticket ID: <span className="font-medium text-[#5737B4]">{ticket.id}</span></p>
+            <p className="text-gray-600">Ticket ID: <span className="font-medium text-[#0a1c3e]">{ticket.id}</span></p>
           </div>
           
           <div className="flex gap-3">
@@ -267,7 +267,7 @@ const SupportResponse = () => {
         {/* Answer Section */}
         {isAnswerMode && (
           <div className="border-t pt-6">
-            <div className="bg-gradient-to-r from-[#5737B4] to-[#7B68EE] text-white p-4 rounded-t-lg">
+            <div className="bg-gradient-to-r from-[#0a1c3e] to-[#7B68EE] text-white p-4 rounded-t-lg">
               <h3 className="text-lg font-semibold flex items-center gap-2">
                 <AiOutlineMessage />
                 Compose Your Response
@@ -284,7 +284,7 @@ const SupportResponse = () => {
                   onChange={(e) => setAnswerText(e.target.value)}
                   placeholder="Type your detailed response here. Be clear and helpful in addressing the vendor's concern..."
                   rows="8"
-                  className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#5737B4] focus:border-transparent resize-vertical"
+                  className="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0a1c3e] focus:border-transparent resize-vertical"
                 />
                 <div className="flex justify-between items-center mt-2">
                   <p className="text-sm text-gray-500">
@@ -300,7 +300,7 @@ const SupportResponse = () => {
                 <button
                   onClick={handleSubmitAnswer}
                   disabled={!answerText.trim() || loading}
-                  className="bg-[#5737B4] text-white px-6 py-3 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#4A2B9F] transition-colors flex items-center gap-2"
+                  className="bg-[#0a1c3e] text-white px-6 py-3 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[#4A2B9F] transition-colors flex items-center gap-2"
                 >
                   <AiOutlineMessage />
                   Send Response
@@ -322,7 +322,7 @@ const SupportResponse = () => {
             <button
   onClick={() => setIsAnswerMode(true)}
   disabled={isAnswerMode || (ticket.responses && ticket.responses.length > 0) || loading}
-  className={`bg-[#5737B4] text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-colors ${
+  className={`bg-[#0a1c3e] text-white px-6 py-3 rounded-lg flex items-center gap-2 transition-colors ${
     isAnswerMode || (ticket.responses && ticket.responses.length > 0) || loading
       ? "bg-gray-300 cursor-not-allowed"
       : "hover:bg-[#4A2B9F]"

@@ -56,7 +56,7 @@ export default function MonthlyRevenueChart({ data = [] }) {
             <Tooltip content={<CustomTooltip />} />
             <Bar
               dataKey="revenue"
-              fill="#5737B4"
+              fill="#0a1c3e"
               radius={[6, 6, 0, 0]}
               animationDuration={900}
             />

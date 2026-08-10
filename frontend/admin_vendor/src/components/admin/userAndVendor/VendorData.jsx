@@ -168,14 +168,14 @@ export default function VendorDataTable() {
 
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <h1 className="text-2xl font-bold text-[#5737B4]">Vendors Overview</h1>
+        <h1 className="text-2xl font-bold text-[#0a1c3e]">Vendors Overview</h1>
 
         {/* Download Report Button with Dropdown */}
         <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setShowDownloadOptions(!showDownloadOptions)}
             disabled={isDownloading}
-            className={`bg-[#5737B4] text-white px-3 py-2 rounded-md text-sm sm:text-base flex items-center gap-2 transition-all ${
+            className={`bg-[#0a1c3e] text-white px-3 py-2 rounded-md text-sm sm:text-base flex items-center gap-2 transition-all ${
               isDownloading ? "opacity-75 cursor-not-allowed" : "hover:bg-[#462a93]"
             }`}
           >
@@ -268,7 +268,7 @@ export default function VendorDataTable() {
             {filteredVendors.map((vendor, index) => (
               <tr key={`${vendor.id}-${index}`} className="hover:bg-gray-50 text-gray-800">
                 <td className="py-3 px-4">{vendor.id}</td>
-                <td className="py-3 px-4 font-semibold text-[#5737B4]">
+                <td className="py-3 px-4 font-semibold text-[#0a1c3e]">
                   <Link
                     to={`/admin/vendor-details/${vendor.id}`}
                     onClick={() => localStorage.setItem("selected_vendor", JSON.stringify(vendor))}

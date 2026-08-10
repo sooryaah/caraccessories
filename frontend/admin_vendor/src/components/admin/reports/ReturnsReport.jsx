@@ -147,7 +147,7 @@ export default function ReturnsReport() {
 
           <button
             onClick={filterDataByDate}
-            className="bg-[#5737B4] hover:bg-[#2f093d] text-white font-medium 
+            className="bg-[#0a1c3e] hover:bg-[#2f093d] text-white font-medium 
                  px-6 py-2.5 rounded-md shadow-md hover:shadow-lg 
                  transition-all duration-200 whitespace-nowrap"
           >
@@ -156,7 +156,7 @@ export default function ReturnsReport() {
 
           <div>
             <button
-              className="bg-[#5737B4] hover:bg-[#2f093d] text-white font-medium 
+              className="bg-[#0a1c3e] hover:bg-[#2f093d] text-white font-medium 
                    px-6 py-2.5 rounded-md shadow-md hover:shadow-lg 
                    transition-all duration-200 whitespace-nowrap"
             >

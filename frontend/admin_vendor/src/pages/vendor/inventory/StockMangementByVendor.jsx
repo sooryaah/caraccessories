@@ -198,16 +198,16 @@ export default function VendorStockTable() {
     <div className="bg-gray-100 p-4 rounded-2xl w-full space-y-2">
       {/* Header */}
       <div className="flex justify-between items-center">
-        <h1 className="text-xl md:text-2xl font-bold text-[#5737B4]">Stock Overview</h1>
+        <h1 className="text-xl md:text-2xl font-bold text-[#0a1c3e]">Stock Overview</h1>
         <div className="flex items-center gap-2">
           <FaSyncAlt
-            className="text-xl text-[#5737B4] cursor-pointer"
+            className="text-xl text-[#0a1c3e] cursor-pointer"
             onClick={() => window.location.reload()}
           />
           <div className="relative" ref={dropdownRef}>
             <button
               onClick={() => setShowDownloadOptions(!showDownloadOptions)}
-              className="bg-[#5737B4] text-white px-3 py-3 rounded-md text-sm flex items-center gap-2"
+              className="bg-[#0a1c3e] text-white px-3 py-3 rounded-md text-sm flex items-center gap-2"
             >
               Download Report
             </button>
@@ -306,7 +306,7 @@ export default function VendorStockTable() {
                 <td className="py-3 px-3">
                   <button
                     onClick={() => openModal(item)}
-                    className="bg-[#5737B4] text-white px-3 py-1 rounded text-xs hover:bg-[#4A148C] transition-colors"
+                    className="bg-[#0a1c3e] text-white px-3 py-1 rounded text-xs hover:bg-[#4A148C] transition-colors"
                   >
                     Update
                   </button>
@@ -335,7 +335,7 @@ export default function VendorStockTable() {
             key={i}
             onClick={() => goToPage(i + 1)}
             className={`px-3 py-1 border border-gray-300 rounded ${
-              currentPage === i + 1 ? "bg-[#5737B4] text-white" : "bg-gray-200"
+              currentPage === i + 1 ? "bg-[#0a1c3e] text-white" : "bg-gray-200"
             }`}
           >
             {i + 1}
@@ -388,7 +388,7 @@ export default function VendorStockTable() {
               </button>
               <button
                 onClick={handleSave}
-                className="bg-[#5737B4] text-white px-4 py-3 rounded"
+                className="bg-[#0a1c3e] text-white px-4 py-3 rounded"
               >
                 Save
               </button>

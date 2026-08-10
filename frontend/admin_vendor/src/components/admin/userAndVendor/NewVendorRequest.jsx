@@ -27,7 +27,7 @@ const NewVendorRequest = () => {
             {/* Header */}
             <div className="flex justify-between items-center mb-6">
                 <h1 className="text-2xl font-semibold text-gray-800">
-                    <span className="text-[#5737B4]">
+                    <span className="text-[#0a1c3e]">
                         <Link to="/admin/vendors">Vendor</Link>
                     </span>{" "}
                     / View Vendor Requests
@@ -59,7 +59,7 @@ const NewVendorRequest = () => {
                                 {/* Vendor Name and Submission Info */}
                                 <div className='flex flex-col gap-1'>
                                     <div className='flex lg:items-center lg:flex-row lg:gap-15 md:flex-col '>
-                                        <h2 className="text-xl font-semibold text-[#5737B4] mb-1 ml-4">
+                                        <h2 className="text-xl font-semibold text-[#0a1c3e] mb-1 ml-4">
                                             <Link 
                                                 to={`/admin/vendor-details/${vendor.id}`}
                                                 onClick={() => localStorage.setItem("selected_vendor", JSON.stringify(vendor))}
@@ -105,7 +105,7 @@ export default NewVendorRequest;
 //                                 <button className="px-6 py-2 bg-red-100 text-red-600 rounded-md hover:bg-red-200 transition-colors">
 //                                     Reject
 //                                 </button>
-//                                 <button className="px-6 py-2 bg-[#5737B4] text-white rounded-md hover:bg-[#5737B4]/80 transition-colors">
+//                                 <button className="px-6 py-2 bg-[#0a1c3e] text-white rounded-md hover:bg-[#0a1c3e]/80 transition-colors">
 //                                     Approve
 //                                 </button>
 //                             </div>

@@ -130,12 +130,12 @@ export default function AuditLogs() {
   return (
     <div className="bg-[#ECECF0] p-6 rounded-2xl w-full space-y-6">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-[#5737B4]">Audit Logs</h1>
+        <h1 className="text-2xl font-bold text-[#0a1c3e]">Audit Logs</h1>
 
         <div className="relative download-dropdown" ref={dropdownRef}>
           <button
             onClick={toggleDownloadOptions}
-            className="flex items-center gap-2 bg-[#5737B4] text-white px-3 py-2 rounded-md text-sm sm:text-base"
+            className="flex items-center gap-2 bg-[#0a1c3e] text-white px-3 py-2 rounded-md text-sm sm:text-base"
           >
             Download Report
           </button>
@@ -175,7 +175,7 @@ export default function AuditLogs() {
             setSearch("");
             setCurrentPage(1);
           }}
-          className="border border-[#5737B4] text-[#5737B4] hover:bg-[#5737B4] hover:text-white px-4 py-2 rounded transition duration-300"
+          className="border border-[#0a1c3e] text-[#0a1c3e] hover:bg-[#0a1c3e] hover:text-white px-4 py-2 rounded transition duration-300"
         >
           Clear
         </button>
@@ -237,14 +237,14 @@ export default function AuditLogs() {
           <button
             onClick={handlePrev}
             disabled={currentPage === 1}
-            className="text-[#5737B4] px-3 py-1 border rounded disabled:opacity-50"
+            className="text-[#0a1c3e] px-3 py-1 border rounded disabled:opacity-50"
           >
             Prev
           </button>
           <button
             onClick={handleNext}
             disabled={currentPage === totalPages}
-            className="text-[#5737B4] px-3 py-1 border rounded disabled:opacity-50"
+            className="text-[#0a1c3e] px-3 py-1 border rounded disabled:opacity-50"
           >
             Next
           </button>

@@ -35,10 +35,10 @@ const CouponCard = ({ coupon, onSelect, isModal = false, onClose, onDelete }) =>
             <>
                 <div
                     onClick={onSelect}
-                    className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-shadow cursor-pointer group border border-gray-100 hover:border-[#5737B4] duration-200 relative"
+                    className="bg-white rounded-2xl shadow-lg p-6 hover:shadow-2xl transition-shadow cursor-pointer group border border-gray-100 hover:border-[#0a1c3e] duration-200 relative"
                 >
                     <div className="flex justify-between items-center mb-4">
-                        <div className="bg-[#5737B4] text-white p-3 rounded-lg flex items-center justify-center group-hover:bg-[#6d4aff] transition-colors shadow">
+                        <div className="bg-[#0a1c3e] text-white p-3 rounded-lg flex items-center justify-center group-hover:bg-[#6d4aff] transition-colors shadow">
                             <ShoppingCart size={22} />
                         </div>
                         <button
@@ -54,7 +54,7 @@ const CouponCard = ({ coupon, onSelect, isModal = false, onClose, onDelete }) =>
                         </button>
                     </div>
                     <h3 className="text-lg font-bold text-gray-900 mb-1 truncate">{coupon.name}</h3>
-                    <p className="text-md font-extrabold text-[#5737B4] mb-1">{coupon.discount_value}% OFF</p>
+                    <p className="text-md font-extrabold text-[#0a1c3e] mb-1">{coupon.discount_value}% OFF</p>
                     <p className="text-md text-gray-900 mb-3">Code: <span className="font-semibold text-gray-800">{coupon.code}</span></p>
                     <p className="text-md text-gray-900 mb-2">Min. purchase: <span className="font-semibold text-gray-700">₹{coupon.min_purchase_amount}</span></p>
                     <div className="flex items-center gap-2 text-md text-gray-400">

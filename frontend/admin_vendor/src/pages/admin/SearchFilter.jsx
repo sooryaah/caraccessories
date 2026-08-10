@@ -149,13 +149,13 @@ const SearchFilter = ({
       {/* Buttons */}
       <div className="flex flex-col sm:flex-row gap-3 justify-end mt-6">
         <button
-          className="border border-[#5737B4] text-[#5737B4] rounded px-4 py-2 text-sm font-medium hover:bg-[#f4f1ff] transition w-full sm:w-auto"
+          className="border border-[#0a1c3e] text-[#0a1c3e] rounded px-4 py-2 text-sm font-medium hover:bg-[#f4f1ff] transition w-full sm:w-auto"
           onClick={onReset}
         >
           Reset
         </button>
         <button
-          className="bg-[#5737B4] text-white rounded px-4 py-2 text-sm font-medium hover:bg-[#452fa4] transition w-full sm:w-auto"
+          className="bg-[#0a1c3e] text-white rounded px-4 py-2 text-sm font-medium hover:bg-[#f79a17] transition w-full sm:w-auto"
           onClick={() => onSearch?.()}
         >
           Search

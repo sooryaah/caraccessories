@@ -200,7 +200,7 @@ const AdminAccountSettings = () => {
     <div>
       <div className="bg-gray-100 px-3 md:px-6 py-6 md:py-10 rounded-2xl w-full space-y-6">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
-          <h1 className="text-2xl font-bold text-[#5737B4]">
+          <h1 className="text-2xl font-bold text-[#0a1c3e]">
             Admin Account Settings
           </h1>
         </div>

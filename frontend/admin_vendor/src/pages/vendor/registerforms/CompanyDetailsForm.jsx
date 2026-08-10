@@ -215,7 +215,7 @@ export default function CompanyDetails() {
             type="submit"
             disabled={!isFormComplete || loading}
             className={`w-full py-3 rounded-3xl text-white transition mt-5 ${isFormComplete && !loading
-                ? "bg-[#5737B4] hover:bg-[#432a91]"
+                ? "bg-[#0a1c3e] hover:bg-[#f79a17]"
                 : "bg-[#D8D8D8] cursor-not-allowed"
               }`}
           >

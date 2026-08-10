@@ -239,7 +239,7 @@ const PromotionCard = ({
                 >
 
                     <div className='flex justify-between items-center mb-4'>
-                        <div className="bg-[#5737B4] text-white p-3 rounded-lg w-fit mb-4">
+                        <div className="bg-[#0a1c3e] text-white p-3 rounded-lg w-fit mb-4">
                             <ShoppingCart size={20} />
                         </div>
                         <button
@@ -310,7 +310,7 @@ const PromotionCard = ({
             <div className="fixed inset-0 bg-opacity-60 flex justify-center items-center z-50 p-4 backdrop-blur-sm">
                 <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl relative transform transition-all duration-300 ease-in-out scale-100 max-h-[90vh] overflow-hidden">
                     {/* Header Section */}
-                    <div className="bg-[#5737B4] p-6 text-white relative overflow-hidden">
+                    <div className="bg-[#0a1c3e] p-6 text-white relative overflow-hidden">
                         <div className="absolute inset-0 bg-white opacity-10"></div>
                         <button
                             className="absolute top-4 right-4 text-white hover:text-gray-200 transition-colors duration-200 z-10"
@@ -465,7 +465,7 @@ const PromotionCard = ({
                             Close
                         </button>
                         <button
-                            className="px-6 py-2.5 bg-[#5737B4] text-white rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 flex items-center shadow-sm hover:shadow-md"
+                            className="px-6 py-2.5 bg-[#0a1c3e] text-white rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200 flex items-center shadow-sm hover:shadow-md"
                             onClick={() => setIsEditModalOpen(true)}
                         >
 
@@ -478,7 +478,7 @@ const PromotionCard = ({
                         <div className="fixed inset-0 flex justify-center items-center z-60 p-4 backdrop-blur-sm">
                             <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl relative transform transition-all duration-300 ease-in-out scale-100 max-h-[90vh] overflow-y-auto">
                                 {/* Header */}
-                                <div className="bg-[#5737B4] p-6 text-white relative overflow-hidden">
+                                <div className="bg-[#0a1c3e] p-6 text-white relative overflow-hidden">
                                     <div className="absolute inset-0 bg-white opacity-10"></div>
                                     <button
                                         className="absolute top-4 right-4 text-white hover:text-gray-200 transition-colors duration-200 z-10"
@@ -661,7 +661,7 @@ const PromotionCard = ({
                                                                             handleRowChange(index, "products", updatedProducts);
                                                                         }}
                                                                         className="h-4 w-4 border-gray-300 rounded"
-                                                                        style={{ accentColor: "#5737B4" }}
+                                                                        style={{ accentColor: "#0a1c3e" }}
                                                                     />
                                                                     <label className="ml-2 text-sm text-gray-700">{product.name}</label>
                                                                 </div>
@@ -691,7 +691,7 @@ const PromotionCard = ({
                                             <button
                                                 type="button"
                                                 onClick={addRow}
-                                                className="flex items-center justify-center gap-2 bg-[#5737B4] text-white px-6 py-2 rounded-lg hover:bg-[#4A2B9F]"
+                                                className="flex items-center justify-center gap-2 bg-[#0a1c3e] text-white px-6 py-2 rounded-lg hover:bg-[#4A2B9F]"
                                             >
                                                 <AiOutlinePlus /> Add Another Category
                                             </button>
@@ -710,7 +710,7 @@ const PromotionCard = ({
                                         Cancel
                                     </button>
                                     <button
-                                        className="px-6 py-2.5 bg-[#5737B4] text-white rounded-lg font-medium hover:bg-[#5737B4] transition-colors duration-200 flex items-center shadow-sm hover:shadow-md"
+                                        className="px-6 py-2.5 bg-[#0a1c3e] text-white rounded-lg font-medium hover:bg-[#0a1c3e] transition-colors duration-200 flex items-center shadow-sm hover:shadow-md"
                                         onClick={handleSave}
                                     >
                                         <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -45,10 +45,10 @@ const ReturnsRefundsTable = () => {
     <div className="bg-[#ECECF0] rounded-2xl min-h-screen px-4 sm:px-4 md:px-4 lg:px-4 py-2 sm:py-2 md:py-2 lg:py-4">
       {/* Header */}
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-3">
-        <h2 className="text-xl md:text-2xl font-bold text-[#5737B4]">
+        <h2 className="text-xl md:text-2xl font-bold text-[#0a1c3e]">
           Returns & Refunds
         </h2>
-        <button className="bg-[#5737B4] text-white text-sm px-4 py-2 rounded-md hover:bg-[#452fa4] transition w-full sm:w-auto">
+        <button className="bg-[#0a1c3e] text-white text-sm px-4 py-2 rounded-md hover:bg-[#f79a17] transition w-full sm:w-auto">
           Download Report
         </button>
       </div>
@@ -60,7 +60,7 @@ const ReturnsRefundsTable = () => {
             <label className="block text-sm font-medium text-gray-700 mb-1">Order ID</label>
             <input
               type="text"
-              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#5737B4]"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0a1c3e]"
             />
           </div>
 
@@ -68,13 +68,13 @@ const ReturnsRefundsTable = () => {
             <label className="block text-sm font-medium text-gray-700 mb-1">Buyer Name</label>
             <input
               type="text"
-              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#5737B4]"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0a1c3e]"
             />
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Order Status</label>
-            <select className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#5737B4]">
+            <select className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0a1c3e]">
               <option>Select Status</option>
               <option>Approved</option>
               <option>Pending</option>
@@ -87,7 +87,7 @@ const ReturnsRefundsTable = () => {
             <label className="block text-sm font-medium text-gray-700 mb-1">Date - From</label>
             <input
               type="date"
-              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#5737B4]"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0a1c3e]"
             />
           </div>
 
@@ -95,7 +95,7 @@ const ReturnsRefundsTable = () => {
             <label className="block text-sm font-medium text-gray-700 mb-1">Date - To</label>
             <input
               type="date"
-              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#5737B4]"
+              className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0a1c3e]"
             />
           </div>
         </div>
@@ -104,7 +104,7 @@ const ReturnsRefundsTable = () => {
           <button className="border border-gray-300 text-gray-700 px-6 py-2 text-sm rounded-md hover:bg-gray-50 w-full sm:w-auto">
             Reset
           </button>
-          <button className="bg-[#5737B4] text-white px-6 py-2 text-sm rounded-md hover:bg-[#452fa4] w-full sm:w-auto">
+          <button className="bg-[#0a1c3e] text-white px-6 py-2 text-sm rounded-md hover:bg-[#f79a17] w-full sm:w-auto">
             Search
           </button>
         </div>
@@ -164,7 +164,7 @@ const ReturnsRefundsTable = () => {
           <Link to={`/vendor/orders/edit-order`}>
             <PiPencilSimpleLineLight className="text-lg mb-2 text-gray-700" />
           </Link>
-          <Link to={`/vendor/orders/order-detail`} className="flex items-center text-[#5737B4] font-semibold">
+          <Link to={`/vendor/orders/order-detail`} className="flex items-center text-[#0a1c3e] font-semibold">
             View More
           </Link>
         </td>
@@ -182,7 +182,7 @@ const ReturnsRefundsTable = () => {
         {currentItems.map((product, idx) => (
           <div key={idx} className="bg-white rounded-lg shadow p-4">
             <div className="flex justify-between items-center mb-2">
-              <h3 className="text-[#5737B4] font-medium text-sm">{product.name}</h3>
+              <h3 className="text-[#0a1c3e] font-medium text-sm">{product.name}</h3>
               <span
                 className={`px-2 py-1 rounded-full text-xs font-semibold ${product.status === "Approved"
                   ? "bg-green-100 text-green-600"
@@ -211,11 +211,11 @@ const ReturnsRefundsTable = () => {
             </p>
             <div className="flex justify-end gap-4">
               <Link to={`/vendor/orders/edit-order`}>
-                <PiPencilSimpleLineLight className="text-lg text-gray-700 hover:text-[#5737B4]" />
+                <PiPencilSimpleLineLight className="text-lg text-gray-700 hover:text-[#0a1c3e]" />
               </Link>
               <Link
                 to={`/vendor/orders/order-detail`}
-                className="text-[#5737B4] font-semibold text-sm hover:underline"
+                className="text-[#0a1c3e] font-semibold text-sm hover:underline"
               >
                 View More
               </Link>
@@ -233,14 +233,14 @@ const ReturnsRefundsTable = () => {
           <button
             onClick={handlePrev}
             disabled={currentPage === 1}
-            className="text-[#5737B4] px-3 py-1 border rounded disabled:opacity-50"
+            className="text-[#0a1c3e] px-3 py-1 border rounded disabled:opacity-50"
           >
             Prev
           </button>
           <button
             onClick={handleNext}
             disabled={currentPage === totalPages}
-            className="text-[#5737B4] px-3 py-1 border rounded disabled:opacity-50"
+            className="text-[#0a1c3e] px-3 py-1 border rounded disabled:opacity-50"
           >
             Next
           </button>
