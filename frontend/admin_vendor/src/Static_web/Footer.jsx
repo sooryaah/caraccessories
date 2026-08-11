@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../assets/carooa_logo.jpg";
 import { Link } from "react-router-dom";
+import { FaInstagram, FaFacebook, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -30,9 +31,36 @@ const Footer = () => {
         <div>
           <h3 className="font-bold text-lg mb-4 text-[#ff9200]">CONNECT WITH US</h3>
           <ul className="space-y-2.5 text-gray-300 text-sm md:text-base">
-            <li><a href="#" className="hover:text-[#ff9200] transition-colors">Email</a></li>
-            <li><a href="#" className="hover:text-[#ff9200] transition-colors">Instagram</a></li>
-            <li><a href="#" className="hover:text-[#ff9200] transition-colors">Facebook</a></li>
+            <li>
+              <a href="mailto:carooa@gmail.com" className="flex items-center gap-2 hover:text-[#ff9200] transition-colors">
+                <FaEnvelope className="shrink-0" />
+                <span>carooa@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:carooainternational@gmail.com" className="flex items-center gap-2 hover:text-[#ff9200] transition-colors">
+                <FaEnvelope className="shrink-0" />
+                <span>carooainternational@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:info@carooa.com" className="flex items-center gap-2 hover:text-[#ff9200] transition-colors">
+                <FaEnvelope className="shrink-0" />
+                <span>info@carooa.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/carooainternational?utm_source=qr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#ff9200] transition-colors">
+                <FaInstagram className="shrink-0" />
+                <span>Instagram</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/share/1EjFzZAjoi/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[#ff9200] transition-colors">
+                <FaFacebook className="shrink-0" />
+                <span>Facebook</span>
+              </a>
+            </li>
           </ul>
         </div>
 

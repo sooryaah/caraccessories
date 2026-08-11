@@ -1,139 +1,182 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { IoSearchOutline } from "react-icons/io5";
+import { serverurl, baseUrl } from "../services/serverURL";
+import axios from "axios";
 
-import wheel1 from "../assets/wheel1.png";
-import wheel2 from "../assets/wheel2.png";
-import wheel3 from "../assets/wheel3.png";
-import wheel4 from "../assets/wheel4.png";
-import wheel5 from "../assets/wheel5.png";
-import wheel6 from "../assets/wheel6.png";
-import wheel7 from "../assets/wheel7.png";
-import wheel8 from "../assets/wheel8.png";
-import wheel9 from "../assets/wheel8.png";
-import wheel10 from "../assets/wheel10.png";
-import wheel11 from "../assets/wheel11.png";
-import wheel12 from "../assets/wheel2.png";
-import wheel13 from "../assets/wheel3.png";
-import wheel14 from "../assets/wheel4.png";
-import wheel15 from "../assets/wheel5.png";
-import wheel16 from "../assets/wheel6.png";
-
-// Product data
-const products = [
-  { name: "Alloy Wheel – XZR Sport 18", image: wheel1, size: "18 × 8J", bolt: "5×114.3", material: "High-grade aluminum alloy", finish: "Glossy Black with Silver Accents", weight: "9.2 kg", price: "₹18,500 per wheel" },
-  { name: "Alloy Wheel – XZR Sport 18", image: wheel2, size: "18 × 8J", bolt: "5×114.3", material: "High-grade aluminum alloy", finish: "Glossy Black with Silver Accents", weight: "9.2 kg", price: "₹18,500 per wheel" },
-  { name: "Alloy Wheel – XZR Sport 18", image: wheel3, size: "18 × 8J", bolt: "5×114.3", material: "High-grade aluminum alloy", finish: "Glossy Black with Silver Accents", weight: "9.2 kg", price: "₹18,500 per wheel" },
-  { name: "Alloy Wheel – XZR Sport 18", image: wheel4, size: "18 × 8J", bolt: "5×114.3", material: "High-grade aluminum alloy", finish: "Glossy Black with Silver Accents", weight: "9.2 kg", price: "₹18,500 per wheel" },
-  { name: "Alloy Wheel – XZR Sport 18", image: wheel5, size: "18 × 8J", bolt: "5×114.3", material: "High-grade aluminum alloy", finish: "Glossy Black with Silver Accents", weight: "9.2 kg", price: "₹18,500 per wheel" },
-  { name: "Alloy Wheel – XZR Sport 18", image: wheel6, size: "18 × 8J", bolt: "5×114.3", material: "High-grade aluminum alloy", finish: "Glossy Black with Silver Accents", weight: "9.2 kg", price: "₹18,500 per wheel" },
-  { name: "Alloy Wheel – XZR Sport 18", image: wheel7, size: "18 × 8J", bolt: "5×114.3", material: "High-grade aluminum alloy", finish: "Glossy Black with Silver Accents", weight: "9.2 kg", price: "₹18,500 per wheel" },
-  { name: "Alloy Wheel – XZR Sport 18", image: wheel8, size: "18 × 8J", bolt: "5×114.3", material: "High-grade aluminum alloy", finish: "Glossy Black with Silver Accents", weight: "9.2 kg", price: "₹18,500 per wheel" },
-  { name: "Alloy Wheel – XZR Sport 18", image: wheel9, size: "18 × 8J", bolt: "5×114.3", material: "High-grade aluminum alloy", finish: "Glossy Black with Silver Accents", weight: "9.2 kg", price: "₹18,500 per wheel" },
-  { name: "Alloy Wheel – XZR Sport 18", image: wheel10, size: "18 × 8J", bolt: "5×114.3", material: "High-grade aluminum alloy", finish: "Glossy Black with Silver Accents", weight: "9.2 kg", price: "₹18,500 per wheel" },
-  { name: "Alloy Wheel – XZR Sport 18", image: wheel11, size: "18 × 8J", bolt: "5×114.3", material: "High-grade aluminum alloy", finish: "Glossy Black with Silver Accents", weight: "9.2 kg", price: "₹18,500 per wheel" },
-  { name: "Alloy Wheel – XZR Sport 18", image: wheel12, size: "18 × 8J", bolt: "5×114.3", material: "High-grade aluminum alloy", finish: "Glossy Black with Silver Accents", weight: "9.2 kg", price: "₹18,500 per wheel" },
-  { name: "Alloy Wheel – XZR Sport 18", image: wheel13, size: "18 × 8J", bolt: "5×114.3", material: "High-grade aluminum alloy", finish: "Glossy Black with Silver Accents", weight: "9.2 kg", price: "₹18,500 per wheel" },
-  { name: "Alloy Wheel – XZR Sport 18", image: wheel14, size: "18 × 8J", bolt: "5×114.3", material: "High-grade aluminum alloy", finish: "Glossy Black with Silver Accents", weight: "9.2 kg", price: "₹18,500 per wheel" },
-  { name: "Alloy Wheel – XZR Sport 18", image: wheel15, size: "18 × 8J", bolt: "5×114.3", material: "High-grade aluminum alloy", finish: "Glossy Black with Silver Accents", weight: "9.2 kg", price: "₹18,500 per wheel" },
-  { name: "Alloy Wheel – XZR Sport 18", image: wheel16, size: "18 × 8J", bolt: "5×114.3", material: "High-grade aluminum alloy", finish: "Glossy Black with Silver Accents", weight: "9.2 kg", price: "₹18,500 per wheel" },
-];
-
-/**
- * A component that displays a grid of wheels with pagination
- * 
- * @param {string} search - The search query to filter the wheels
- * @param {number} currentPage - The current page number
- * @param {number} itemsPerPage - The number of items to display per page
- * @param {number} totalPages - The total number of pages
- * @param {function} goToPage - A function to navigate to a specific page
- * @returns {JSX.Element} - A JSX element representing the wheels grid with pagination
- */
-/*******  96cc2600-6fb1-4749-9069-d144b8eb6922  *******/
 const WheelsPart = () => {
   const [search, setSearch] = useState("");
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
+  const [nextPage, setNextPage] = useState(null);
+  const [prevPage, setPrevPage] = useState(null);
 
-  const itemsPerPage = 4; 
+  const itemsPerPage = 4;
 
-  // Filter products by search
+  const fetchProducts = async (url) => {
+    try {
+      setLoading(true);
+      const response = await axios.get(url);
+      const data = response.data;
+
+      // Handle paginated response { count, next, previous, results }
+      if (data && data.results) {
+        setProducts(data.results);
+        setTotalCount(data.count);
+        setNextPage(data.next);
+        setPrevPage(data.previous);
+      } else if (Array.isArray(data)) {
+        setProducts(data);
+        setTotalCount(data.length);
+      }
+    } catch (err) {
+      console.error("Failed to fetch products:", err);
+      setError("Failed to load products.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchProducts(`${serverurl}/products/products/?page=1&page_size=${itemsPerPage}`);
+  }, []);
+
   const filteredProducts = products.filter((prod) =>
     prod.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  // Pagination logic
-  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentProducts = filteredProducts.slice(
-    startIndex,
-    startIndex + itemsPerPage
-  );
+  const totalPages = Math.ceil(totalCount / itemsPerPage);
 
   const goToPage = (page) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
-    }
+    if (page < 1 || page > totalPages) return;
+    setCurrentPage(page);
+    fetchProducts(
+      `${serverurl}/products/products/?page=${page}&page_size=${itemsPerPage}`
+    );
+  };
+
+  const getMainImage = (product) => {
+    if (!product.image_list) return null;
+    const main = product.image_list.find((img) => img && img.image);
+    return main ? main.image : null;
   };
 
   return (
     <div>
-    <div className="px-6  max-w-7xl mx-auto">
-      {/* Product Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-        {currentProducts.map((prod, index) => (
-          <div
-            key={index}
-            className="bg-white rounded-xl shadow-md p-4 text-left hover:shadow-lg transition"
-          >
-            <img
-              src={prod.image}
-              alt={prod.name}
-              className="w-full h-40 object-cover rounded-lg mb-4 "
+      <div className="px-6 max-w-7xl mx-auto">
+        {/* Search Bar */}
+        <div className="flex justify-center items-center gap-3 mb-4 max-w-2xl mx-auto">
+          <div className="relative flex-1">
+            <IoSearchOutline className="absolute left-3 top-3 text-gray-400" size={20} />
+            <input
+              type="text"
+              placeholder="Search products..."
+              value={search}
+              onChange={(e) => {
+                setSearch(e.target.value);
+                setCurrentPage(1);
+              }}
+              className="w-full pl-10 pr-4 py-2 rounded-xl shadow-md border border-gray-200 focus:ring-2 focus:ring-purple-500 focus:outline-none"
             />
-            <h3 className="text-[#0a1c3e] font-bold text-md mb-2">{prod.name}</h3>
-            <p>Size: {prod.size}</p>
-            <p><b>Bolt Pattern:</b> {prod.bolt}</p>
-            <p><b>Material:</b> {prod.material}</p>
-            <p><b>Finish:</b> {prod.finish}</p>
-            <p><b>Weight:</b> {prod.weight}</p>
-            <p><b>Price:</b> {prod.price}</p>
           </div>
-        ))}
+        </div>
+
+        {/* Loading */}
+        {loading && (
+          <div className="flex justify-center items-center py-16">
+            <div className="w-10 h-10 border-4 border-purple-500 border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        )}
+
+        {/* Error */}
+        {error && !loading && (
+          <p className="text-center text-red-500 py-10">{error}</p>
+        )}
+
+        {/* Product Grid */}
+        {!loading && !error && (
+          <>
+            {filteredProducts.length === 0 ? (
+              <p className="text-center text-gray-500 py-10">No products found.</p>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                {filteredProducts.map((prod) => {
+                  const imgUrl = getMainImage(prod);
+                  const price = prod.variants?.length > 0
+                    ? prod.variants.find((v) => v.is_default)?.price || prod.price
+                    : prod.price;
+
+                  return (
+                    <div
+                      key={prod.id}
+                      className="bg-white rounded-xl shadow-md p-4 text-left hover:shadow-lg transition"
+                    >
+                      {imgUrl ? (
+                        <img
+                          src={imgUrl.startsWith("http") ? imgUrl : `${baseUrl}${imgUrl}`}
+                          alt={prod.name}
+                          className="w-full h-40 object-cover rounded-lg mb-4"
+                          onError={(e) => { e.target.style.display = "none"; }}
+                        />
+                      ) : (
+                        <div className="w-full h-40 bg-gray-100 rounded-lg mb-4 flex items-center justify-center text-gray-400 text-4xl">
+                          🚗
+                        </div>
+                      )}
+                      <h3 className="text-[#0a1c3e] font-bold text-md mb-2 line-clamp-2">{prod.name}</h3>
+                      {prod.category && (
+                        <p className="text-xs text-purple-600 font-medium mb-1">{prod.category.name}</p>
+                      )}
+                      {prod.size && <p className="text-sm text-gray-600">Size: {prod.size}</p>}
+                      {prod.weight && <p className="text-sm text-gray-600"><b>Weight:</b> {prod.weight} kg</p>}
+                      <p className="text-sm font-semibold text-gray-800 mt-1">
+                        ₹{parseFloat(price).toLocaleString("en-IN")}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="flex justify-center items-center gap-2 mt-8">
+                <button
+                  onClick={() => goToPage(currentPage - 1)}
+                  disabled={currentPage === 1}
+                  className="px-3 py-1 border rounded-md text-purple-600 border-purple-600 hover:bg-purple-100 disabled:opacity-50"
+                >
+                  Previous
+                </button>
+
+                {[...Array(totalPages)].map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToPage(index + 1)}
+                    className={`px-3 py-1 border rounded-md ${
+                      currentPage === index + 1
+                        ? "bg-purple-600 text-white"
+                        : "text-purple-600 border-purple-600 hover:bg-purple-100"
+                    }`}
+                  >
+                    {index + 1}
+                  </button>
+                ))}
+
+                <button
+                  onClick={() => goToPage(currentPage + 1)}
+                  disabled={currentPage === totalPages}
+                  className="px-3 py-1 border rounded-md text-purple-600 border-purple-600 hover:bg-purple-100 disabled:opacity-50"
+                >
+                  Next
+                </button>
+              </div>
+            )}
+          </>
+        )}
       </div>
-
-      {/* Pagination */}
-      <div className="flex justify-center items-center gap-2 mt-8">
-        <button
-          onClick={() => goToPage(currentPage - 1)}
-          disabled={currentPage === 1}
-          className="px-3 py-1 border rounded-md text-purple-600 border-purple-600 hover:bg-purple-100 disabled:opacity-50"
-        >
-          Previous
-        </button>
-
-        {[...Array(totalPages)].map((_, index) => (
-          <button
-            key={index}
-            onClick={() => goToPage(index + 1)}
-            className={`px-3 py-1 border rounded-md ${
-              currentPage === index + 1
-                ? "bg-purple-600 text-white"
-                : "text-purple-600 border-purple-600 hover:bg-purple-100"
-            }`}
-          >
-            {index + 1}
-          </button>
-        ))}
-
-        <button
-          onClick={() => goToPage(currentPage + 1)}
-          disabled={currentPage === totalPages}
-          className="px-3 py-1 border rounded-md text-purple-600 border-purple-600 hover:bg-purple-100 disabled:opacity-50"
-        >
-          Next
-        </button>
-      </div>
-    </div>
-    
     </div>
   );
 };
