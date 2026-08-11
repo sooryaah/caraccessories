@@ -8,7 +8,7 @@ import {
   IoSparklesOutline,
   IoCheckmarkCircle
 } from "react-icons/io5";
-import { serverurl, baseUrl, getMediaUrl } from "../services/serverURL";
+import { serverurl, baseUrl } from "../services/serverURL";
 import axios from "axios";
 
 const ITEMS_PER_PAGE = 8; // Show 8 products per page in the UI (2 rows of 4)
@@ -31,10 +31,7 @@ const WheelsPart = () => {
       // Fetch categories for filter chips
       try {
         const catRes = await axios.get(`${serverurl}/products/category/`);
-        const catData = Array.isArray(catRes.data)
-          ? catRes.data
-          : catRes.data?.results || catRes.data?.data || catRes.data?.message || [];
-        const parents = catData.filter((c) => c && (c.parent === null || c.parent === undefined) && c.available !== false);
+        const parents = catRes.data.filter((c) => c.parent === null && c.available !== false);
         setCategoriesList(parents);
       } catch (catErr) {
         console.warn("Could not load category list for chips:", catErr);
@@ -208,7 +205,7 @@ const WheelsPart = () => {
                         <div className="relative h-48 bg-gradient-to-b from-gray-50/80 to-gray-100/50 overflow-hidden flex items-center justify-center p-4">
                           {imgUrl ? (
                             <img
-                              src={getMediaUrl(imgUrl)}
+                              src={imgUrl.startsWith("http") ? imgUrl : `${baseUrl}${imgUrl}`}
                               alt={prod.name}
                               className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                               onError={(e) => { e.target.style.display = "none"; }}

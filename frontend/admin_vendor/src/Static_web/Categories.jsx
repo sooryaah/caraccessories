@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { IoSearchOutline, IoArrowForward, IoGridOutline } from "react-icons/io5";
-import { serverurl, baseUrl, getMediaUrl } from "../services/serverURL";
+import { serverurl, baseUrl } from "../services/serverURL";
 import axios from "axios";
 
 const Categories = () => {
@@ -13,12 +13,10 @@ const Categories = () => {
     const fetchCategories = async () => {
       try {
         setLoading(true);
-        const rawData = Array.isArray(response.data)
-          ? response.data
-          : response.data?.results || response.data?.data || response.data?.message || [];
-        
-        const parentCategories = rawData.filter(
-          (cat) => cat && (cat.parent === null || cat.parent === undefined) && cat.available !== false
+        const response = await axios.get(`${serverurl}/products/category/`);
+        // Only show parent-level categories (no parent) and that are available
+        const parentCategories = response.data.filter(
+          (cat) => cat.parent === null && cat.available !== false
         );
         setCategories(parentCategories);
       } catch (err) {
@@ -100,7 +98,7 @@ const Categories = () => {
                   <div className="w-14 h-14 rounded-2xl bg-gray-50/80 border border-gray-100 flex items-center justify-center p-2.5 shrink-0 group-hover:bg-orange-50 group-hover:border-orange-100 transition-all duration-300">
                     {cat.image ? (
                       <img
-                        src={getMediaUrl(cat.image)}
+                        src={`${baseUrl}${cat.image}`}
                         alt={cat.name}
                         className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
                       />
