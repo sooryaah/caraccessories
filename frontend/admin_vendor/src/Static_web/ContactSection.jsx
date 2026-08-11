@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import interior from "../assets/interior.png";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xrpzqerk";
@@ -14,6 +14,14 @@ const ContactSection = () => {
 
   const [errors, setErrors] = useState({});
   const [status, setStatus] = useState("idle"); // idle | submitting | success | error
+
+  // Auto-dismiss success/error banner after 30 seconds
+  useEffect(() => {
+    if (status === "success" || status === "error") {
+      const timer = setTimeout(() => setStatus("idle"), 30000);
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
 
   const validate = () => {
     const newErrors = {};
