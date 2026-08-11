@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { IoSearchOutline, IoArrowForward, IoGridOutline } from "react-icons/io5";
-import { serverurl, baseUrl } from "../services/serverURL";
+import { serverurl, baseUrl, getMediaUrl } from "../services/serverURL";
 import axios from "axios";
 
 const Categories = () => {
@@ -98,7 +98,7 @@ const Categories = () => {
                   <div className="w-14 h-14 rounded-2xl bg-gray-50/80 border border-gray-100 flex items-center justify-center p-2.5 shrink-0 group-hover:bg-orange-50 group-hover:border-orange-100 transition-all duration-300">
                     {cat.image ? (
                       <img
-                        src={`${baseUrl}${cat.image}`}
+                        src={getMediaUrl(cat.image)}
                         alt={cat.name}
                         className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
                       />

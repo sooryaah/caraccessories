@@ -8,7 +8,7 @@ import {
   IoSparklesOutline,
   IoCheckmarkCircle
 } from "react-icons/io5";
-import { serverurl, baseUrl } from "../services/serverURL";
+import { serverurl, baseUrl, getMediaUrl } from "../services/serverURL";
 import axios from "axios";
 
 const ITEMS_PER_PAGE = 8; // Show 8 products per page in the UI (2 rows of 4)
@@ -205,7 +205,7 @@ const WheelsPart = () => {
                         <div className="relative h-48 bg-gradient-to-b from-gray-50/80 to-gray-100/50 overflow-hidden flex items-center justify-center p-4">
                           {imgUrl ? (
                             <img
-                              src={imgUrl.startsWith("http") ? imgUrl : `${baseUrl}${imgUrl}`}
+                              src={getMediaUrl(imgUrl)}
                               alt={prod.name}
                               className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                               onError={(e) => { e.target.style.display = "none"; }}
