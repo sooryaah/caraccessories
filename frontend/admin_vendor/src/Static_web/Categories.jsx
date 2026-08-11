@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { IoSearchOutline, IoArrowForward } from "react-icons/io5";
+import { IoSearchOutline, IoArrowForward, IoGridOutline } from "react-icons/io5";
 import { serverurl, baseUrl } from "../services/serverURL";
 import axios from "axios";
 
@@ -34,13 +34,14 @@ const Categories = () => {
   );
 
   return (
-    <div className="py-12 border-t border-gray-100">
+    <div className="py-16 border-t border-gray-200/60 relative">
       {/* Title & Header */}
       <div className="text-center max-w-2xl mx-auto mb-10">
-        <span className="inline-block bg-orange-500/10 text-[#ff9200] border border-orange-500/20 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+        <span className="inline-flex items-center gap-1.5 bg-orange-500/10 text-[#ff9200] border border-orange-500/20 px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-3 shadow-xs">
+          <IoGridOutline className="text-sm" />
           CATEGORIES
         </span>
-        <h2 className="text-3xl md:text-4xl font-extrabold text-[#071a3d] tracking-tight">
+        <h2 className="text-3xl sm:text-4xl font-black text-[#071a3d] tracking-tight">
           EXPLORE BY CATEGORY
         </h2>
         <p className="text-gray-500 text-sm md:text-base mt-2">
@@ -49,7 +50,7 @@ const Categories = () => {
       </div>
 
       {/* Search Bar */}
-      <div className="flex justify-center items-center gap-3 mb-10 max-w-xl mx-auto px-4">
+      <div className="flex justify-center items-center gap-3 mb-12 max-w-xl mx-auto px-4">
         <div className="relative flex-1">
           <IoSearchOutline className="absolute left-4 top-3.5 text-gray-400" size={20} />
           <input
@@ -57,10 +58,10 @@ const Categories = () => {
             placeholder="Search categories..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-11 pr-4 py-3 rounded-xl shadow-sm bg-white border border-gray-200 text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-[#ff9200] focus:border-[#ff9200] focus:outline-none transition-all"
+            className="w-full pl-11 pr-4 py-3 rounded-2xl shadow-sm bg-white/90 backdrop-blur-md border border-gray-200 text-gray-800 placeholder-gray-400 focus:ring-2 focus:ring-[#ff9200] focus:border-[#ff9200] focus:outline-none transition-all"
           />
         </div>
-        <button className="px-6 py-3 bg-[#ff9200] hover:bg-[#e07f00] text-white font-semibold rounded-xl shadow-md hover:shadow-lg transition-all duration-300">
+        <button className="px-6 py-3 bg-[#ff9200] hover:bg-[#e07f00] text-white font-semibold rounded-2xl shadow-md hover:shadow-lg hover:shadow-orange-500/20 transition-all duration-300">
           Search
         </button>
       </div>
@@ -74,7 +75,7 @@ const Categories = () => {
 
       {/* Error */}
       {error && !loading && (
-        <p className="text-center text-red-500 py-6">{error}</p>
+        <p className="text-center text-red-500 py-6 font-medium">{error}</p>
       )}
 
       {/* Categories Grid */}
@@ -88,10 +89,13 @@ const Categories = () => {
             filteredCategories.map((cat) => (
               <div
                 key={cat.id}
-                className="group bg-white rounded-2xl border border-gray-100 p-5 shadow-sm hover:shadow-xl hover:border-[#ff9200]/40 transition-all duration-300 flex items-center justify-between cursor-pointer transform hover:-translate-y-1"
+                className="group relative bg-white rounded-2xl border border-gray-100 p-5 shadow-sm hover:shadow-xl hover:shadow-orange-500/10 hover:border-[#ff9200]/40 transition-all duration-300 flex items-center justify-between cursor-pointer transform hover:-translate-y-1 overflow-hidden"
               >
+                {/* Subtle top hover accent line */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#ff9200] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
                 <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center p-2.5 shrink-0 group-hover:bg-orange-50/50 transition-colors">
+                  <div className="w-14 h-14 rounded-2xl bg-gray-50/80 border border-gray-100 flex items-center justify-center p-2.5 shrink-0 group-hover:bg-orange-50 group-hover:border-orange-100 transition-all duration-300">
                     {cat.image ? (
                       <img
                         src={`${baseUrl}${cat.image}`}
@@ -106,10 +110,13 @@ const Categories = () => {
                     <h3 className="font-bold text-[#0a1c3e] group-hover:text-[#ff9200] transition-colors text-base line-clamp-1">
                       {cat.name}
                     </h3>
-                    <p className="text-xs text-gray-400 mt-0.5">Explore Products</p>
+                    <span className="inline-block text-[11px] font-semibold text-gray-400 group-hover:text-orange-500 transition-colors mt-0.5">
+                      Explore Products →
+                    </span>
                   </div>
                 </div>
-                <div className="w-8 h-8 rounded-full bg-gray-50 group-hover:bg-[#ff9200] text-gray-400 group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0">
+
+                <div className="w-8 h-8 rounded-full bg-gray-50 group-hover:bg-[#ff9200] text-gray-400 group-hover:text-white flex items-center justify-center transition-all duration-300 shrink-0 shadow-xs">
                   <IoArrowForward className="text-sm group-hover:translate-x-0.5 transition-transform" />
                 </div>
               </div>
