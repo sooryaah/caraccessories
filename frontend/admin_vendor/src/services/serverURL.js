@@ -1,15 +1,35 @@
-const getLocalServerUrl = (path) => {
+const getSanitizedServerUrl = () => {
+  const envUrl = import.meta.env.VITE_API_BASE_URL;
+
   if (typeof window !== 'undefined') {
     const hostname = window.location.hostname;
-    if (hostname === "localhost" || hostname === "127.0.0.1" || hostname.startsWith("192.168.")) {
-      return `http://${hostname}:8000${path}`;
+    const isLocal = hostname === "localhost" || hostname === "127.0.0.1" || hostname.startsWith("192.168.");
+
+    if (isLocal) {
+      return envUrl || `http://${hostname}:8000/api`;
     }
+
+    // On Production/Vercel (HTTPS):
+    // If envUrl is an absolute "http://..." URL (insecure HTTP), strip out host domain
+    // to use relative "/api" path so requests route through Vercel proxy securely!
+    if (envUrl && envUrl.startsWith("http")) {
+      try {
+        const parsed = new URL(envUrl);
+        const p = parsed.pathname;
+        return p && p !== "/" ? (p.endsWith('/') ? p.slice(0, -1) : p) : "/api";
+      } catch (e) {
+        return "/api";
+      }
+    }
+
+    return (envUrl && envUrl.startsWith("/")) ? envUrl : "/api";
   }
-  return path;
+
+  return envUrl || "/api";
 };
 
-export const serverurl = import.meta.env.VITE_API_BASE_URL || getLocalServerUrl("/api");
-export const baseUrl = import.meta.env.VITE_MEDIA_BASE_URL || getLocalServerUrl("");
+export const serverurl = getSanitizedServerUrl();
+export const baseUrl = import.meta.env.VITE_MEDIA_BASE_URL || "";
 
 /**
  * Returns a media URL safe for both local dev and production Vercel deployment.
