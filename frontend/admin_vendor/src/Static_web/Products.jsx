@@ -26,40 +26,43 @@ const Products = () => {
   ];
 
   // custom vertical offsets for curve effect
-  const offsets = ["mt-0", "mt-20", "mt-40", "mt-20", "mt-0"];
+  const offsets = ["mt-0", "mt-16", "mt-32", "mt-16", "mt-0"];
 
   return (
-    <div>
+    <div className="bg-slate-50/50 min-h-screen">
       {/* Navbar */}
       <Navbar bgColor="bg-gradient-to-r from-[#0a1c3e] to-[#023669]" />
 
       {/* Main Section */}
-      <section className="max-w-7xl mx-auto py-24 px-6 text-center">
+      <section className="max-w-7xl mx-auto pt-16 pb-20 px-6 text-center">
+        {/* Subtitle Badge */}
+        <span className="inline-block bg-orange-500/10 text-[#ff9200] border border-orange-500/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-4">
+          AUTOMOTIVE MARKETPLACE
+        </span>
+
         {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-bebas-neue text-gray-900 mt-8 mb-6">
+        <h1 className="text-4xl md:text-6xl font-extrabold text-[#071a3d] tracking-tight mb-4">
           EXPLORE WHAT WE OFFER
-        </h2>
-        <p className="text-gray-600 mx-auto mb-6 leading-relaxed max-w-2xl">
-          Discover a wide range of automotive products available on Caroora. From
-          essential parts to accessories, our platform connects buyers with trusted
-          vendors.
+        </h1>
+        <p className="text-gray-600 mx-auto mb-8 leading-relaxed max-w-2xl text-base md:text-lg">
+          Discover a wide range of premium automotive products on Carooa. From essential replacement parts to custom performance accessories, we connect buyers with trusted vendors.
         </p>
 
         <Link
           to="/register"
-          className="bg-sky-500 hover:bg-sky-600 text-white font-semibold px-12 py-3 rounded-md mb-12 transition inline-block text-center"
+          className="bg-[#ff9200] hover:bg-[#e07f00] text-white font-bold text-base px-10 py-3.5 rounded-xl shadow-lg shadow-orange-500/20 hover:shadow-orange-500/30 hover:-translate-y-0.5 transition-all duration-300 inline-block text-center mb-16"
         >
-          Start Selling
+          Start Selling Today
         </Link>
 
         {/* Curve layout */}
-        <div className="flex justify-center gap-4">
+        <div className="flex justify-center gap-3 sm:gap-4 mb-16">
           {columns.map((col, colIndex) => (
-            <div key={colIndex} className={`flex flex-col gap-4 ${offsets[colIndex]}`}>
+            <div key={colIndex} className={`flex flex-col gap-3 sm:gap-4 ${offsets[colIndex]}`}>
               {col.map((src, imgIndex) => (
                 <div
                   key={imgIndex}
-                  className="overflow-hidden rounded-lg shadow hover:scale-105 transition-transform duration-300"
+                  className="overflow-hidden rounded-2xl border border-gray-200/60 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-500 bg-white"
                 >
                   <img
                     src={src}
@@ -73,8 +76,10 @@ const Products = () => {
           ))}
         </div>
 
-        {/* Extra Sections */}
+        {/* Categories Section */}
         <Categories />
+
+        {/* Products Grid Section */}
         <WheelsPart />
       </section>
 
