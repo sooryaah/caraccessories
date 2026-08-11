@@ -38,6 +38,11 @@ export const baseUrl = import.meta.env.VITE_MEDIA_BASE_URL || "";
  */
 export const getMediaUrl = (path) => {
   if (!path) return "";
+
+  // If path is an object containing image/url property
+  if (typeof path === "object" && path !== null) {
+    path = path.image || path.url || "";
+  }
   
   // If backend returns an absolute HTTP URL like "http://13.233.157.90/media/sample.jpg"
   if (typeof path === "string" && path.startsWith("http")) {
@@ -55,9 +60,15 @@ export const getMediaUrl = (path) => {
     return path;
   }
 
-  // If path is a relative string (e.g., "/media/..." or "media/...")
+  // If path is a relative string (e.g., "/media/...", "media/...", or "products_image/...")
   if (typeof path === "string") {
-    const cleanPath = path.startsWith("/") ? path : `/${path}`;
+    let cleanPath = path.startsWith("/") ? path : `/${path}`;
+
+    // Ensure path starts with /media/ for proper backend media routing
+    if (!cleanPath.startsWith("/media/")) {
+      cleanPath = `/media${cleanPath}`;
+    }
+
     if (typeof window !== 'undefined') {
       const hostname = window.location.hostname;
       if (hostname === "localhost" || hostname === "127.0.0.1" || hostname.startsWith("192.168.")) {
