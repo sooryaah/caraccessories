@@ -2,11 +2,11 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "http://13.233.157.90.sslip.io/api/:path*"
+      "destination": "http://13.233.157.90/api/:path*"
     },
     {
       "source": "/media/:path*",
-      "destination": "http://13.233.157.90.sslip.io/media/:path*"
+      "destination": "http://13.233.157.90/media/:path*"
     },
     {
       "source": "/(.*)",
