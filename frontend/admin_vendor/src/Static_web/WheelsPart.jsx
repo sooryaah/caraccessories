@@ -31,7 +31,10 @@ const WheelsPart = () => {
       // Fetch categories for filter chips
       try {
         const catRes = await axios.get(`${serverurl}/products/category/`);
-        const parents = catRes.data.filter((c) => c.parent === null && c.available !== false);
+        const catData = Array.isArray(catRes.data)
+          ? catRes.data
+          : catRes.data?.results || catRes.data?.data || catRes.data?.message || [];
+        const parents = catData.filter((c) => c && (c.parent === null || c.parent === undefined) && c.available !== false);
         setCategoriesList(parents);
       } catch (catErr) {
         console.warn("Could not load category list for chips:", catErr);

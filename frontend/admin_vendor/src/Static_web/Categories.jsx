@@ -13,10 +13,12 @@ const Categories = () => {
     const fetchCategories = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`${serverurl}/products/category/`);
-        // Only show parent-level categories (no parent) and that are available
-        const parentCategories = response.data.filter(
-          (cat) => cat.parent === null && cat.available !== false
+        const rawData = Array.isArray(response.data)
+          ? response.data
+          : response.data?.results || response.data?.data || response.data?.message || [];
+        
+        const parentCategories = rawData.filter(
+          (cat) => cat && (cat.parent === null || cat.parent === undefined) && cat.available !== false
         );
         setCategories(parentCategories);
       } catch (err) {
