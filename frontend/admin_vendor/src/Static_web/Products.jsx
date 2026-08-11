@@ -38,7 +38,7 @@ const Products = () => {
       <Navbar bgColor="bg-gradient-to-r from-[#0a1c3e] via-[#071a3d] to-[#023669]" />
 
       {/* Main Section */}
-      <section className="max-w-7xl mx-auto pt-16 pb-20 px-6 text-center relative z-10">
+      <section className="max-w-7xl mx-auto pt-28 sm:pt-32 md:pt-36 pb-20 px-6 text-center relative z-10">
         {/* Subtitle Badge */}
         <span className="inline-flex items-center gap-2 bg-orange-500/10 text-[#ff9200] border border-orange-500/20 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider mb-6 shadow-sm backdrop-blur-md">
           <span className="w-2 h-2 rounded-full bg-[#ff9200] animate-pulse" />
