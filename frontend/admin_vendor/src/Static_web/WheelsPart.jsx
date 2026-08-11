@@ -3,34 +3,39 @@ import { IoSearchOutline } from "react-icons/io5";
 import { serverurl, baseUrl } from "../services/serverURL";
 import axios from "axios";
 
+const ITEMS_PER_PAGE = 8; // Show 8 products per page in the UI (2 rows of 4)
+
 const WheelsPart = () => {
   const [search, setSearch] = useState("");
-  const [products, setProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalCount, setTotalCount] = useState(0);
-  const [nextPage, setNextPage] = useState(null);
-  const [prevPage, setPrevPage] = useState(null);
 
-  const itemsPerPage = 4;
-
-  const fetchProducts = async (url) => {
+  // Fetch ALL products once (backend page_size is fixed at 10, so fetch all pages)
+  const fetchAllProducts = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(url);
-      const data = response.data;
+      let results = [];
+      let url = `${serverurl}/products/products/`;
 
-      // Handle paginated response { count, next, previous, results }
-      if (data && data.results) {
-        setProducts(data.results);
-        setTotalCount(data.count);
-        setNextPage(data.next);
-        setPrevPage(data.previous);
-      } else if (Array.isArray(data)) {
-        setProducts(data);
-        setTotalCount(data.length);
+      while (url) {
+        const response = await axios.get(url);
+        const data = response.data;
+
+        if (data && data.results) {
+          results = [...results, ...data.results];
+          // Get the next page URL but strip any absolute host to use relative if needed
+          url = data.next || null;
+        } else if (Array.isArray(data)) {
+          results = data;
+          url = null;
+        } else {
+          url = null;
+        }
       }
+
+      setAllProducts(results);
     } catch (err) {
       console.error("Failed to fetch products:", err);
       setError("Failed to load products.");
@@ -40,21 +45,29 @@ const WheelsPart = () => {
   };
 
   useEffect(() => {
-    fetchProducts(`${serverurl}/products/products/?page=1&page_size=${itemsPerPage}`);
+    fetchAllProducts();
   }, []);
 
-  const filteredProducts = products.filter((prod) =>
+  // Filter by search
+  const filteredProducts = allProducts.filter((prod) =>
     prod.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  const totalPages = Math.ceil(totalCount / itemsPerPage);
+  // Client-side pagination
+  const totalPages = Math.ceil(filteredProducts.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const currentProducts = filteredProducts.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
   const goToPage = (page) => {
     if (page < 1 || page > totalPages) return;
     setCurrentPage(page);
-    fetchProducts(
-      `${serverurl}/products/products/?page=${page}&page_size=${itemsPerPage}`
-    );
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Reset page on search change
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+    setCurrentPage(1);
   };
 
   const getMainImage = (product) => {
@@ -74,10 +87,7 @@ const WheelsPart = () => {
               type="text"
               placeholder="Search products..."
               value={search}
-              onChange={(e) => {
-                setSearch(e.target.value);
-                setCurrentPage(1);
-              }}
+              onChange={handleSearch}
               className="w-full pl-10 pr-4 py-2 rounded-xl shadow-md border border-gray-200 focus:ring-2 focus:ring-purple-500 focus:outline-none"
             />
           </div>
@@ -98,15 +108,14 @@ const WheelsPart = () => {
         {/* Product Grid */}
         {!loading && !error && (
           <>
-            {filteredProducts.length === 0 ? (
+            {currentProducts.length === 0 ? (
               <p className="text-center text-gray-500 py-10">No products found.</p>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-                {filteredProducts.map((prod) => {
+                {currentProducts.map((prod) => {
                   const imgUrl = getMainImage(prod);
-                  const price = prod.variants?.length > 0
-                    ? prod.variants.find((v) => v.is_default)?.price || prod.price
-                    : prod.price;
+                  const defaultVariant = prod.variants?.find((v) => v.is_default);
+                  const price = defaultVariant?.price || prod.price;
 
                   return (
                     <div
@@ -142,11 +151,11 @@ const WheelsPart = () => {
 
             {/* Pagination */}
             {totalPages > 1 && (
-              <div className="flex justify-center items-center gap-2 mt-8">
+              <div className="flex justify-center items-center gap-2 mt-8 flex-wrap">
                 <button
                   onClick={() => goToPage(currentPage - 1)}
                   disabled={currentPage === 1}
-                  className="px-3 py-1 border rounded-md text-purple-600 border-purple-600 hover:bg-purple-100 disabled:opacity-50"
+                  className="px-3 py-1 border rounded-md text-purple-600 border-purple-600 hover:bg-purple-100 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Previous
                 </button>
@@ -155,9 +164,9 @@ const WheelsPart = () => {
                   <button
                     key={index}
                     onClick={() => goToPage(index + 1)}
-                    className={`px-3 py-1 border rounded-md ${
+                    className={`px-3 py-1 border rounded-md transition ${
                       currentPage === index + 1
-                        ? "bg-purple-600 text-white"
+                        ? "bg-purple-600 text-white border-purple-600"
                         : "text-purple-600 border-purple-600 hover:bg-purple-100"
                     }`}
                   >
@@ -168,7 +177,7 @@ const WheelsPart = () => {
                 <button
                   onClick={() => goToPage(currentPage + 1)}
                   disabled={currentPage === totalPages}
-                  className="px-3 py-1 border rounded-md text-purple-600 border-purple-600 hover:bg-purple-100 disabled:opacity-50"
+                  className="px-3 py-1 border rounded-md text-purple-600 border-purple-600 hover:bg-purple-100 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Next
                 </button>
