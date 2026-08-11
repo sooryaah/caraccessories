@@ -1,37 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FiEdit3 } from "react-icons/fi";
 import { PiPencilSimpleLineLight } from "react-icons/pi";
-
-
-const products = [
-  { name: "Wheel Rim Refund", refundId: "RR4001", customer: "Arjun Nair", reason: "Damaged on delivery", status: "Approved", price: "₹4,499" },
-  { name: "LED Light Return", refundId: "RR4523", customer: "Riya Sharma", reason: "Wrong item received", status: "Pending", price: "₹2,699" },
-  { name: "Seat Cover Refund", refundId: "RR0233", customer: "Karthik Menon", reason: "Item not as described", status: "Expired", price: "₹1,449" },
-  { name: "Brake Pad Return", refundId: "RR1007", customer: "Divya Singh", reason: "Product quality issue", status: "Returned", price: "₹5,699" },
-  { name: "Wiper Refund", refundId: "RR6523", customer: "Aditya Roy", reason: "Missing parts", status: "Received", price: "₹999" },
-  { name: "Dashboard Camera", refundId: "RR8201", customer: "Sneha Joshi", reason: "Not compatible with vehicle", status: "Approved", price: "₹3,499" },
-  { name: "Sunshade", refundId: "RR1098", customer: "Rohan Das", reason: "Changed mind", status: "Returned", price: "₹599" },
-  { name: "Tyre Inflator Return", refundId: "RR3301", customer: "Anjali Verma", reason: "Defective product", status: "Pending", price: "₹2,299" },
-  { name: "LED Fog Light", refundId: "RR7323", customer: "Nikhil Rao", reason: "Packaging damaged", status: "Expired", price: "₹1,899" },
-  { name: "Rearview Mirror", refundId: "RR4529", customer: "Meera Pillai", reason: "Wrong color sent", status: "Received", price: "₹1,199" },
-  { name: "Floor Mat Set", refundId: "RR5621", customer: "Vikram Shetty", reason: "Late delivery", status: "Approved", price: "₹1,799" },
-  { name: "Car Charger Return", refundId: "RR6790", customer: "Isha Kapoor", reason: "Doesn't work", status: "Returned", price: "₹649" },
-  { name: "Mobile Holder Refund", refundId: "RR3443", customer: "Aryan Thomas", reason: "Duplicate order", status: "Received", price: "₹349" }
-];
+import { toast } from "react-toastify";
+import { getVendorReturnsApi, actionVendorReturnApi } from "../../services/allAPI";
 
 const ReturnsRefundsTable = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [showDropdown, setShowDropdown] = useState(false);
   const itemsPerPage = 5;
 
+  const [returns, setReturns] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const totalItems = products.length;
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const fetchReturns = async () => {
+    try {
+      setLoading(true);
+      const data = await getVendorReturnsApi();
+      setReturns(data || []);
+    } catch (err) {
+      console.error(err);
+      toast.error("Failed to fetch returns data");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchReturns();
+  }, []);
+
+  const handleAction = async (id, actionStr) => {
+    try {
+      await actionVendorReturnApi(id, { action: actionStr });
+      toast.success(`Return request ${actionStr}d successfully`);
+      fetchReturns(); // refresh data
+    } catch (err) {
+      console.error(err);
+      toast.error(`Failed to ${actionStr} return request`);
+    }
+  };
+
+  const totalItems = returns.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = Math.min(startIndex + itemsPerPage, totalItems);
-  const currentItems = products.slice(startIndex, endIndex);
+  const currentItems = returns.slice(startIndex, endIndex);
 
   const handlePrev = () => {
     if (currentPage > 1) setCurrentPage(currentPage - 1);
@@ -48,7 +63,7 @@ const ReturnsRefundsTable = () => {
         <h2 className="text-xl md:text-2xl font-bold text-[#0a1c3e]">
           Returns & Refunds
         </h2>
-        <button className="bg-[#0a1c3e] text-white text-sm px-4 py-2 rounded-md hover:bg-[#f79a17] transition w-full sm:w-auto">
+        <button className="bg-[#0a1c3e] text-white text-sm px-4 py-2 rounded-md hover:bg-[#ff9200] transition w-full sm:w-auto font-medium">
           Download Report
         </button>
       </div>
@@ -60,14 +75,16 @@ const ReturnsRefundsTable = () => {
             <label className="block text-sm font-medium text-gray-700 mb-1">Order ID</label>
             <input
               type="text"
+              placeholder="e.g. ORD1023"
               className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0a1c3e]"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Buyer Name</label>
+            <label className="block text-sm font-medium text-gray-700 mb-1">Buyer Email</label>
             <input
               type="text"
+              placeholder="buyer@example.com"
               className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0a1c3e]"
             />
           </div>
@@ -75,11 +92,11 @@ const ReturnsRefundsTable = () => {
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Order Status</label>
             <select className="w-full border border-gray-300 rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#0a1c3e]">
-              <option>Select Status</option>
-              <option>Approved</option>
-              <option>Pending</option>
-              <option>Returned</option>
-              <option>Expired</option>
+              <option value="">Select Status</option>
+              <option value="approved">Approved</option>
+              <option value="pending">Pending</option>
+              <option value="rejected">Rejected</option>
+              <option value="refunded">Refunded</option>
             </select>
           </div>
 
@@ -101,10 +118,10 @@ const ReturnsRefundsTable = () => {
         </div>
 
         <div className="mt-6 flex flex-col sm:flex-row justify-end gap-3">
-          <button className="border border-gray-300 text-gray-700 px-6 py-2 text-sm rounded-md hover:bg-gray-50 w-full sm:w-auto">
+          <button className="border border-gray-300 text-gray-700 px-6 py-2 text-sm rounded-md hover:bg-gray-50 w-full sm:w-auto font-medium">
             Reset
           </button>
-          <button className="bg-[#0a1c3e] text-white px-6 py-2 text-sm rounded-md hover:bg-[#f79a17] w-full sm:w-auto">
+          <button className="bg-[#0a1c3e] text-white px-6 py-2 text-sm rounded-md hover:bg-[#ff9200] w-full sm:w-auto font-medium transition-colors">
             Search
           </button>
         </div>
@@ -112,10 +129,10 @@ const ReturnsRefundsTable = () => {
 
       {/* Products Table (Desktop) */}
       <div className="hidden md:block overflow-x-auto rounded-lg">
-        <table className="min-w-full bg-white  shadow text-sm">
+        <table className="min-w-full bg-white shadow text-sm">
           <thead className="text-gray-600 bg-gray-50">
             <tr>
-              <th className="p-3 text-left"></th>
+              <th className="p-3 text-left">Order ID</th>
               <th className="p-3 text-left">Product Name</th>
               <th className="p-3 text-left">Customer</th>
               <th className="p-3 text-left">Reason</th>
@@ -124,123 +141,152 @@ const ReturnsRefundsTable = () => {
               <th className="p-3 text-left">Actions</th>
             </tr>
           </thead>
-            <tbody>
-  {currentItems.length === 0 ? (
-    <tr>
-      <td colSpan="7" className="text-center py-6 text-gray-500">
-        No Data Found
-      </td>
-    </tr>
-  ) : (
-    currentItems.map((product, idx) => (
-      <tr key={idx} className="border-t border-gray-100 hover:bg-gray-50">
-        <td className="p-3">
-          <input type="checkbox" />
-        </td>
-        <td className="p-3 text-indigo-600 font-medium">{product.name}</td>
-        <td className="p-3">{product.customer}</td>
-        <td className="p-3">{product.reason}</td>
-        <td className="p-3">
-          <span
-            className={`px-2 py-1 rounded-full text-xs font-semibold ${
-              product.status === "Approved"
-                ? "bg-green-100 text-green-600"
-                : product.status === "Pending"
-                ? "bg-yellow-100 text-yellow-600"
-                : product.status === "Expired"
-                ? "bg-red-100 text-red-600"
-                : product.status === "Received"
-                ? "bg-blue-100 text-blue-600"
-                : product.status === "Returned"
-                ? "bg-purple-100 text-purple-600"
-                : "bg-gray-100 text-gray-600"
-            }`}
-          >
-            {product.status}
-          </span>
-        </td>
-        <td className="p-3">{product.price}</td>
-        <td className="flex p-3 gap-4 text-gray-500 hover:text-black cursor-pointer">
-          <Link to={`/vendor/orders/edit-order`}>
-            <PiPencilSimpleLineLight className="text-lg mb-2 text-gray-700" />
-          </Link>
-          <Link to={`/vendor/orders/order-detail`} className="flex items-center text-[#0a1c3e] font-semibold">
-            View More
-          </Link>
-        </td>
-      </tr>
-    ))
-  )}
-</tbody>
-
-
-          </table>
+          <tbody>
+            {loading ? (
+              <tr>
+                <td colSpan="7" className="text-center py-6 text-gray-500 font-medium">
+                  Loading return requests...
+                </td>
+              </tr>
+            ) : currentItems.length === 0 ? (
+              <tr>
+                <td colSpan="7" className="text-center py-6 text-gray-500">
+                  No Return Requests Found
+                </td>
+              </tr>
+            ) : (
+              currentItems.map((ret, idx) => (
+                <tr key={ret.id || idx} className="border-t border-gray-100 hover:bg-gray-50">
+                  <td className="p-3 font-medium text-gray-800">{ret.order_id || ret.id}</td>
+                  <td className="p-3 text-[#0a1c3e] font-semibold">{ret.product_name || "N/A"}</td>
+                  <td className="p-3 text-gray-600">{ret.customer_email || ret.customer || "N/A"}</td>
+                  <td className="p-3 truncate max-w-xs text-gray-600">{ret.reason || "N/A"}</td>
+                  <td className="p-3">
+                    <span
+                      className={`px-2.5 py-1 rounded-full text-xs font-semibold capitalize ${
+                        ret.status === "approved" || ret.status === "Approved"
+                          ? "bg-green-100 text-green-700"
+                          : ret.status === "pending" || ret.status === "Pending"
+                          ? "bg-yellow-100 text-yellow-700"
+                          : ret.status === "rejected" || ret.status === "Rejected" || ret.status === "Expired"
+                          ? "bg-red-100 text-red-700"
+                          : ret.status === "refunded" || ret.status === "Received"
+                          ? "bg-blue-100 text-blue-700"
+                          : "bg-gray-100 text-gray-700"
+                      }`}
+                    >
+                      {ret.status}
+                    </span>
+                  </td>
+                  <td className="p-3 font-medium">₹{ret.item_price || ret.price || "0"}</td>
+                  <td className="p-3">
+                    {ret.status === 'pending' || ret.status === 'Pending' ? (
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => handleAction(ret.id, 'approve')}
+                          className="bg-emerald-600 text-white px-2.5 py-1 rounded text-xs font-medium hover:bg-emerald-700 transition"
+                        >
+                          Approve
+                        </button>
+                        <button
+                          onClick={() => handleAction(ret.id, 'reject')}
+                          className="bg-red-500 text-white px-2.5 py-1 rounded text-xs font-medium hover:bg-red-600 transition"
+                        >
+                          Reject
+                        </button>
+                      </div>
+                    ) : (
+                      <span className="text-gray-400 text-xs font-medium">Actioned</span>
+                    )}
+                  </td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
       </div>
 
       {/* Mobile Card View */}
       <div className="md:hidden space-y-4">
-        {currentItems.map((product, idx) => (
-          <div key={idx} className="bg-white rounded-lg shadow p-4">
-            <div className="flex justify-between items-center mb-2">
-              <h3 className="text-[#0a1c3e] font-medium text-sm">{product.name}</h3>
-              <span
-                className={`px-2 py-1 rounded-full text-xs font-semibold ${product.status === "Approved"
-                  ? "bg-green-100 text-green-600"
-                  : product.status === "Pending"
-                    ? "bg-yellow-100 text-yellow-600"
-                    : product.status === "Expired"
-                      ? "bg-red-100 text-red-600"
-                      : product.status === "Received"
-                        ? "bg-blue-100 text-blue-600"
-                        : product.status === "Returned"
-                          ? "bg-purple-100 text-purple-600"
-                          : "bg-gray-100 text-gray-600"
+        {loading ? (
+          <p className="text-center py-4 text-gray-500 font-medium">Loading...</p>
+        ) : currentItems.length === 0 ? (
+          <p className="text-center py-4 text-gray-500">No Return Requests Found</p>
+        ) : (
+          currentItems.map((ret, idx) => (
+            <div key={ret.id || idx} className="bg-white rounded-lg shadow p-4">
+              <div className="flex justify-between items-center mb-2">
+                <h3 className="text-[#0a1c3e] font-semibold text-sm">{ret.product_name || "N/A"}</h3>
+                <span
+                  className={`px-2 py-1 rounded-full text-xs font-semibold capitalize ${
+                    ret.status === "approved" || ret.status === "Approved"
+                      ? "bg-green-100 text-green-700"
+                      : ret.status === "pending" || ret.status === "Pending"
+                      ? "bg-yellow-100 text-yellow-700"
+                      : ret.status === "rejected" || ret.status === "Rejected"
+                      ? "bg-red-100 text-red-700"
+                      : ret.status === "refunded"
+                      ? "bg-blue-100 text-blue-700"
+                      : "bg-gray-100 text-gray-700"
                   }`}
-              >
-                {product.status}
-              </span>
+                >
+                  {ret.status}
+                </span>
+              </div>
+              <p className="text-gray-700 text-sm mb-1">
+                <span className="font-medium">Order ID:</span> {ret.order_id || ret.id}
+              </p>
+              <p className="text-gray-700 text-sm mb-1">
+                <span className="font-medium">Customer:</span> {ret.customer_email || ret.customer}
+              </p>
+              <p className="text-gray-700 text-sm mb-1">
+                <span className="font-medium">Reason:</span> {ret.reason}
+              </p>
+              <p className="text-gray-700 text-sm mb-2">
+                <span className="font-medium">Price:</span> ₹{ret.item_price || ret.price}
+              </p>
+              <div className="flex justify-end gap-2 mt-3">
+                {ret.status === 'pending' || ret.status === 'Pending' ? (
+                  <>
+                    <button
+                      onClick={() => handleAction(ret.id, 'approve')}
+                      className="bg-emerald-600 text-white px-3 py-1 rounded text-xs font-medium hover:bg-emerald-700 transition"
+                    >
+                      Approve
+                    </button>
+                    <button
+                      onClick={() => handleAction(ret.id, 'reject')}
+                      className="bg-red-500 text-white px-3 py-1 rounded text-xs font-medium hover:bg-red-600 transition"
+                    >
+                      Reject
+                    </button>
+                  </>
+                ) : (
+                  <span className="text-gray-400 text-xs font-medium">Actioned</span>
+                )}
+              </div>
             </div>
-            <p className="text-gray-700 text-sm mb-1">
-              <span className="font-medium">Customer:</span> {product.customer}
-            </p>
-            <p className="text-gray-700 text-sm mb-1">
-              <span className="font-medium">Reason:</span> {product.reason}
-            </p>
-            <p className="text-gray-700 text-sm mb-2">
-              <span className="font-medium">Price:</span> {product.price}
-            </p>
-            <div className="flex justify-end gap-4">
-              <Link to={`/vendor/orders/edit-order`}>
-                <PiPencilSimpleLineLight className="text-lg text-gray-700 hover:text-[#0a1c3e]" />
-              </Link>
-              <Link
-                to={`/vendor/orders/order-detail`}
-                className="text-[#0a1c3e] font-semibold text-sm hover:underline"
-              >
-                View More
-              </Link>
-            </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
 
       {/* Pagination */}
       <div className="flex flex-col sm:flex-row justify-between items-center mt-6 text-sm gap-3">
         <span className="text-gray-600">
-          Showing {endIndex} of {totalItems}
+          Showing {totalItems === 0 ? 0 : startIndex + 1} to {endIndex} of {totalItems}
         </span>
         <div className="flex gap-2">
           <button
             onClick={handlePrev}
             disabled={currentPage === 1}
-            className="text-[#0a1c3e] px-3 py-1 border rounded disabled:opacity-50"
+            className="text-[#0a1c3e] font-medium px-3 py-1 border border-gray-300 bg-white rounded disabled:opacity-50 hover:bg-gray-50"
           >
             Prev
           </button>
           <button
             onClick={handleNext}
-            disabled={currentPage === totalPages}
-            className="text-[#0a1c3e] px-3 py-1 border rounded disabled:opacity-50"
+            disabled={currentPage === totalPages || totalPages === 0}
+            className="text-[#0a1c3e] font-medium px-3 py-1 border border-gray-300 bg-white rounded disabled:opacity-50 hover:bg-gray-50"
           >
             Next
           </button>

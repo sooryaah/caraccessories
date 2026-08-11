@@ -1421,4 +1421,25 @@ export const updatereplyToReviewApi = async (reviewId, replyData) => {
   }
 };
 
+export const getVendorReturnsApi = async () => {
+  try {
+    const response = await api.get("/orders/returns/vendor/");
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching vendor returns:", error);
+    throw error;
+  }
+};
+
+export const actionVendorReturnApi = async (returnId, actionData) => {
+  try {
+    const response = await api.post(`/orders/returns/${returnId}/action/`, actionData);
+    return response.data;
+  } catch (error) {
+    console.error("Error updating return action:", error);
+    throw error;
+  }
+};
+
+
 
