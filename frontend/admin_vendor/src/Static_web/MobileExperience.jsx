@@ -1,10 +1,11 @@
+
 import React from "react";
 import screen from "../assets/screen.png";
 import mobile from "../assets/mobile.png";
 
 const MobileExperience = () => {
   return (
-    <section className="bg-[#E6F6FF] py-16">
+    <section id="download-section" className="bg-[#E6F6FF] py-16">
       <div className="max-w-7xl mx-auto px-2  grid md:grid-cols-2 gap-5 items-center">
         {/* Left Section */}
         <div>
