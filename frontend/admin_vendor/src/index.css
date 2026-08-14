@@ -15,3 +15,7 @@
 .scrollbar-none::-webkit-scrollbar {
   display: none;        
 }
+
+@utility hero-radial-bg {
+  background: radial-gradient(circle at 30% 30%, #0d2b5c 0%, #061630 100%);
+}
