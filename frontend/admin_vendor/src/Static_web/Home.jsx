@@ -1,5 +1,5 @@
 import React from "react";
-import car from "../assets/car_transparent.png";
+import car from "../assets/car.png";
 import star from "../assets/star.png";
 import circle from "../assets/Circle.png";
 import lock from "../assets/lock.png";
