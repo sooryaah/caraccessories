@@ -47,11 +47,13 @@ const Home = () => {
           </div>
 
           {/* Right Column - Image */}
-          <div className="z-10 flex justify-center items-center w-full px-4 md:px-0">
+          <div className="z-10 flex justify-center items-center w-full px-4 md:px-0 relative group">
+            {/* Ambient background glow */}
+            <div className="absolute w-full max-w-[340px] md:max-w-[420px] h-[420px] md:h-[500px] bg-[#0c2b5c]/40 rounded-3xl blur-2xl transition-all duration-500 group-hover:bg-[#0c2b5c]/60 pointer-events-none" />
             <img
               src={blueCar}
               alt="Car"
-              className="w-full max-w-[340px] md:max-w-[400px] max-h-[480px] md:max-h-[560px] object-cover rounded-3xl shadow-2xl border border-white/10 transition-transform duration-500 hover:scale-102"
+              className="w-full max-w-[340px] md:max-w-[420px] max-h-[420px] md:max-h-[500px] object-cover object-bottom rounded-3xl shadow-2xl border border-white/10 transition-all duration-500 hover:scale-[1.02] relative z-10"
             />
           </div>
 
