@@ -18,7 +18,7 @@ const Home = () => {
       <div className="absolute w-full top-0">
         <Navbar bgColor="bg-transparent" />
       </div>
-      <section className="hero-radial-bg text-white relative overflow-hidden pt-28 pb-20 md:pt-36 md:pb-24 min-h-[650px] md:min-h-[750px] flex flex-col justify-between">
+      <section className="hero-radial-bg text-white relative overflow-hidden pt-20 pb-20 md:pt-24 md:pb-24 min-h-[650px] md:min-h-[750px] flex flex-col justify-between">
         <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center w-full">
 
           {/* Left Column - Content */}
