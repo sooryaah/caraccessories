@@ -9,7 +9,7 @@ const StatsSection = () => {
   ];
 
   return (
-    <section className="relative w-full h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] overflow-hidden group">
+    <section className="relative w-full min-h-[450px] md:min-h-[450px] lg:min-h-[500px] overflow-hidden group flex items-center justify-center py-12">
       {/* Background Image with subtle zoom on hover */}
       <img
         src={bmblack}
@@ -21,7 +21,7 @@ const StatsSection = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-black/80" />
 
       {/* Content Container */}
-      <div className="absolute inset-0 flex items-center justify-center text-white p-4">
+      <div className="relative z-10 w-full flex items-center justify-center text-white p-4">
         <div className="container mx-auto px-6 sm:px-10 lg:px-16 py-12 rounded-3xl bg-white/5 backdrop-blur-md border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.37)] grid grid-cols-1 md:grid-cols-5 gap-10 items-center transform transition-all duration-500 hover:bg-white/10">
           
           {/* Left Column: Heading */}

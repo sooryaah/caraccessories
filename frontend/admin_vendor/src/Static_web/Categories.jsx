@@ -33,6 +33,14 @@ const Categories = () => {
     cat.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  const getImageUrl = (imagePath) => {
+    if (!imagePath) return "";
+    if (imagePath.startsWith("http")) return imagePath;
+    const base = baseUrl.endsWith("/") ? baseUrl.slice(0, -1) : baseUrl;
+    const path = imagePath.startsWith("/") ? imagePath : `/${imagePath}`;
+    return `${base}${path}`;
+  };
+
   return (
     <div className="py-16 border-t border-gray-200/60 relative">
       {/* Title & Header */}
@@ -50,9 +58,9 @@ const Categories = () => {
       </div>
 
       {/* Search Bar */}
-      <div className="flex justify-center items-center gap-3 mb-12 max-w-xl mx-auto px-4">
+      <div className="max-w-md mx-auto mb-12 px-4 flex gap-2">
         <div className="relative flex-1">
-          <IoSearchOutline className="absolute left-4 top-3.5 text-gray-400" size={20} />
+          <IoSearchOutline className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl" />
           <input
             type="text"
             placeholder="Search categories..."
@@ -98,7 +106,7 @@ const Categories = () => {
                   <div className="w-14 h-14 rounded-2xl bg-gray-50/80 border border-gray-100 flex items-center justify-center p-2.5 shrink-0 group-hover:bg-orange-50 group-hover:border-orange-100 transition-all duration-300">
                     {cat.image ? (
                       <img
-                        src={`${baseUrl}${cat.image}`}
+                        src={getImageUrl(cat.image)}
                         alt={cat.name}
                         className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
                       />
