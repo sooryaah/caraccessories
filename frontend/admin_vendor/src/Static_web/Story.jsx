@@ -1,5 +1,8 @@
 import React from "react";
-import work from "../assets/workshop.jpeg";
+import work1 from "../assets/WORKSHOP (1).jpeg";
+import work2 from "../assets/WORKSHOP (2).jpeg";
+import work3 from "../assets/WORKSHOP (3).jpeg";
+import work4 from "../assets/WORKSHOP4.jpeg";
 import profil from "../assets/seller1.png";
 import { IoCheckmark } from "react-icons/io5";
 
@@ -12,7 +15,7 @@ const caseStudies = [
     what: "Cleaned product data, added compatibility tags (make/model/year), refreshed images, and enabled order tracking.",
     result:
       "Higher product visibility, faster report access, and steady, on-schedule products.",
-    src: work,
+    src: work1,
     profile: profil,
   },
   {
@@ -21,7 +24,7 @@ const caseStudies = [
     why: "Standardized titles, added vehicle compatibility, and published a simple installation guide.",
     what: "Fitment guidance and clear listing templates.",
     result: "Fewer returns, better ratings, and improved customer confidence.",
-    src: work,
+    src: work2,
     profile: profil,
   },
   {
@@ -32,7 +35,7 @@ const caseStudies = [
     what: "Cleaned product data, added compatibility tags (make/model/year), refreshed images, and enabled order tracking.",
     result:
       "Higher product visibility, faster report access, and steady, on-schedule products.",
-    src: work,
+    src: work3,
     profile: profil,
   },
   {
@@ -41,7 +44,7 @@ const caseStudies = [
     why: "Standardized titles, added vehicle compatibility, and published a simple installation guide.",
     what: "Fitment guidance and clear listing templates.",
     result: "Fewer returns, better ratings, and improved customer confidence.",
-    src: work,
+    src: work4,
     profile: profil,
   },
 ];
@@ -102,7 +105,7 @@ const Story = () => {
 
               {/* Image Section */}
               <div
-                className={`relative ${
+                className={`relative w-full max-w-sm mx-auto lg:max-w-md ${
                   index % 2 !== 0 ? "md:order-1" : "md:order-2"
                 }`}
               >

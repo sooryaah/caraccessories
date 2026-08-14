@@ -1,5 +1,5 @@
 import React from "react";
-import Bmwcar from "../assets/Bmwcar.jpeg";
+import Bmwcar from "../assets/Bmwcar.PNG";
 import star from "../assets/5star.png";
 import Akshay from "../assets/Akshay.png"
 import meera from "../assets/meera.png"
@@ -77,20 +77,24 @@ const HeroSection = () => {
 
   return (
     <div className="w-full">
-      <section className="relative h-[300px] md:h-[500px]">
-        <div className="h-[300px]">
-          <img
-            src={Bmwcar}
-            alt="Car Parts"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#66666633]/30 to-[#000000]"></div>
-        <div className="absolute inset-0 bg-opacity-60 flex flex-col justify-center items-end px-26 text-white shadow-lg ">
-          <h1 className="text-3xl md:text-4xl font-bold ">
-            FIND THE PERFECT PARTS FOR YOUR RIDE
-          </h1>
-          <p className="mt-2 text-lg">Shop only products that fit your exact vehicle</p>
+      <section className="relative w-full h-[300px] md:h-[450px] lg:h-[500px] bg-black overflow-hidden">
+        <img
+          src={Bmwcar}
+          alt="Car Parts"
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-80"
+        />
+        {/* Dark gradient overlay matching the screenshot */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/40 to-black/95" />
+        
+        <div className="absolute inset-0 flex flex-col justify-center items-end px-6 md:px-16 lg:px-24 text-white">
+          <div className="flex flex-col items-end max-w-5xl">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-none uppercase drop-shadow-xl text-right">
+              FIND THE PERFECT PARTS FOR YOUR RIDE
+            </h1>
+            <p className="mt-3 md:mt-5 text-sm sm:text-base md:text-xl font-medium text-gray-200 drop-shadow-lg text-right">
+              Shop only products that fit your exact vehicle
+            </p>
+          </div>
         </div>
       </section>
      

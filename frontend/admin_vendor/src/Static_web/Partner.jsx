@@ -1,5 +1,5 @@
 import React from "react";
-import gcar from "../assets/gcar.jpg";
+import gcar from "../assets/gcar.PNG";
 import tick from "../assets/tick.png";
 import { Link } from "react-router-dom";
 

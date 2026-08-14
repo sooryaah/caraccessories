@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import interior from "../assets/interior.png";
+import interior from "../assets/interior.jpeg";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xrpzqerk";
 
@@ -236,7 +236,7 @@ const ContactSection = () => {
           <img
             src={interior}
             alt="Car Interior"
-            className="rounded-lg shadow-lg w-full max-w-sm sm:max-w-md md:max-w-lg object-cover"
+            className="rounded-lg shadow-lg w-full max-w-xs sm:max-w-sm md:max-w-md object-cover"
           />
         </div>
       </section>

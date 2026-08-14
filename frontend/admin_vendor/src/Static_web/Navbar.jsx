@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import loggo from "../assets/loggo.png";
+import loggo from "../assets/logo.png";
 
 const Navbar = ({ bgColor = "bg-transparent" }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,9 +36,9 @@ const Navbar = ({ bgColor = "bg-transparent" }) => {
     <header
       className={`${activeBg} flex justify-between items-center py-3.5 px-4 md:px-6 lg:px-10 w-full fixed top-0 left-0 z-50 text-white select-none transition-all duration-300`}
     >
-      {/* Logo */}
-      <Link to="/" className="flex items-center shrink-0">
-        <img src={loggo} alt="CAROOA INTERNATIONAL" className="h-7 md:h-9 w-auto object-contain" />
+      {/* Logo with White Background for visibility */}
+      <Link to="/" className="flex items-center shrink-0 bg-white px-3 py-1 rounded-full shadow-md hover:opacity-90 transition-opacity">
+        <img src={loggo} alt="CAROOA INTERNATIONAL" className="h-6 md:h-8 w-auto object-contain" />
       </Link>
 
       {/* Desktop Navigation */}
