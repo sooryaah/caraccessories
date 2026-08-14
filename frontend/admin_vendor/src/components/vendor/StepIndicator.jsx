@@ -6,7 +6,7 @@ import {
   setCurrentStep,
   setCompletedStep,
 } from "../../store/vendorRegisterSlice";
-import loggo from "../../assets/loggo.png";
+import logo from "../../assets/logo.png";
 
 const steps = [
   "Company Details",
@@ -66,8 +66,10 @@ export default function StepIndicator() {
 
   return (
     <>
-      <div className="w-full bg-[#030130] px-2">
-        <img src={loggo} alt="Logo" className="h-20" />
+      <div className="w-full bg-[#071a3d] px-6 py-4 flex items-center shadow-md select-none">
+        <div className="bg-white rounded-full px-5 py-2 shadow-sm flex items-center justify-center">
+          <img src={logo} alt="Logo" className="h-8 md:h-9 w-auto object-contain" />
+        </div>
       </div>
 
       <div className="w-full flex justify-center px-10 py-6">
