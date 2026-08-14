@@ -1,5 +1,5 @@
 import React from "react";
-import part1 from "../assets/part1.png";
+import part1 from "../assets/part1.jpeg";
 import part2 from "../assets/part2.png";
 import part3 from "../assets/part3.png";
 import part4 from "../assets/part4.png";
@@ -113,12 +113,12 @@ const Products = () => {
               {col.map((src, imgIndex) => (
                 <div
                   key={imgIndex}
-                  className="overflow-hidden rounded-2xl border border-gray-200/80 shadow-md hover:shadow-2xl hover:border-[#ff9200]/50 hover:scale-105 transition-all duration-500 bg-white group cursor-pointer"
+                  className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 overflow-hidden rounded-2xl border border-gray-200/80 shadow-md hover:shadow-2xl hover:border-[#ff9200]/50 hover:scale-105 transition-all duration-500 bg-white group cursor-pointer"
                 >
                   <img
                     src={src}
                     alt={`car-item-${colIndex}-${imgIndex}`}
-                    className="w-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     loading="lazy"
                   />
                 </div>
