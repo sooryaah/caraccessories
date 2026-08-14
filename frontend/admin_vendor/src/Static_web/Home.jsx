@@ -1,5 +1,5 @@
 import React from "react";
-import blueCar from "../assets/blue.jpeg";
+import blueCar from "../assets/blue.PNG";
 import star from "../assets/star.png";
 import circle from "../assets/Circle.png";
 import lock from "../assets/lock.png";
