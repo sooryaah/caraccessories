@@ -1,4 +1,5 @@
 import React from "react";
+import blueCar from "../assets/blue.jpeg";
 import star from "../assets/star.png";
 import circle from "../assets/Circle.png";
 import lock from "../assets/lock.png";
@@ -17,29 +18,43 @@ const Home = () => {
       <div className="absolute w-full top-0">
         <Navbar bgColor="bg-transparent" />
       </div>
-      <section className="hero-radial-bg text-white relative overflow-hidden pt-28 pb-20 md:pt-36 md:pb-20 min-h-[500px] md:min-h-[600px] flex items-center justify-center">
-        <div className="container mx-auto px-6 md:px-12 flex flex-col items-center text-center max-w-3xl z-10">
-          <h1 className="text-3xl md:text-5xl lg:text-[54px] font-extrabold leading-[1.1] tracking-tight uppercase">
-            EVERYTHING YOUR VEHICLE NEEDS - IN ONE PLACE
-          </h1>
-          <p className="mt-6 text-base md:text-lg text-slate-300 font-light leading-relaxed max-w-2xl">
-            Discover quality automotive products from trusted vendors. Shop by
-            category, vehicle type, or brand.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4 justify-center">
-            <button 
-              onClick={() => document.getElementById("download-section")?.scrollIntoView({ behavior: "smooth" })}
-              className="bg-orange-500 hover:bg-orange-600 active:scale-95 text-white font-semibold px-8 py-4 rounded-xl shadow-lg shadow-orange-500/20 transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer"
-            >
-              Explore Products
-            </button>
-            <a 
-              href="https://carooa.com/login"
-              className="border-2 border-white hover:bg-white hover:text-[#0b1c3e] active:scale-95 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 inline-flex items-center justify-center cursor-pointer"
-            >
-              Become a Partner
-            </a>
+      <section className="hero-radial-bg text-white relative overflow-hidden pt-28 pb-20 md:pt-36 md:pb-20 min-h-[650px] md:min-h-[750px]">
+        <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-[5fr_5fr] lg:grid-cols-[4.5fr_5.5fr] gap-10 md:gap-12 items-center">
+
+          {/* Left Column - Content */}
+          <div className="z-10 flex flex-col justify-center text-left max-w-xl pl-4 md:pl-8">
+            <h1 className="text-3xl md:text-4xl lg:text-[44px] font-extrabold leading-[1.1] tracking-tight uppercase">
+              EVERYTHING YOUR VEHICLE NEEDS - IN ONE PLACE
+            </h1>
+            <p className="mt-6 text-base md:text-lg text-slate-300 font-light leading-relaxed">
+              Discover quality automotive products from trusted vendors. Shop by
+              category, vehicle type, or brand.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <button 
+                onClick={() => document.getElementById("download-section")?.scrollIntoView({ behavior: "smooth" })}
+                className="bg-orange-500 hover:bg-orange-600 active:scale-95 text-white font-semibold px-6 py-3.5 rounded-xl shadow-lg shadow-orange-500/20 transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer"
+              >
+                Explore Products
+              </button>
+              <a 
+                href="https://carooa.com/login"
+                className="border-2 border-white hover:bg-white hover:text-[#0b1c3e] active:scale-95 text-white font-semibold px-6 py-3.5 rounded-xl transition-all duration-200 transform hover:-translate-y-0.5 inline-flex items-center justify-center cursor-pointer"
+              >
+                Become a Partner
+              </a>
+            </div>
           </div>
+
+          {/* Right Column - Image */}
+          <div className="z-10 flex justify-center items-center w-full px-4 md:px-0">
+            <img
+              src={blueCar}
+              alt="Car"
+              className="w-full max-w-[340px] md:max-w-[400px] max-h-[480px] md:max-h-[560px] object-cover rounded-3xl shadow-2xl border border-white/10 transition-transform duration-500 hover:scale-102"
+            />
+          </div>
+
         </div>
       </section>
 
