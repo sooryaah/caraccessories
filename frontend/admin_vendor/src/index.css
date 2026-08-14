@@ -17,5 +17,10 @@
 }
 
 @utility hero-radial-bg {
-  background: radial-gradient(circle at 30% 30%, #0d2b5c 0%, #061630 100%);
+  background: radial-gradient(circle at 75% 50%, #0c3374 0%, #05142f 100%);
+}
+
+.hero-image-mask {
+  mask-image: radial-gradient(ellipse at bottom, black 65%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse at bottom, black 65%, transparent 100%);
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../assets/carooa_logo.jpg";
+import loggo from "../assets/loggo.png";
 
 const Navbar = ({ bgColor = "bg-transparent" }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,9 +38,7 @@ const Navbar = ({ bgColor = "bg-transparent" }) => {
     >
       {/* Logo */}
       <Link to="/" className="flex items-center shrink-0">
-        <div className="bg-white rounded-full px-4 py-1.5 md:px-5 md:py-2 shadow-sm flex items-center justify-center">
-          <img src={logo} alt="CAROOA INTERNATIONAL" className="h-7 md:h-9 w-auto object-contain" />
-        </div>
+        <img src={loggo} alt="CAROOA INTERNATIONAL" className="h-7 md:h-9 w-auto object-contain" />
       </Link>
 
       {/* Desktop Navigation */}
