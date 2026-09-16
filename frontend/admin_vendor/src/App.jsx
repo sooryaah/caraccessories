@@ -97,6 +97,7 @@ import Products from "./Static_web/Products";
 import ContactSection from "./Static_web/ContactSection";
 import SuccessStories from "./Static_web/SuccessStories";
 import Blog from "./Static_web/Blog";
+import PrivacyPolicy from "./Static_web/PrivacyPolicy";
 
 function App() {
   const navigate = useNavigate();
@@ -154,6 +155,7 @@ function App() {
         <Route path='/successstories' element={<SuccessStories />} />
         <Route path="/contactsection" element={<ContactSection />} />
         <Route path='/blog' element={<Blog />} />
+        <Route path='/privacy-policy' element={<PrivacyPolicy />} />
 
         <Route
           path="/login"

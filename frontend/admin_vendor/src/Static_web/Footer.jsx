@@ -69,6 +69,7 @@ const Footer = () => {
           <ul className="space-y-2.5 text-gray-300 text-sm md:text-base">
             <li><Link to="/successstories" className="hover:text-[#ff9200] transition-colors">Success Stories</Link></li>
             <li><Link to="/register" className="hover:text-[#ff9200] transition-colors font-semibold">Signup As Vendor</Link></li>
+            <li><Link to="/privacy-policy" className="hover:text-[#ff9200] transition-colors">Privacy Policy</Link></li>
             <li><a href="#" className="hover:text-[#ff9200] transition-colors">Download App</a></li>
           </ul>
         </div>
@@ -77,7 +78,7 @@ const Footer = () => {
       <div className="border-t border-[#0a2352] py-6 text-gray-400 text-sm flex flex-col md:flex-row items-center justify-between max-w-7xl mx-auto px-6">
         <p>Copyright © 2020 - 2026 CAROOA INTERNATIONAL Pvt Ltd</p>
         <div className="flex space-x-6 mt-4 md:mt-0">
-          <a href="#" className="hover:text-[#ff9200] transition-colors">Privacy Policy</a>
+          <Link to="/privacy-policy" className="hover:text-[#ff9200] transition-colors">Privacy Policy</Link>
           <a href="#" className="hover:text-[#ff9200] transition-colors">Terms & Conditions</a>
         </div>
       </div>
