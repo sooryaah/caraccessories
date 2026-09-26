@@ -7,6 +7,27 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <title>Carooa</title>
+    <script>
+      // Fallback for localStorage/sessionStorage in strict tracking environments (like Instagram iOS)
+      try {
+        var x = window.localStorage;
+        x.setItem('__test', '1');
+        x.removeItem('__test');
+      } catch (e) {
+        console.warn("Storage access restricted. Falling back to in-memory storage.");
+        var inMemoryStorage = {};
+        var mockStorage = {
+          getItem: function(key) { return inMemoryStorage[key] || null; },
+          setItem: function(key, val) { inMemoryStorage[key] = String(val); },
+          removeItem: function(key) { delete inMemoryStorage[key]; },
+          clear: function() { inMemoryStorage = {}; },
+          length: 0,
+          key: function(i) { return Object.keys(inMemoryStorage)[i] || null; }
+        };
+        Object.defineProperty(window, 'localStorage', { value: mockStorage });
+        Object.defineProperty(window, 'sessionStorage', { value: mockStorage });
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
