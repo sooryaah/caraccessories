@@ -12,17 +12,27 @@ const firebaseConfig = {
 
 
 const app = initializeApp(firebaseConfig);
-export const messaging = getMessaging(app);
+
+export let messaging = null;
+try {
+  messaging = getMessaging(app);
+} catch (error) {
+  console.warn("Firebase Messaging initialization failed:", error);
+}
 
 export const generateToken = async () => {
- const permission = await Notification.requestPermission();
- console.log(permission);
- if (permission == "granted") {
-    const currentToken = await getToken(messaging, {
-      vapidKey: "BN1sPtue3aOoBs0-DaVE2OZ_vFqn_YRCjBtJea1E82j9e7cOdpH3sOmYWUxMxjAykfBBMyVzX2dBWrwFPn61f2U",
-    });
-    console.log("current token for client: ", currentToken);
-    
+  if (!messaging) return;
+  try {
+    const permission = await Notification.requestPermission();
+    console.log(permission);
+    if (permission === "granted") {
+      const currentToken = await getToken(messaging, {
+        vapidKey: "BN1sPtue3aOoBs0-DaVE2OZ_vFqn_YRCjBtJea1E82j9e7cOdpH3sOmYWUxMxjAykfBBMyVzX2dBWrwFPn61f2U",
+      });
+      console.log("current token for client: ", currentToken);
+    }
+  } catch (error) {
+    console.warn("Notification request failed:", error);
   }
 };
 
@@ -53,8 +63,11 @@ export const generateToken = async () => {
 
 // Foreground message listener
 export function onMessageListener(callback) {
+  if (!messaging) return;
   onMessage(messaging, (payload) => {
-    callback(payload);
+    if (typeof callback === 'function') {
+      callback(payload);
+    }
   });
 }
 

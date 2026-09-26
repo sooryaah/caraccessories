@@ -125,7 +125,7 @@ function App() {
     }
 
     // ✅ Foreground message listener (Firebase)
-    onMessageListener(messaging, (payload) => {
+    onMessageListener((payload) => {
       console.log("Foreground message:", payload);
       toast(
         (payload.notification?.title || "") +
