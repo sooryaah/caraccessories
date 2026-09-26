@@ -79,7 +79,6 @@ const parseJwt = (token) => {
 };
 import {
   generateToken,
-  messaging,
   onMessageListener,
 } from "./firebase/firebase";
 import VendorStockTable from "./pages/vendor/inventory/StockMangementByVendor";

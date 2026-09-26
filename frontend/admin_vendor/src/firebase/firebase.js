@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getMessaging, getToken, onMessage } from "firebase/messaging";
+import { getMessaging, getToken, onMessage, isSupported } from "firebase/messaging";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDlJ0o0I8l6NagvTMjyEPR8yxRmsF5PhvI",
@@ -10,19 +10,29 @@ const firebaseConfig = {
   appId: "1:802370708206:web:dae5d568f8274b724609ff"
 };
 
-
 const app = initializeApp(firebaseConfig);
 
-export let messaging = null;
-try {
-  messaging = getMessaging(app);
-} catch (error) {
-  console.warn("Firebase Messaging initialization failed:", error);
-}
+export const getFirebaseMessaging = async () => {
+  try {
+    const supported = await isSupported();
+
+    if (!supported) {
+      console.log("Firebase Messaging is not supported");
+      return null;
+    }
+
+    return getMessaging(app);
+  } catch (error) {
+    console.error("Firebase Messaging error:", error);
+    return null;
+  }
+};
 
 export const generateToken = async () => {
-  if (!messaging) return;
   try {
+    const messaging = await getFirebaseMessaging();
+    if (!messaging) return;
+
     const permission = await Notification.requestPermission();
     console.log(permission);
     if (permission === "granted") {
@@ -36,38 +46,17 @@ export const generateToken = async () => {
   }
 };
 
-// Request permission, register SW, and get FCM token
-// export async function generateToken(vapidKey) {
-//   if (!("Notification" in window)) {
-//     throw new Error("This browser does not support notifications.");
-//   }
+export const onMessageListener = async (callback) => {
+  try {
+    const messaging = await getFirebaseMessaging();
+    if (!messaging) return;
 
-//   const permission = await Notification.requestPermission();
-//   if (permission !== "granted") return null;
-// console.log(permission);
-
-//   // Register service worker (must be root path)
-// //   const registration = await navigator.serviceWorker.register("/firebase-messaging-sw.js");
-
-//   // getToken accepts serviceWorkerRegistration for browsers
-//   const currentToken = await getToken(messaging, {
-//     vapidKey:"BN1sPtue3aOoBs0-DaVE2OZ_vFqn_YRCjBtJea1E82j9e7cOdpH3sOmYWUxMxjAykfBBMyVzX2dBWrwFPn61f2U",
-//     // serviceWorkerRegistration: registration
-//   }).catch((err) => {
-//     console.error("getToken error:", err);
-//     return null;
-//   });
-
-//   return currentToken; // string or null
-// }
-
-// Foreground message listener
-export function onMessageListener(callback) {
-  if (!messaging) return;
-  onMessage(messaging, (payload) => {
-    if (typeof callback === 'function') {
-      callback(payload);
-    }
-  });
-}
-
+    onMessage(messaging, (payload) => {
+      if (typeof callback === 'function') {
+        callback(payload);
+      }
+    });
+  } catch (error) {
+    console.warn("Foreground message listener failed:", error);
+  }
+};
